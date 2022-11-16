@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" >
     <div>
   <b-navbar fixed="top" toggleable="lg" type="dark" variant="dark" style="padding-left:20px; padding-right:20px; ">
     <b-navbar-brand>NavBar</b-navbar-brand>

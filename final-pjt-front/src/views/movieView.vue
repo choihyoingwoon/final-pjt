@@ -1,6 +1,6 @@
 <template>
-  <div style="display: auto; display: flex; ">
-    <b-container class="bg-dark" fluid style="padding:15px; padding:auto; ">
+  <div style="display: auto; display: flex;">
+    <b-container class="bg-dark" fluid style="padding:15px; padding-top:65px; ">
       <b-col align-self="center">
           <MovieCard
               v-for="movie in moviesList" :key="movie.pk"

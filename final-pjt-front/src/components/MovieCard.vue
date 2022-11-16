@@ -24,17 +24,17 @@ props: {
     
 }
 .cardmove{
-  transition: all 0.2s linear;
+  transition: all 0.17s linear;
   overflow: hidden;
   height: 360px;
   width:240px;
   float:left;
   border-radius: 20px;
   padding: 0;
-  margin: 10px;
+  margin: 20px;
   background-color: black;
   display: flex;
   justify-content: center;
-  border: 2px solid white;
+  border: 1.5px solid white;
 }
 </style>
