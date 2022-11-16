@@ -1,13 +1,36 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link @click.native="nowMovie" :to="{name:'movies'}">Home</router-link> |
     </nav>
     <router-view/>
   </div>
 </template>
-
+<script>
+// @ is an alias to /src
+import axios from 'axios'
+export default {
+  name: 'HomeIndex',
+  methods:{
+    nowMovie:function(){
+      axios({
+        method:'get',
+        url:'http://127.0.0.1:8000/movies/',
+      })
+      .then(res=>{
+        this.$store.state.moviesList = res.data
+        console.log(res.data)
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+    },
+  },
+  created(){
+    this.nowMovie()
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
