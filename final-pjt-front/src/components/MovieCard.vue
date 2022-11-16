@@ -21,6 +21,7 @@ props: {
 }
 .cardmove:hover{
     transform: scale(1.1);
+    
 }
 .cardmove{
   transition: all 0.2s linear;
@@ -34,5 +35,6 @@ props: {
   background-color: black;
   display: flex;
   justify-content: center;
+  border: 2px solid white;
 }
 </style>
