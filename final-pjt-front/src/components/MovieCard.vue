@@ -31,7 +31,6 @@ props: {
   border-radius: 20px;
   padding: 0;
   margin: 10px;
-  border: 3px solid black;
   background-color: black;
   display: flex;
   justify-content: center;
