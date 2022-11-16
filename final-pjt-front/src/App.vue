@@ -28,6 +28,7 @@ export default {
   },
   created(){
     this.nowMovie()
+    this.$router.push('movies')
   }
 }
 </script>

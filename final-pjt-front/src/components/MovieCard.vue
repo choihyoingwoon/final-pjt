@@ -1,9 +1,6 @@
 <template>
-    <div class="card">
-  <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{ movie.title }}</h5>
-  </div>
+    <div class="cardmove" >
+  <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="card" alt="...">
   </div>
 </template>
 
@@ -18,16 +15,25 @@ props: {
 
 <style>
 .card{
-  float:left;
-  height: 1000px;
-  width: 30%;
-  margin: 10px;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 20px;
-
+  width:100%;
+  height: 100%;
+  position: absolute; top:0; left:0;
 }
-.card-img-top{
-  height: 700px;
+.cardmove:hover{
+    transform: scale(1.1);
+}
+.cardmove{
+  transition: all 0.2s linear;
+  overflow: hidden;
+  height: 360px;
+  width:240px;
+  float:left;
+  border-radius: 20px;
+  padding: 0;
+  margin: 10px;
+  border: 3px solid black;
+  background-color: black;
+  display: flex;
+  justify-content: center;
 }
 </style>

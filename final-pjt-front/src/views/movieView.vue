@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="background-color: gray;">
       <MovieCard
           v-for="movie in moviesList" :key="movie.pk"
           :movie="movie"
@@ -24,7 +24,7 @@ export default {
           // console.log(this.$store.state.movieList)
           return this.$store.state.moviesList
       }
-  }
+  },
 }
 </script>
 
