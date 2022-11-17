@@ -17,3 +17,6 @@ def now_movies(request):
     now_movies = Now_Movie.objects.all()
     serializer = NowMovieSerializer(now_movies, many=True)
     return Response(serializer.data)
+
+
+# 수정
