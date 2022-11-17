@@ -8,6 +8,7 @@ class TopMovieSerializer(serializers.ModelSerializer):
         model = Top_Movie
         fields = '__all__'
 
+        
 class NowMovieSerializer(serializers.ModelSerializer):
     
     class Meta:
