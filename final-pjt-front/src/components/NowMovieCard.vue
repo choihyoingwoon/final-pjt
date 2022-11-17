@@ -1,6 +1,6 @@
 <template>
-    <div class="cardmove" @click="getDetail(movie)" >
-  <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="card" alt="...">
+    <div class="cardmoves" @click="getDetail(movie)" >
+  <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" style="  height: 360px; width:240px; border-radius: 20px;" alt="...">
   </div>
 </template>
 
@@ -19,19 +19,12 @@ methods:{
 </script>
 
 <style>
-.card{
-  width:100%;
-  height: 100%;
-  position: absolute; top:0; left:0;
-  margin:0
-}
-.cardmove:hover{
+.cardmoves:hover{
     transform: scale(1.1);
     
 }
-.cardmove{
+.cardmoves{
   transition: all 0.17s linear;
-  overflow: hidden;
   height: 360px;
   width:240px;
   float:left;
@@ -39,7 +32,6 @@ methods:{
   padding: 0;
   margin: 20px;
   background-color: black;
-  display: flex;
   justify-content: center;
   border: 1.5px solid white;
 }

@@ -1,6 +1,6 @@
 <template>
         <div class="close-image">
-        <p>hi</p>
+        <iframe width="900px" height="600px" :src=movieVideo frameborder="0"></iframe>
       </div>
 </template>
 
@@ -14,14 +14,13 @@ export default {
     },
     computed: {
         movieVideo() {
-            console.log(this.$store.state.movieVideo)
-            return this.$store.state.movieVideo
-        }
+            console.log(`https://www.youtube.com/embed/${this.$store.state.movieVideo.key}?autoplay=1`)
+            return `https://www.youtube.com/embed/${this.$store.state.movieVideo.key}?autoplay=1`
+        },
     }
 
 }
 </script>
 
 <style>
-
 </style>
