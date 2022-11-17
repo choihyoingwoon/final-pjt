@@ -19,4 +19,4 @@ def now_movies(request):
     return Response(serializer.data)
 
 
-# 수정
+# 수정 수정
