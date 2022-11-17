@@ -7,12 +7,12 @@
     <b-collapse id="nav-collapse" style="justify-content: space-between;" is-nav>
       <b-navbar-nav>
           <b-nav-item href="/movies">Home</b-nav-item>
-          <b-nav-item href="#" >Disabled</b-nav-item>
-          <b-nav-item href="#" >Disabled</b-nav-item>
+          <b-nav-item href="/movies" >Disabled</b-nav-item>
+          <b-nav-item href="/movies" >Disabled</b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav>
-          <b-nav-item href="#" >Signup</b-nav-item>
-          <b-nav-item href="#" >Login</b-nav-item>
+          <b-nav-item href="/movies" >Signup</b-nav-item>
+          <b-nav-item href="/movies" >Login</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -27,14 +27,13 @@ import axios from 'axios'
 export default {
   name: 'HomeIndex',
   methods:{
-    nowMovie:function(){
+    topMovie:function(){
       axios({
         method:'get',
         url:'http://127.0.0.1:8000/movies/',
       })
       .then(res=>{
-        this.$store.state.moviesList = res.data
-        console.log(res.data)
+        this.$store.state.topmoviesList = res.data
       })
       .catch(err=>{
         console.log(err)
@@ -42,8 +41,9 @@ export default {
     },
   },
   created(){
-    this.nowMovie()
-    this.$router.push('movies')
+    this.topMovie()
+    if(this.$route.path!=='/movies'){this.$router.push('movies')}
+    
   }
 }
 </script>

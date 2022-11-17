@@ -10,6 +10,11 @@ const routes = [
     name: 'movies',
     component: MovieView
   },
+  {
+    path: '/movies/id',
+    name: 'detail',
+    component: MovieView
+  },
 
 ]
 
