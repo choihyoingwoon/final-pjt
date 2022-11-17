@@ -12,8 +12,8 @@
       "poster_path": "/xM9Jt2sA6QcvLuHKM0RI3BMtFc5.jpg",
       "backdrop_path": "/rl7Jw8PjhSIjArOlDNv0JQPL1ZV.jpg",
       "genres": [
-        "로맨스",
-        "드라마"
+        10749,
+        18
       ],
       "year": 2022,
       "ranking": 1
@@ -32,8 +32,8 @@
       "poster_path": "/cOwVs8eYA4G9ZQs7hIRSoiZr46Q.jpg",
       "backdrop_path": "/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg",
       "genres": [
-        "드라마",
-        "범죄"
+        18,
+        80
       ],
       "year": 1972,
       "ranking": 2
@@ -52,8 +52,8 @@
       "poster_path": "/oAt6OtpwYCdJI76AVtVKW1eorYx.jpg",
       "backdrop_path": "/kXfqcdQKsToO0OUXHcrrNCHDBzO.jpg",
       "genres": [
-        "드라마",
-        "범죄"
+        18,
+        80
       ],
       "year": 1995,
       "ranking": 3
@@ -72,9 +72,9 @@
       "poster_path": "/nDieZR47cirx44UZxKQsCbRGYqW.jpg",
       "backdrop_path": "/aVFx1VtlOxR3v0ADEatalXOvwbu.jpg",
       "genres": [
-        "애니메이션",
-        "판타지",
-        "액션"
+        16,
+        14,
+        28
       ],
       "year": 2021,
       "ranking": 4
@@ -93,9 +93,9 @@
       "poster_path": "/oyyUcGwLX7LTFS1pQbLrQpyzIyt.jpg",
       "backdrop_path": "/zb6fM1CX41D9rF9hdgclu0peUmy.jpg",
       "genres": [
-        "드라마",
-        "역사",
-        "전쟁"
+        18,
+        36,
+        10752
       ],
       "year": 1994,
       "ranking": 5
@@ -114,9 +114,9 @@
       "poster_path": "/u1L4qxIu5sC2P082uMHYt7Ifvnj.jpg",
       "backdrop_path": "/Ab8mkHmkYADjU7wQiOkia9BzGvS.jpg",
       "genres": [
-        "애니메이션",
-        "가족",
-        "판타지"
+        16,
+        10751,
+        14
       ],
       "year": 2002,
       "ranking": 6
@@ -135,9 +135,9 @@
       "poster_path": "/wx1Dxr4UyvN18SyC5GsVWWWtYja.jpg",
       "backdrop_path": "/mMtUybQ6hL24FXo0F3Z4j2KG7kZ.jpg",
       "genres": [
-        "로맨스",
-        "애니메이션",
-        "드라마"
+        10749,
+        16,
+        18
       ],
       "year": 2017,
       "ranking": 7
@@ -156,9 +156,9 @@
       "poster_path": "/jjHccoFjbqlfr4VGLVLT7yek0Xn.jpg",
       "backdrop_path": "/TU9NIjwzjoKPwQHoHshkFcQUCG.jpg",
       "genres": [
-        "코미디",
-        "스릴러",
-        "드라마"
+        35,
+        53,
+        18
       ],
       "year": 2019,
       "ranking": 8
@@ -177,9 +177,9 @@
       "poster_path": "/yuSpRhrTIJa5JN8oESrfD2bndp1.jpg",
       "backdrop_path": "/l6hQWH9eDksNJNiXWYRkWqikOdu.jpg",
       "genres": [
-        "판타지",
-        "드라마",
-        "범죄"
+        14,
+        18,
+        80
       ],
       "year": 2000,
       "ranking": 9
@@ -198,10 +198,10 @@
       "poster_path": "/f6dNinWX8rBM79JXKcShkfSh2oA.jpg",
       "backdrop_path": "/nMKdUUepR0i5zn0y1T4CsSB5chy.jpg",
       "genres": [
-        "드라마",
-        "액션",
-        "범죄",
-        "스릴러"
+        18,
+        28,
+        80,
+        53
       ],
       "year": 2008,
       "ranking": 10
@@ -220,7 +220,7 @@
       "poster_path": "/pJKy1yvnKh8UjcuYeG3Rt35xHFA.jpg",
       "backdrop_path": "/aQ7444JX7gefPhGJTlvilj3zG2S.jpg",
       "genres": [
-        "음악"
+        10402
       ],
       "year": 2018,
       "ranking": 11
@@ -239,8 +239,8 @@
       "poster_path": "/6lXRHGoEbnnBUKsuqpL9JxD4DzT.jpg",
       "backdrop_path": "/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg",
       "genres": [
-        "스릴러",
-        "범죄"
+        53,
+        80
       ],
       "year": 1994,
       "ranking": 12
@@ -259,7 +259,7 @@
       "poster_path": "/sOTQkPoEZd7ImsZBuXfu4BqZ6JS.jpg",
       "backdrop_path": "/x4biAVdPVCghBlsVIzB6NmbghIz.jpg",
       "genres": [
-        "서부"
+        37
       ],
       "year": 1969,
       "ranking": 13
@@ -278,9 +278,9 @@
       "poster_path": "/xdJxoq0dtkchOkUz5UVKuxn7a2V.jpg",
       "backdrop_path": "/67HggiWaP9ZLv5sPYmyRV37yAJM.jpg",
       "genres": [
-        "코미디",
-        "드라마",
-        "로맨스"
+        35,
+        18,
+        10749
       ],
       "year": 1994,
       "ranking": 14
@@ -299,9 +299,9 @@
       "poster_path": "/tAXXuEAKLk2mOEIJzwajJQEnVZu.jpg",
       "backdrop_path": "/lXhgCODAbBXL5buk9yEmTpOoOgR.jpg",
       "genres": [
-        "모험",
-        "판타지",
-        "액션"
+        12,
+        14,
+        28
       ],
       "year": 2003,
       "ranking": 15
@@ -320,8 +320,8 @@
       "poster_path": "/zF9hSBS1t7PVFLo01GrJ3OjGi67.jpg",
       "backdrop_path": "/sw7mordbZxgITU877yTpZCud90M.jpg",
       "genres": [
-        "드라마",
-        "범죄"
+        18,
+        80
       ],
       "year": 1991,
       "ranking": 16
@@ -340,8 +340,8 @@
       "poster_path": "/r782z4H7GzkyNaf3hAtBB4pVkOj.jpg",
       "backdrop_path": "/zoVeIgKzGJzpdG6Gwnr7iOYfIMU.jpg",
       "genres": [
-        "드라마",
-        "로맨스"
+        18,
+        10749
       ],
       "year": 1990,
       "ranking": 17
@@ -360,8 +360,8 @@
       "poster_path": "/yjOqQsQHdsEZfAosZERqHiwjaty.jpg",
       "backdrop_path": "/gavyCu1UaTaTNPsVaGXT6pe5u24.jpg",
       "genres": [
-        "코미디",
-        "드라마"
+        35,
+        18
       ],
       "year": 1999,
       "ranking": 18
@@ -380,9 +380,9 @@
       "poster_path": "/vC3P8hH4r3I3fHiRFa1kj6yzeaN.jpg",
       "backdrop_path": "/uif5fUshJrXyyDzfpzp1DLw3N0S.jpg",
       "genres": [
-        "공포",
-        "드라마",
-        "스릴러"
+        27,
+        18,
+        53
       ],
       "year": 2018,
       "ranking": 19
@@ -401,8 +401,8 @@
       "poster_path": "/xbuc6sjIIopkA1Ep24rR6yCw0DK.jpg",
       "backdrop_path": "/uPYa165sraN2c8gZBM9C47g3JoU.jpg",
       "genres": [
-        "드라마",
-        "범죄"
+        18,
+        80
       ],
       "year": 1984,
       "ranking": 20
@@ -421,9 +421,9 @@
       "poster_path": "/uN0x0G4uuRjFJIFN57iYihBV2Qh.jpg",
       "backdrop_path": "/gwj4R8Uy1GwejKqfofREKI9Jh7L.jpg",
       "genres": [
-        "애니메이션",
-        "드라마",
-        "전쟁"
+        16,
+        18,
+        10752
       ],
       "year": 2014,
       "ranking": 21
@@ -442,7 +442,7 @@
       "poster_path": "/eH5F8tz5a0EHed7egeKf4XoNvLD.jpg",
       "backdrop_path": "/qUq3QTr2KLvGIcN0GaaaYx9bbyH.jpg",
       "genres": [
-        "드라마"
+        18
       ],
       "year": 1977,
       "ranking": 22
@@ -461,9 +461,9 @@
       "poster_path": "/eKZ07Ted7VHxQjbuZrRBFOamcKJ.jpg",
       "backdrop_path": "/c6OLXfKAk5BKeR6broC8pYiCquX.jpg",
       "genres": [
-        "드라마",
-        "스릴러",
-        "코미디"
+        18,
+        53,
+        35
       ],
       "year": 1999,
       "ranking": 23
@@ -482,8 +482,8 @@
       "poster_path": "/PZlNvDwKwHeHUsXnd6SEDXWZNn.jpg",
       "backdrop_path": "/l5K9elugftlcyIHHm4nylvsn26X.jpg",
       "genres": [
-        "드라마",
-        "가족"
+        18,
+        10751
       ],
       "year": 2013,
       "ranking": 24
@@ -502,8 +502,8 @@
       "poster_path": "/iKXrQB16sxeXoc6GlnYjeeZKsOW.jpg",
       "backdrop_path": "/5p3aTxtUtZHCHwYsuycutmxIhND.jpg",
       "genres": [
-        "드라마",
-        "범죄"
+        18,
+        80
       ],
       "year": 2005,
       "ranking": 25
@@ -522,10 +522,10 @@
       "poster_path": "/vnWgIIEWAvWKOI65tm6h6VRbyY8.jpg",
       "backdrop_path": "/9LuL3pwJiwIWSckeCbOX8G12F4X.jpg",
       "genres": [
-        "액션",
-        "모험",
-        "애니메이션",
-        "SF"
+        28,
+        12,
+        16,
+        878
       ],
       "year": 2018,
       "ranking": 26
@@ -544,8 +544,8 @@
       "poster_path": "/emNuB1GNGjJqZiK9uVJNiUPbgsx.jpg",
       "backdrop_path": "/q5HZvtyqG8Vz39Ee9uTQbLeEml.jpg",
       "genres": [
-        "애니메이션",
-        "드라마"
+        16,
+        18
       ],
       "year": 2017,
       "ranking": 27
@@ -564,9 +564,9 @@
       "poster_path": "/xiz6TiSduvR1U3VLfWVlBEdT9fO.jpg",
       "backdrop_path": "/iuFbU5jiNh8DAxLBGifZCvv3KmB.jpg",
       "genres": [
-        "판타지",
-        "애니메이션",
-        "모험"
+        14,
+        16,
+        12
       ],
       "year": 2004,
       "ranking": 28
@@ -585,9 +585,9 @@
       "poster_path": "/icaO5w8uLVm4JxMew71JJrQE2YX.jpg",
       "backdrop_path": "/aJCtkxLLzkk1pECehVjKHA2lBgw.jpg",
       "genres": [
-        "모험",
-        "액션",
-        "SF"
+        12,
+        28,
+        878
       ],
       "year": 1997,
       "ranking": 29
@@ -606,7 +606,7 @@
       "poster_path": "/1u0rtWPgYfAWmqveXOsQDvMRODD.jpg",
       "backdrop_path": "/8GXkzHTvuj3ftethkrqW330LJKz.jpg",
       "genres": [
-        "음악"
+        10402
       ],
       "year": 2019,
       "ranking": 30
@@ -625,9 +625,9 @@
       "poster_path": "/7uCvKNKKLRqYYyHIRpphi3yUE6Z.jpg",
       "backdrop_path": "/gU84vBGG2x8K3x1zrz4SggiN5hr.jpg",
       "genres": [
-        "모험",
-        "판타지",
-        "액션"
+        12,
+        14,
+        28
       ],
       "year": 2001,
       "ranking": 31
@@ -646,10 +646,10 @@
       "poster_path": "/vIWonMqeYRmY95OEk06NvTC1h8N.jpg",
       "backdrop_path": "/hyaLMOol8xju70zr5glK6JaprER.jpg",
       "genres": [
-        "드라마",
-        "애니메이션",
-        "SF",
-        "액션"
+        18,
+        16,
+        878,
+        28
       ],
       "year": 1997,
       "ranking": 32
@@ -668,9 +668,9 @@
       "poster_path": "/v60S8rPRCQRYSeCtmLiuRpQqIfC.jpg",
       "backdrop_path": "/i1GT0e6Crg6UezT3ibXnMS3pBAd.jpg",
       "genres": [
-        "애니메이션",
-        "드라마",
-        "로맨스"
+        16,
+        18,
+        10749
       ],
       "year": 2020,
       "ranking": 33
@@ -689,9 +689,9 @@
       "poster_path": "/zDNAeWU0PxKolEX1D8Vn1qWhGjH.jpg",
       "backdrop_path": "/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
       "genres": [
-        "모험",
-        "드라마",
-        "SF"
+        12,
+        18,
+        878
       ],
       "year": 2014,
       "ranking": 34
@@ -710,8 +710,8 @@
       "poster_path": "/t7L2YDpu635qKT3ehqZxry4yvTX.jpg",
       "backdrop_path": "/dVr11o9or7AS8AMPfwjSpEU83iU.jpg",
       "genres": [
-        "드라마",
-        "전쟁"
+        18,
+        10752
       ],
       "year": 2003,
       "ranking": 35
@@ -730,10 +730,10 @@
       "poster_path": "/vpfX1mGVobWlrUGqEzbA2RNPdZF.jpg",
       "backdrop_path": "/1EAxNqdkVnp48a7NUuNBHGflowM.jpg",
       "genres": [
-        "애니메이션",
-        "액션",
-        "SF",
-        "드라마"
+        16,
+        28,
+        878,
+        18
       ],
       "year": 2022,
       "ranking": 36
@@ -752,8 +752,8 @@
       "poster_path": "/fz6osxiG7BWqnLoNgAlekpgSthf.jpg",
       "backdrop_path": "/fRGxZuo7jJUWQsVg9PREb98Aclp.jpg",
       "genres": [
-        "드라마",
-        "음악"
+        18,
+        10402
       ],
       "year": 2015,
       "ranking": 37
@@ -772,9 +772,9 @@
       "poster_path": "/hjGjAdEPJF2unG8yseu5mcVb5cx.jpg",
       "backdrop_path": "/kWYfW2Re0rUDE6IHhy4CRuKWeFr.jpg",
       "genres": [
-        "모험",
-        "판타지",
-        "액션"
+        12,
+        14,
+        28
       ],
       "year": 2002,
       "ranking": 38
@@ -793,10 +793,10 @@
       "poster_path": "/1j0KEGm2fSihFwl1sgM5mu2XE3S.jpg",
       "backdrop_path": "/5QWHHjwIPoaJYHNVL0D00bxDUUC.jpg",
       "genres": [
-        "애니메이션",
-        "판타지",
-        "액션",
-        "모험"
+        16,
+        14,
+        28,
+        12
       ],
       "year": 2021,
       "ranking": 39
@@ -815,7 +815,7 @@
       "poster_path": "/nm4XkYBt79ZjUQj6Rqxxzl1Wt3c.jpg",
       "backdrop_path": "/6qHI1IYj7QlLSCwHRzkL62X175s.jpg",
       "genres": [
-        "드라마"
+        18
       ],
       "year": 1999,
       "ranking": 40
@@ -834,8 +834,8 @@
       "poster_path": "/jU5Fe7n9rsEBa0uaV5dqGjJGwmX.jpg",
       "backdrop_path": "/zGs5tZOlvc9cprdcU6kDOVNpujf.jpg",
       "genres": [
-        "스릴러",
-        "미스터리"
+        53,
+        9648
       ],
       "year": 2016,
       "ranking": 41
@@ -854,9 +854,9 @@
       "poster_path": "/jSm8mzp7sucgL8NwINIoAmx4dS5.jpg",
       "backdrop_path": "/s3TBrRGB1iav7gFOCNx3H31MoES.jpg",
       "genres": [
-        "액션",
-        "SF",
-        "모험"
+        28,
+        878,
+        12
       ],
       "year": 2010,
       "ranking": 42
@@ -875,9 +875,9 @@
       "poster_path": "/izzk8dbmrLowcoGbFaebqJvzyXg.jpg",
       "backdrop_path": "/hkKTtlHjiVUW5XRfkQfl3FmJUfX.jpg",
       "genres": [
-        "범죄",
-        "미스터리",
-        "스릴러"
+        80,
+        9648,
+        53
       ],
       "year": 1995,
       "ranking": 43
@@ -896,8 +896,8 @@
       "poster_path": "/uw26mSTaA10hg2yuQfNaFLSeY3h.jpg",
       "backdrop_path": "/8AMKZODrCvWe2sCy9Ts7VsLcKd6.jpg",
       "genres": [
-        "코미디",
-        "전쟁"
+        35,
+        10752
       ],
       "year": 1988,
       "ranking": 44
@@ -916,9 +916,9 @@
       "poster_path": "/kBlI1WEWbfYyrh5nuAH2whzWx9Y.jpg",
       "backdrop_path": "/mpNd0rTVrp6vHJ9Je7wSa3zC8JS.jpg",
       "genres": [
-        "모험",
-        "판타지",
-        "애니메이션"
+        12,
+        14,
+        16
       ],
       "year": 2003,
       "ranking": 45
@@ -937,10 +937,10 @@
       "poster_path": "/tVP1DjnljT1it6cAnn353cdVXDe.jpg",
       "backdrop_path": "/u1wHUA0R48FH4WV3sGqjwx3aNZm.jpg",
       "genres": [
-        "애니메이션",
-        "드라마",
-        "음악",
-        "로맨스"
+        16,
+        18,
+        10402,
+        10749
       ],
       "year": 2020,
       "ranking": 46
@@ -959,9 +959,9 @@
       "poster_path": "/7oI6KKZDxEuxhIm5m9VpOF2Yi9N.jpg",
       "backdrop_path": "/ps82zgSDimvlYps6otcMYshrVyS.jpg",
       "genres": [
-        "코미디",
-        "드라마",
-        "로맨스"
+        35,
+        18,
+        10749
       ],
       "year": 1989,
       "ranking": 47
@@ -980,10 +980,10 @@
       "poster_path": "/mBUy2lCwk6fpByQ7GBFKRApKEHb.jpg",
       "backdrop_path": "/aLqtWLA6NQHBwQHvHDq5z4EKUm0.jpg",
       "genres": [
-        "애니메이션",
-        "판타지",
-        "로맨스",
-        "드라마"
+        16,
+        14,
+        10749,
+        18
       ],
       "year": 2020,
       "ranking": 48
@@ -1002,8 +1002,8 @@
       "poster_path": "/jeqXUwNilvNqNXqAHsdwm5pEfae.jpg",
       "backdrop_path": "/AaV1YIdWKnjAIAOe8UUKBFm327v.jpg",
       "genres": [
-        "액션",
-        "드라마"
+        28,
+        18
       ],
       "year": 2022,
       "ranking": 49
@@ -1022,9 +1022,9 @@
       "poster_path": "/5ipQH8X3qvWKI3CEGeUPemNRXtq.jpg",
       "backdrop_path": "/aYcnDyLMnpKce1FOYUpZrXtgUye.jpg",
       "genres": [
-        "범죄",
-        "드라마",
-        "스릴러"
+        80,
+        18,
+        53
       ],
       "year": 1991,
       "ranking": 50
@@ -1043,9 +1043,9 @@
       "poster_path": "/nmLhnK0Jxyj3WYZADgvrwFUY0wk.jpg",
       "backdrop_path": "/jRJrQ72VLyEnVsvwfep8Xjlvu8c.jpg",
       "genres": [
-        "범죄",
-        "드라마",
-        "액션"
+        80,
+        18,
+        28
       ],
       "year": 1995,
       "ranking": 51
@@ -1064,10 +1064,10 @@
       "poster_path": "/mxdVTei65ymzhJlalIEtR1qSgV2.jpg",
       "backdrop_path": "/qjGrUmKW78MCFG8PTLDBp67S27p.jpg",
       "genres": [
-        "애니메이션",
-        "액션",
-        "모험",
-        "판타지"
+        16,
+        28,
+        12,
+        14
       ],
       "year": 2021,
       "ranking": 52
@@ -1086,8 +1086,8 @@
       "poster_path": "/51tKLNNKi8fKZq9DTcGpFAJ7IPc.jpg",
       "backdrop_path": "/kSlO1pHpwQfPQdgVPr7dJiJNtJ8.jpg",
       "genres": [
-        "코미디",
-        "드라마"
+        35,
+        18
       ],
       "year": 1989,
       "ranking": 53
@@ -1106,7 +1106,7 @@
       "poster_path": "/41AJ4X5TRWpECsiMIKS8so4MSsD.jpg",
       "backdrop_path": "/hpzQHv8cA7j2Dn2CphOFYmllXzj.jpg",
       "genres": [
-        "드라마"
+        18
       ],
       "year": 1990,
       "ranking": 54
@@ -1125,9 +1125,9 @@
       "poster_path": "/d0OdD1I8qAfETvE9Rp9Voq7R8LR.jpg",
       "backdrop_path": "/L7DIiAdP8DnNqOh7454ZrTYspR.jpg",
       "genres": [
-        "음악",
-        "드라마",
-        "로맨스"
+        10402,
+        18,
+        10749
       ],
       "year": 2021,
       "ranking": 55
@@ -1146,8 +1146,8 @@
       "poster_path": "/baK79h2An0J8mzTue13KThAeYC5.jpg",
       "backdrop_path": "/oIQMt3Q6Qa37YD0JOdYkrIAPYDk.jpg",
       "genres": [
-        "드라마",
-        "전쟁"
+        18,
+        10752
       ],
       "year": 1990,
       "ranking": 56
@@ -1166,8 +1166,8 @@
       "poster_path": "/8bXlrAzTJKwedmUDKBhiaU7OkqW.jpg",
       "backdrop_path": "/27ZkYMWynuK2qiDP6awc3MsCaOs.jpg",
       "genres": [
-        "로맨스",
-        "드라마"
+        10749,
+        18
       ],
       "year": 2019,
       "ranking": 57
@@ -1186,8 +1186,8 @@
       "poster_path": "/6ldVV8isyLQcFy6VHK8jeGgvepF.jpg",
       "backdrop_path": "/h31SOVlekuHXsMWVGxI8nPPfY82.jpg",
       "genres": [
-        "드라마",
-        "서부"
+        18,
+        37
       ],
       "year": 1970,
       "ranking": 58
@@ -1206,9 +1206,9 @@
       "poster_path": "/7gGicAJdHRzaUd6qLjH5bSW4Cgi.jpg",
       "backdrop_path": "/5bzPWQ2dFUl2aZKkp7ILJVVkRed.jpg",
       "genres": [
-        "모험",
-        "코미디",
-        "SF"
+        12,
+        35,
+        878
       ],
       "year": 1987,
       "ranking": 59
@@ -1227,9 +1227,9 @@
       "poster_path": "/gHcga1wgDD4MAeApoOM7yDn9BOq.jpg",
       "backdrop_path": "/geYUecpFI2AonDLhjyK9zoVFcMv.jpg",
       "genres": [
-        "애니메이션",
-        "액션",
-        "판타지"
+        16,
+        28,
+        14
       ],
       "year": 2022,
       "ranking": 60
