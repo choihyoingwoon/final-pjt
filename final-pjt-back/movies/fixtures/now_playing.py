@@ -1,13 +1,6 @@
 import requests
 import json
 
-genre_list = {28 : "액션", 12: "모험", 16: "애니메이션", 35: "코미디",
-    80 : "범죄", 99: "다큐멘터리", 18 : "드라마", 10751 : "가족",
-    14 : "판타지", 36: "역사", 27: "공포", 10402 : "음악",
-    9648 : "미스터리", 10749 : "로맨스", 878 : "SF", 10770 : "TV 영화",
-    53 : "스릴러", 10752 : "전쟁", 37 : "서부"
-}
-
 class TMDBHelper:
 
     def get_requests_url(method, **kwargs):
@@ -32,9 +25,6 @@ def get_top_rated():
         data = raw_data.get('results')
         for movie in data:
             ranking += 1
-            genre_names = []
-            for genre in movie.get('genre_ids'):
-                genre_names.append(genre_list[genre])
             movie_dict = {
                 'model' : 'movies.now_movie',
                 'pk': movie.get('id'),
@@ -47,7 +37,7 @@ def get_top_rated():
                     'release_date' : movie.get('release_date'),
                     'poster_path' : movie.get('poster_path'),
                     'backdrop_path' : movie.get('backdrop_path'),
-                    'genres' : genre_names,
+                    'genres' : movie.get('genre_ids'),
                     'year' : int(movie.get('release_date')[:4]),
                     'ranking' : ranking,
                 }

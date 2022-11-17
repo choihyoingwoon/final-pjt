@@ -12,9 +12,9 @@
       "poster_path": "/3PCRWLeqp5y20k6XVzcamZR3BWF.jpg",
       "backdrop_path": "/yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg",
       "genres": [
-        "액션",
-        "모험",
-        "SF"
+        28,
+        12,
+        878
       ],
       "year": 2022,
       "ranking": 1
@@ -33,9 +33,9 @@
       "poster_path": "/mEdMHGy1FfCUc7PskFO0tibm8jp.jpg",
       "backdrop_path": "/bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg",
       "genres": [
-        "액션",
-        "판타지",
-        "SF"
+        28,
+        14,
+        878
       ],
       "year": 2022,
       "ranking": 2
@@ -54,9 +54,9 @@
       "poster_path": "/8ncuVFt4e0M2NTTsoPtbxfWN5dO.jpg",
       "backdrop_path": "/olPXihyFeeNvnaD6IOBltgIV1FU.jpg",
       "genres": [
-        "공포",
-        "미스터리",
-        "스릴러"
+        27,
+        9648,
+        53
       ],
       "year": 2022,
       "ranking": 3
@@ -75,9 +75,9 @@
       "poster_path": "/voddFVdjUoAtfoZZp2RUmuZILDI.jpg",
       "backdrop_path": "/14QbnygCuTO0vl7CAFmPf1fgZfV.jpg",
       "genres": [
-        "액션",
-        "모험",
-        "SF"
+        28,
+        12,
+        878
       ],
       "year": 2021,
       "ranking": 4
@@ -96,8 +96,8 @@
       "poster_path": "/sjfzr7bNLMw4u2HaTdRUxhDspuw.jpg",
       "backdrop_path": "/ulyR4pWVMRtVcanoassVbmgfEPT.jpg",
       "genres": [
-        "로맨스",
-        "코미디"
+        10749,
+        35
       ],
       "year": 2022,
       "ranking": 5
@@ -116,9 +116,9 @@
       "poster_path": "/cC1wNkQpvdkQPqmY5Io9HzglrlB.jpg",
       "backdrop_path": "/rV0xrSgkOQj2EpiG8n16VHHJeg3.jpg",
       "genres": [
-        "드라마",
-        "범죄",
-        "미스터리"
+        18,
+        80,
+        9648
       ],
       "year": 2022,
       "ranking": 6
@@ -137,8 +137,8 @@
       "poster_path": "/lDzoW7XAi10TkGXIswqw3nMyOqd.jpg",
       "backdrop_path": "/tviTAFuCFRLElylvBAMPjdRnCDZ.jpg",
       "genres": [
-        "스릴러",
-        "액션"
+        53,
+        28
       ],
       "year": 2022,
       "ranking": 7
@@ -157,8 +157,8 @@
       "poster_path": "/2iKZNSMGMMJMJCPBP2zanLUsdru.jpg",
       "backdrop_path": "/6FbWhRR5B7OWVgzXuTkIFiaI2N3.jpg",
       "genres": [
-        "액션",
-        "스릴러"
+        28,
+        53
       ],
       "year": 2022,
       "ranking": 8
@@ -177,9 +177,9 @@
       "poster_path": "/8wIKnUgj6Sa7j84FJMhDZjeFdNy.jpg",
       "backdrop_path": "/7Y3LdmsZukXhmwxtO0UF95BFBTt.jpg",
       "genres": [
-        "드라마",
-        "미스터리",
-        "스릴러"
+        18,
+        9648,
+        53
       ],
       "year": 2022,
       "ranking": 9
@@ -198,8 +198,8 @@
       "poster_path": "/cPVe8DLpoYBycK644ZP9pu8xHMr.jpg",
       "backdrop_path": "/qViFGWCHaSmW4gP00RGh3xjMjsP.jpg",
       "genres": [
-        "공포",
-        "미스터리"
+        27,
+        9648
       ],
       "year": 2022,
       "ranking": 10
@@ -218,9 +218,9 @@
       "poster_path": "/aCW0sC55bFnOaUBP2eUGryvAJXf.jpg",
       "backdrop_path": "/wIR3QRwBhSuss0Nps03XKIHN5dD.jpg",
       "genres": [
-        "액션",
-        "모험",
-        "SF"
+        28,
+        12,
+        878
       ],
       "year": 2022,
       "ranking": 11
@@ -239,10 +239,10 @@
       "poster_path": "/1xGd3BYMIAcEcBvJfyItuogWVPW.jpg",
       "backdrop_path": "/v4NDRjYO3HYj8nt321BEZB65tWl.jpg",
       "genres": [
-        "모험",
-        "애니메이션",
-        "가족",
-        "판타지"
+        12,
+        16,
+        10751,
+        14
       ],
       "year": 2022,
       "ranking": 12
@@ -261,8 +261,8 @@
       "poster_path": "/x37ixiGQr3I6tERKb5OJfx0d0RV.jpg",
       "backdrop_path": "/AhkirfgU32n0D1uxpaGYJEKy2Hu.jpg",
       "genres": [
-        "코미디",
-        "드라마"
+        35,
+        18
       ],
       "year": 2022,
       "ranking": 13
@@ -281,10 +281,10 @@
       "poster_path": "/vpfX1mGVobWlrUGqEzbA2RNPdZF.jpg",
       "backdrop_path": "/1EAxNqdkVnp48a7NUuNBHGflowM.jpg",
       "genres": [
-        "애니메이션",
-        "액션",
-        "SF",
-        "드라마"
+        16,
+        28,
+        878,
+        18
       ],
       "year": 2022,
       "ranking": 14
@@ -303,9 +303,9 @@
       "poster_path": "/6QQjquBHiKyVowrv2ClfefXM0A9.jpg",
       "backdrop_path": "/eAWuDbZAYQY0PM0hL7zoO3aoF3T.jpg",
       "genres": [
-        "애니메이션",
-        "액션",
-        "SF"
+        16,
+        28,
+        878
       ],
       "year": 2022,
       "ranking": 15
@@ -324,9 +324,9 @@
       "poster_path": "/XkLKkL5Cw4wWM6N4c4dP2IENmb.jpg",
       "backdrop_path": "/sFEYsEfzTx7hhjetlNrme8B5OUo.jpg",
       "genres": [
-        "액션",
-        "스릴러",
-        "SF"
+        28,
+        53,
+        878
       ],
       "year": 2006,
       "ranking": 16
@@ -345,8 +345,8 @@
       "poster_path": "/eGPJaXDnW8Bsb2Dy51MHmXkcF4J.jpg",
       "backdrop_path": "/bBFpkBVlOR2qeT6oE3W9uPkfNOr.jpg",
       "genres": [
-        "로맨스",
-        "드라마"
+        10749,
+        18
       ],
       "year": 2022,
       "ranking": 17
@@ -365,7 +365,7 @@
       "poster_path": "/xG8r9CdFLKMb9A5gn0YXfQ2AVBD.jpg",
       "backdrop_path": "/vwBIwTktAfnIGTTbpd2mDxWYe4D.jpg",
       "genres": [
-        "판타지"
+        14
       ],
       "year": 2022,
       "ranking": 18
@@ -384,9 +384,9 @@
       "poster_path": "/npBvD1rRQHYGrxuwr2OrzXLso1w.jpg",
       "backdrop_path": "/u5FEw1mrQ3lj2jcoSlwEa4FUONE.jpg",
       "genres": [
-        "드라마",
-        "미스터리",
-        "스릴러"
+        18,
+        9648,
+        53
       ],
       "year": 2022,
       "ranking": 19
@@ -405,8 +405,8 @@
       "poster_path": "/xIC5SZoGiQRgM4TLnnxZEsuFSU0.jpg",
       "backdrop_path": "/5sl6GEHjvo0V2lGYlcCghTkUUzK.jpg",
       "genres": [
-        "드라마",
-        "로맨스"
+        18,
+        10749
       ],
       "year": 2022,
       "ranking": 20
