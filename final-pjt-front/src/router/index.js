@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import MovieView from '../views/movieView.vue'
+import MovieDetail from '../views/movieDetail.vue'
 
 Vue.use(VueRouter)
 
@@ -11,9 +12,9 @@ const routes = [
     component: MovieView
   },
   {
-    path: '/movies/id',
+    path: '/movies/:id',
     name: 'detail',
-    component: MovieView
+    component: MovieDetail
   },
 
 ]

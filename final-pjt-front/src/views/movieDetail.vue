@@ -1,14 +1,37 @@
 <template>
-  <div>
-    <p>{{movie}}</p>
+  <div class="user-wrap bg-dark">
+    <div class="user-image">
+        <img :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" class="img" alt="...">
+    </div>
+    <div class="user-text">
+        <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="poster" alt="...">
+        <div style="text-align:left;">
+            <h1>{{movie.title}}</h1>
+            <div style="display:flex;">
+                <div v-for="genre in movie.genres" :key="genre" style="margin-right:10px;">
+                    <button class="btn btn-success">{{genre}}</button>
+                </div>
+            </div>
+            <hr>
+            <div>
+                <h4>인기 : {{movie.popularity}}</h4>
+                <h4>개봉일 : {{movie.release_date}}</h4>
+                <h4>평점 : {{movie.vote_average}}</h4>
+                <p>{{movie.overview}}</p>
+            </div>
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: 'MovieDetail',
-    data:{
-        movie:null
+    data(){
+        return{
+            movie:null,
+        }
     },
     methods: {
     getDetail() {
@@ -37,5 +60,29 @@ created(){
 </script>
 
 <style>
-
+.user-wrap{
+    width:100%;
+    position: relative;
+    margin-top: 55px;
+}
+.img{
+    width:100%;
+    vertical-align: middle;
+    opacity: 0.3;
+}
+.user-text{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+    color: white;
+    display: flex;
+    height: 100%;
+    margin-top: 100px;
+}
+.poster{
+    height: 60vh;
+    width:100%;
+    margin-right:20px
+}
 </style>
