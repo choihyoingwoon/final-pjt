@@ -12,7 +12,6 @@ props: {
     },
 methods:{
   getDetail(movie) {
-    console.log(movie.id)
     this.$router.push({ name: 'detail', params: { id: `${movie.id}`}})
   }
 },

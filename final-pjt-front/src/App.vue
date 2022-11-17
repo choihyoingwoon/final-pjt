@@ -40,11 +40,11 @@ export default {
       })
     },
   },
-  created(){
-    this.topMovie()
-    if(this.$route.path!=='/movies'){this.$router.push('movies')}
+  // created(){
+  //   this.topMovie()
+  //   if(this.$route.path!=='/movies'){this.$router.push('movies')}
     
-  }
+  // }
 }
 </script>
 <style>
