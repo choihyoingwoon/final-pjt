@@ -13,5 +13,3 @@ class NowMovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Now_Movie
         fields = '__all__'
-
-## 수정
