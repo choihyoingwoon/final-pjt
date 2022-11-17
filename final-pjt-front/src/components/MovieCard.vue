@@ -1,5 +1,5 @@
 <template>
-    <div class="cardmove" >
+    <div class="cardmove" @click="getDetail(movie)" >
   <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="card" alt="...">
   </div>
 </template>
@@ -9,7 +9,13 @@ export default {
 name: 'MovieCard',
 props: {
       movie: Object
-    }
+    },
+methods:{
+  getDetail(movie) {
+    console.log(movie.id)
+    this.$router.push({ name: 'detail', params: { id: `${movie.id}`}})
+  }
+},
 };
 </script>
 
