@@ -2,6 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import MovieView from '../views/movieView.vue'
 import MovieDetail from '../views/movieDetail.vue'
+import Signup from '@/views/accounts/Signup'
+import Login from '@/views/accounts/Login'
+
 
 Vue.use(VueRouter)
 
@@ -16,6 +19,18 @@ const routes = [
     name: 'detail',
     component: MovieDetail
   },
+  {
+    path: '/accounts/signup',
+    name: 'Signup',
+    component: Signup,
+  },
+  {
+    path: '/accounts/login',
+    name: 'Login',
+    component: Login,
+  },
+
+
 
 ]
 

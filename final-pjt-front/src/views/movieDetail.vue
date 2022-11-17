@@ -3,27 +3,28 @@
     <div class="user-image" >
         <img  :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" class="img" alt="...">
     </div>
-    <div class="user-text">
+    <div class="user-text" :class="{ activetext : popupView }">
         <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="poster" alt="...">
         <div style="text-align:left;">
             <h1>{{movie.title}}</h1>
-            <div style="display:flex;">
-                <div v-for="genre in movie.genres" :key="genre" style="margin-right:10px;">
+            <!-- <div style="display:flex;">
+                <h4>{{movie.genres[0]}}</h4>
+                <div v-for="(genre,index) in movie.genres" :key="index" style="margin-right:10px;">
                     <button class="btn btn-success">{{genre}}</button>
                 </div>
-            </div>
-            <hr>
+            </div> -->
             <div>
                 <h4>인기 : {{movie.popularity}}</h4>
                 <h4>개봉일 : {{movie.release_date}}</h4>
                 <h4>평점 : {{movie.vote_average}}</h4>
                 <p>{{movie.overview}}</p>
-                <button @click="openYoutube()">예고편 보기</button>
+                <button class="btn btn-danger" @click="movieVideo(movie), openYoutube()">예고편 보기</button>
             </div>
         </div>
     </div>
-    <div class="popup-view" :class="{ active : popupView }">
+    <div class="user-text popup-view" :class="{ active : popupView }">
       <pop-up @close-popup="openPopup()"></pop-up>
+      <button class="btn btn-danger" @click="movieVideo(movie), openYoutube()">예고편 끄기</button>
     </div>
   </div>
 </template>
@@ -45,13 +46,13 @@ export default {
         }
     },
     methods: {
-    getDetail() {
+    getDetail1() {
       const movie_id = this.$route.params.id
       // console.log(typeof(movie_id))
       // console.log(movie_id)
       axios({
         method: 'get',
-        url: 'http://127.0.0.1:8000/movies/'
+        url: 'http://127.0.0.1:8000/movies/top_movies/'
       })
         .then((res) => {
           // console.log(res.data)
@@ -62,15 +63,31 @@ export default {
           this.movie = detail[0]
         })
     },
-    movieVideo(){
-        console.log(this.movie.id)
+    getDetail2() {
+      const movie_id = this.$route.params.id
+      // console.log(typeof(movie_id))
+      // console.log(movie_id)
+      axios({
+        method: 'get',
+        url: 'http://127.0.0.1:8000/movies/now_movies/'
+      })
+        .then((res) => {
+          // console.log(res.data)
+          // console.log(res.data.movie_id)
+          const detail = res.data.filter((movie) => {
+            return movie.id === Number(movie_id)
+          })
+          this.movie = detail[0]
+        })
+    },
+    movieVideo(movie){
       axios({
         method:'get',
-        url: `https://api.themoviedb.org/3/movie/${this.movie.id}/videos?api_key=8ffb4b999f9e6cb3f99f17488652cc28&language=ko-KR`,
+        url: `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=8ffb4b999f9e6cb3f99f17488652cc28&language=ko-KR`,
       })
       .then(res=>{
-        this.$store.state.movieVideo= res.data.results
-        console.log(res.data.results)
+        this.$store.state.movieVideo= res.data.results[0]
+        console.log(this.$store.state.movieVideo)
       })
       .catch(err=>{
         console.log(err)
@@ -81,9 +98,8 @@ export default {
     }
 },
 created(){
-    this.getDetail()
-    this.movieVideo()
-
+    this.getDetail1()
+    this.getDetail2()
 }
 }
 </script>
@@ -122,6 +138,11 @@ created(){
 .active{
   opacity: 1;
   display: block;
+  visibility: visible;
+}
+.activetext{
+  opacity: 1;
+  display: none;
   visibility: visible;
 }
 </style>
