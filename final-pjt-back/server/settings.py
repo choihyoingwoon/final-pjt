@@ -138,3 +138,25 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# 인증 유저 모델
+AUTH_USER_MODEL = "accounts.User"
+
+# CORS 처리
+CORS_ALLOW_ALL_ORIGINS = True
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    )
+}
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    # Token의 만료기간을 1일로 연장
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+}
+

@@ -1,139 +1,5 @@
 [
   {
-    "model": "movies.genre",
-    "pk": 28,
-    "fields": {
-      "name": "액션"
-    }
-  },
-  {
-    "model": "movies.genre",
-    "pk": 12,
-    "fields": {
-      "name": "모험"
-    }
-  },
-  {
-    "model": "movies.genre",
-    "pk": 16,
-    "fields": {
-      "name": "애니메이션"
-    }
-  },
-  {
-    "model": "movies.genre",
-    "pk": 35,
-    "fields": {
-      "name": "코미디"
-    }
-  },
-  {
-    "model": "movies.genre",
-    "pk": 80,
-    "fields": {
-      "name": "범죄"
-    }
-  },
-  {
-    "model": "movies.genre",
-    "pk": 99,
-    "fields": {
-      "name": "다큐멘터리"
-    }
-  },
-  {
-    "model": "movies.genre",
-    "pk": 18,
-    "fields": {
-      "name": "드라마"
-    }
-  },
-  {
-    "model": "movies.genre",
-    "pk": 10751,
-    "fields": {
-      "name": "가족"
-    }
-  },
-  {
-    "model": "movies.genre",
-    "pk": 14,
-    "fields": {
-      "name": "판타지"
-    }
-  },
-  {
-    "model": "movies.genre",
-    "pk": 36,
-    "fields": {
-      "name": "역사"
-    }
-  },
-  {
-    "model": "movies.genre",
-    "pk": 27,
-    "fields": {
-      "name": "공포"
-    }
-  },
-  {
-    "model": "movies.genre",
-    "pk": 10402,
-    "fields": {
-      "name": "음악"
-    }
-  },
-  {
-    "model": "movies.genre",
-    "pk": 9648,
-    "fields": {
-      "name": "미스터리"
-    }
-  },
-  {
-    "model": "movies.genre",
-    "pk": 10749,
-    "fields": {
-      "name": "로맨스"
-    }
-  },
-  {
-    "model": "movies.genre",
-    "pk": 878,
-    "fields": {
-      "name": "SF"
-    }
-  },
-  {
-    "model": "movies.genre",
-    "pk": 10770,
-    "fields": {
-      "name": "TV 영화"
-    }
-  },
-  {
-    "model": "movies.genre",
-    "pk": 53,
-    "fields": {
-      "name": "스릴러"
-    }
-  },
-  {
-    "model": "movies.genre",
-    "pk": 10752,
-    "fields": {
-      "name": "전쟁"
-    }
-  },
-  {
-    "model": "movies.genre",
-    "pk": 37,
-    "fields": {
-      "name": "서부"
-    }
-  },
-
-  {
     "model": "movies.now_movie",
     "pk": 505642,
     "fields": {
@@ -146,9 +12,9 @@
       "poster_path": "/3PCRWLeqp5y20k6XVzcamZR3BWF.jpg",
       "backdrop_path": "/yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg",
       "genres": [
-        28,
-        12,
-        878
+        "액션",
+        "모험",
+        "SF"
       ],
       "year": 2022,
       "ranking": 1
@@ -167,9 +33,9 @@
       "poster_path": "/mEdMHGy1FfCUc7PskFO0tibm8jp.jpg",
       "backdrop_path": "/bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg",
       "genres": [
-        28,
-        14,
-        878
+        "액션",
+        "판타지",
+        "SF"
       ],
       "year": 2022,
       "ranking": 2
@@ -188,9 +54,9 @@
       "poster_path": "/8ncuVFt4e0M2NTTsoPtbxfWN5dO.jpg",
       "backdrop_path": "/olPXihyFeeNvnaD6IOBltgIV1FU.jpg",
       "genres": [
-        27,
-        9648,
-        53
+        "공포",
+        "미스터리",
+        "스릴러"
       ],
       "year": 2022,
       "ranking": 3
@@ -209,33 +75,12 @@
       "poster_path": "/voddFVdjUoAtfoZZp2RUmuZILDI.jpg",
       "backdrop_path": "/14QbnygCuTO0vl7CAFmPf1fgZfV.jpg",
       "genres": [
-        28,
-        12,
-        878
+        "액션",
+        "모험",
+        "SF"
       ],
       "year": 2021,
       "ranking": 4
-    }
-  },
-  {
-    "model": "movies.now_movie",
-    "pk": 799379,
-    "fields": {
-      "title": "늑대사냥",
-      "overview": "동남아시아로 도피한 인터폴 수배자들을 이송할 움직이는 교도소 프론티어 타이탄. 극악무도한 이들과 베테랑 형사들이 필리핀 마닐라 항구에 모이고 탈출을 꿈꾸는 종두, 한국으로 돌아가야만 하는 도일을 비롯해 이들은 각자의 목적과 경계심을 품고 탑승한다. 한국으로 향하던 중, 태평양 한 가운데에서 이들에게는 지금까지 보지 못한 극한의 상황과 마주하게 되는데…",
-      "popularity": 326.796,
-      "vote_count": 30,
-      "vote_average": 6.9,
-      "release_date": "2022-09-28",
-      "poster_path": "/op2y1gvqKhAh4yAPLwc4PlX3XRv.jpg",
-      "backdrop_path": "/gEpeM4hrAcyzlO223DJQ7BKjuW9.jpg",
-      "genres": [
-        878,
-        28,
-        53
-      ],
-      "year": 2022,
-      "ranking": 5
     }
   },
   {
@@ -251,11 +96,11 @@
       "poster_path": "/sjfzr7bNLMw4u2HaTdRUxhDspuw.jpg",
       "backdrop_path": "/ulyR4pWVMRtVcanoassVbmgfEPT.jpg",
       "genres": [
-        10749,
-        35
+        "로맨스",
+        "코미디"
       ],
       "year": 2022,
-      "ranking": 6
+      "ranking": 5
     }
   },
   {
@@ -271,12 +116,12 @@
       "poster_path": "/cC1wNkQpvdkQPqmY5Io9HzglrlB.jpg",
       "backdrop_path": "/rV0xrSgkOQj2EpiG8n16VHHJeg3.jpg",
       "genres": [
-        18,
-        80,
-        9648
+        "드라마",
+        "범죄",
+        "미스터리"
       ],
       "year": 2022,
-      "ranking": 7
+      "ranking": 6
     }
   },
   {
@@ -292,11 +137,11 @@
       "poster_path": "/lDzoW7XAi10TkGXIswqw3nMyOqd.jpg",
       "backdrop_path": "/tviTAFuCFRLElylvBAMPjdRnCDZ.jpg",
       "genres": [
-        53,
-        28
+        "스릴러",
+        "액션"
       ],
       "year": 2022,
-      "ranking": 8
+      "ranking": 7
     }
   },
   {
@@ -312,11 +157,11 @@
       "poster_path": "/2iKZNSMGMMJMJCPBP2zanLUsdru.jpg",
       "backdrop_path": "/6FbWhRR5B7OWVgzXuTkIFiaI2N3.jpg",
       "genres": [
-        28,
-        53
+        "액션",
+        "스릴러"
       ],
       "year": 2022,
-      "ranking": 9
+      "ranking": 8
     }
   },
   {
@@ -332,9 +177,29 @@
       "poster_path": "/8wIKnUgj6Sa7j84FJMhDZjeFdNy.jpg",
       "backdrop_path": "/7Y3LdmsZukXhmwxtO0UF95BFBTt.jpg",
       "genres": [
-        18,
-        9648,
-        53
+        "드라마",
+        "미스터리",
+        "스릴러"
+      ],
+      "year": 2022,
+      "ranking": 9
+    }
+  },
+  {
+    "model": "movies.now_movie",
+    "pk": 758724,
+    "fields": {
+      "title": "헬 카운트",
+      "overview": "우즈 가족이 새 집으로 이사한지 약 일주일 후 갑작스러운 정전 사고가 나고 딸 엘리가 실종된다. 어떤 단서도 없이 실종된 딸의 행방에 당황한 엄마 케이라는 조사를 하던 중 벽에 이상한 표식이 새겨져 있는 것을 발견하게 된다. 그 이후 계속되는 미스터리한 초자연적인 일을 겪은 후 그녀는 이 집 자체가 딸 엘리를 데려 갔을 거라는 결론을 내리고, 실종 직전 마지막 통화 때 딸이 향하던 지하실로 향하게 되는데...",
+      "popularity": 129.383,
+      "vote_count": 299,
+      "vote_average": 6.7,
+      "release_date": "2022-11-17",
+      "poster_path": "/cPVe8DLpoYBycK644ZP9pu8xHMr.jpg",
+      "backdrop_path": "/qViFGWCHaSmW4gP00RGh3xjMjsP.jpg",
+      "genres": [
+        "공포",
+        "미스터리"
       ],
       "year": 2022,
       "ranking": 10
@@ -353,9 +218,9 @@
       "poster_path": "/aCW0sC55bFnOaUBP2eUGryvAJXf.jpg",
       "backdrop_path": "/wIR3QRwBhSuss0Nps03XKIHN5dD.jpg",
       "genres": [
-        28,
-        12,
-        878
+        "액션",
+        "모험",
+        "SF"
       ],
       "year": 2022,
       "ranking": 11
@@ -374,10 +239,10 @@
       "poster_path": "/1xGd3BYMIAcEcBvJfyItuogWVPW.jpg",
       "backdrop_path": "/v4NDRjYO3HYj8nt321BEZB65tWl.jpg",
       "genres": [
-        12,
-        16,
-        10751,
-        14
+        "모험",
+        "애니메이션",
+        "가족",
+        "판타지"
       ],
       "year": 2022,
       "ranking": 12
@@ -396,8 +261,8 @@
       "poster_path": "/x37ixiGQr3I6tERKb5OJfx0d0RV.jpg",
       "backdrop_path": "/AhkirfgU32n0D1uxpaGYJEKy2Hu.jpg",
       "genres": [
-        35,
-        18
+        "코미디",
+        "드라마"
       ],
       "year": 2022,
       "ranking": 13
@@ -409,17 +274,17 @@
     "fields": {
       "title": "신 에반게리온 극장판 리피트",
       "overview": "‘에반게리온’ 신극장판 시리즈의 제4부이자 완결편  미사토가 이끄는 반네르프 조직 ‘빌레’는 코어화로 붉게 물든 파리 구시가에 있다.  기함 AAA 분더에서 선발대가 강하하여, 남겨져 있던 봉인주에 안착한다.  복원 작전의 작업 가능 시간은 고작 720초.  결사의 작전 수행 중 ‘네르프’의 EVA가 대량으로 무리를 이루고 접근하여,  마리의 개(改) 8호기가 요격을 개시한다.  한편 신지, 아스카, 아야나미 레이 (가칭) 세 사람은 일본의 대지를 떠돌고 있다…….",
-      "popularity": 56.734,
+      "popularity": 51.04,
       "vote_count": 581,
       "vote_average": 8.4,
       "release_date": "2022-10-05",
       "poster_path": "/vpfX1mGVobWlrUGqEzbA2RNPdZF.jpg",
       "backdrop_path": "/1EAxNqdkVnp48a7NUuNBHGflowM.jpg",
       "genres": [
-        16,
-        28,
-        878,
-        18
+        "애니메이션",
+        "액션",
+        "SF",
+        "드라마"
       ],
       "year": 2022,
       "ranking": 14
@@ -438,9 +303,9 @@
       "poster_path": "/6QQjquBHiKyVowrv2ClfefXM0A9.jpg",
       "backdrop_path": "/eAWuDbZAYQY0PM0hL7zoO3aoF3T.jpg",
       "genres": [
-        16,
-        28,
-        878
+        "애니메이션",
+        "액션",
+        "SF"
       ],
       "year": 2022,
       "ranking": 15
@@ -452,19 +317,79 @@
     "fields": {
       "title": "브이 포 벤데타",
       "overview": "어느 날 밤 이비라는 소녀가 위험에 처하자 어디선가 한 남자가 나타나 놀라운 전투력으로 그녀의 목숨을 구해준다. 옛날 국회의사당을 폭파하려다 사형당한 가이 포크스의 가면을 쓰고 모든 것을 압도하는 카리스마를 가진 남자는 V라는 이니셜로만 알려진 의문의 사나이. 맥베스와 헨리 5세의 대사들을 인용하고, 현실세계의 아픔을 노래한 윌리엄 블레이크의 시를 읊으며 악을 응징하는 V는세상을 구할 혁명을 계획하고 있다. V의 숨겨진 과거를 알아가는 동안 자신에 관한 진실을 깨달아가는 이비는 점점 V에게 이끌려 그의 혁명에 동참하게 된다.",
-      "popularity": 44.359,
-      "vote_count": 12705,
+      "popularity": 41.556,
+      "vote_count": 12707,
       "vote_average": 7.9,
       "release_date": "2006-03-17",
       "poster_path": "/XkLKkL5Cw4wWM6N4c4dP2IENmb.jpg",
       "backdrop_path": "/sFEYsEfzTx7hhjetlNrme8B5OUo.jpg",
       "genres": [
-        28,
-        53,
-        878
+        "액션",
+        "스릴러",
+        "SF"
       ],
       "year": 2006,
       "ranking": 16
+    }
+  },
+  {
+    "model": "movies.now_movie",
+    "pk": 962489,
+    "fields": {
+      "title": "동감",
+      "overview": "1999년, 용은 첫눈에 반하게 된 한솔을 사로잡기 위해 친구에게 HAM 무전기를 빌린다. 2022년, 무늬는 인터뷰 과제를 위해 오래된 HAM 무전기를 작동시킨다. 개기 월식이 일어난 날, 시간을 뛰어넘어 기적처럼 연결된 용과 무늬는 서로의 사랑과 우정을 이야기하며 특별한 감정을 쌓아가는데...",
+      "popularity": 39.372,
+      "vote_count": 0,
+      "vote_average": 0,
+      "release_date": "2022-11-16",
+      "poster_path": "/eGPJaXDnW8Bsb2Dy51MHmXkcF4J.jpg",
+      "backdrop_path": "/bBFpkBVlOR2qeT6oE3W9uPkfNOr.jpg",
+      "genres": [
+        "로맨스",
+        "드라마"
+      ],
+      "year": 2022,
+      "ranking": 17
+    }
+  },
+  {
+    "model": "movies.now_movie",
+    "pk": 1021582,
+    "fields": {
+      "title": "심야카페: 미씽 허니",
+      "overview": "부산 산복지구대의 냉미녀 경찰, 윤. 파스타집 오너 셰프 다정한 연인, 태영.  누구 봐도 행복한 커플 윤과 태영은 결혼을 앞두고 있다.  누구보다 행복해야 할 결혼식 당일. 태영이 아무 연락도 없이 나타나지 않는 대참사를 겪게 된다.  갑자기 사라진 연인 태영의 행방이 묘연한 가운데 윤은 태영이 사라진 마지막 장소에서 수상한 지도를 발견한다. 지도를 따라간 윤은 평소에는 전혀 보지 못했던 카페를 발견하게 되는데…  마스터부터 손님까지 모두 수상하기만 한 ‘심야카페’에서 윤은 드디어 사라진 연인 태영을 만나게 된다. 하지만 태영은 자신을 알아보지 못하고 어딘지 어려보이기까지 하는데…  “저기.. 혹시 지금이 몇 년도인가요?”",
+      "popularity": 27.646,
+      "vote_count": 0,
+      "vote_average": 0,
+      "release_date": "2022-11-17",
+      "poster_path": "/xG8r9CdFLKMb9A5gn0YXfQ2AVBD.jpg",
+      "backdrop_path": "/vwBIwTktAfnIGTTbpd2mDxWYe4D.jpg",
+      "genres": [
+        "판타지"
+      ],
+      "year": 2022,
+      "ranking": 18
+    }
+  },
+  {
+    "model": "movies.now_movie",
+    "pk": 823766,
+    "fields": {
+      "title": "더 원더",
+      "overview": "대기근으로부터 13년이 흐른 1862년.  영국의 간호사 립 라이트(플로렌스 퓨)는 한 마을의  독실한 주민들로부터 부름을 받아 아일랜드 중부로 향한다.  이들의 요청은 자신들의 마을에 사는 사람 한 명을 15일간 지켜봐달라는 것이었는데,  그는 바로 열한 살의 애나 오도널(킬라 로드 캐시디).  주민들의 말에 따르면 애나가 4개월간 아무것도 먹지 않고  ‘하느님의 양식’만으로 기적적으로 생존하고 있다는 것.  하지만 애나의 건강이 급격히 악화되자 립은 믿음을 깨고 싶어 하지 않는  주민들에게 맞서 진실을 폭로하기로 결심한다.",
+      "popularity": 24.34,
+      "vote_count": 3,
+      "vote_average": 5.7,
+      "release_date": "2022-11-16",
+      "poster_path": "/npBvD1rRQHYGrxuwr2OrzXLso1w.jpg",
+      "backdrop_path": "/u5FEw1mrQ3lj2jcoSlwEa4FUONE.jpg",
+      "genres": [
+        "드라마",
+        "미스터리",
+        "스릴러"
+      ],
+      "year": 2022,
+      "ranking": 19
     }
   },
   {
@@ -480,68 +405,8 @@
       "poster_path": "/xIC5SZoGiQRgM4TLnnxZEsuFSU0.jpg",
       "backdrop_path": "/5sl6GEHjvo0V2lGYlcCghTkUUzK.jpg",
       "genres": [
-        18,
-        10749
-      ],
-      "year": 2022,
-      "ranking": 17
-    }
-  },
-  {
-    "model": "movies.now_movie",
-    "pk": 795564,
-    "fields": {
-      "title": "극장판 짱구는 못말려: 수수께끼! 꽃피는 천하떡잎학교",
-      "overview": "명문 엘리트 양성학교에 체험 입학하게 된 짱구와 친구들! 좋은 성적을 내서 학교에 정식 입학하고 싶은 철수와 장난만 치려는 짱구는 크게 싸우게 된다. 그러던 중 학교에 도는 괴소문의 존재 ‘흡덩귀’에게 철수가 엉덩이를 물린 채 발견된다. 흡덩귀에게 엉덩이를 물리면 엘리트 학생도 모지리로 변하게 되는데…. 철수와 학생들을 구하기 위해 짱구와 떡잎마을 방범대 친구들은 탐정 동아리를 결성하고 수사를 시작한다!  범인은 과연 누구? 짱구는 사건을 해결하고 철수와의 우정을 지킬 수 있을까?!",
-      "popularity": 12.673,
-      "vote_count": 5,
-      "vote_average": 7.2,
-      "release_date": "2022-09-28",
-      "poster_path": "/sqAm04lTqq5ZBWENlpV25ITAiVw.jpg",
-      "backdrop_path": "/s7LkZrweSohEsAtUJYgVgOHNGS8.jpg",
-      "genres": [
-        16
-      ],
-      "year": 2022,
-      "ranking": 18
-    }
-  },
-  {
-    "model": "movies.now_movie",
-    "pk": 505953,
-    "fields": {
-      "title": "스톰 보이",
-      "overview": "사람이 살지 않는 90마일 비치에서 아빠와 단둘이 살게 된 ‘마이클’. 어느 날 사냥으로 어미를 잃은 아기 펠리컨 세 마리를 발견하고 원주민인 ‘손가락 뼈 빌’의 도움으로 책도 없고 수의사도 없는 청정 무공해 집사 생활을 시작한다. 하루 24시간 특식을 급여하며 펠리컨인 ‘미스터 퍼시벌’, ‘미스터 프라우드’, ‘미스터 폰더’를 착실히 확대, 먹이 잡는 법과 나는 법을 직접 가르치며 행복한 나날을 보내게 된다. 하지만 ‘미스터 퍼시벌’이 바다에 빠진 아빠를 구하자 매스컴의 관심이 쏟아지고, ‘마이클’은 가장 친한 친구를 구하기 위해서 고군분투 하는데…",
-      "popularity": 10.708,
-      "vote_count": 108,
-      "vote_average": 7.2,
-      "release_date": "2022-10-13",
-      "poster_path": "/hurPOuGCNed88BpDQi5m9qWL9bq.jpg",
-      "backdrop_path": "/2Oli8Jo72w4NjkHLOMy6EzkoYkU.jpg",
-      "genres": [
-        18,
-        12
-      ],
-      "year": 2022,
-      "ranking": 19
-    }
-  },
-  {
-    "model": "movies.now_movie",
-    "pk": 768757,
-    "fields": {
-      "title": "칼날의 양면",
-      "overview": "남녀의 평범하지 않은 관계를 이야기한다. 9년째 함께 사는 커플 앞으로, 10년 전 헤어진 남자가 나타났다. 흔한 삼각관계도 드니의 손길에 잡히면 달라진다. 그는 표현하기 힘든 것에 도전하기 때문이다.",
-      "popularity": 13.721,
-      "vote_count": 23,
-      "vote_average": 5.7,
-      "release_date": "2022-10-07",
-      "poster_path": "/xUey4r9AzNNPtzDA9aJV9Hy7Azw.jpg",
-      "backdrop_path": "/4g5kaH8gfujIS93gTzFLMeDN99R.jpg",
-      "genres": [
-        18,
-        10749,
-        53
+        "드라마",
+        "로맨스"
       ],
       "year": 2022,
       "ranking": 20

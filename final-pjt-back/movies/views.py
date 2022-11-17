@@ -8,13 +8,13 @@ from rest_framework.decorators import api_view
 # Create your views here.
 @api_view(['GET'])
 def top_movies(request):
-    top_movies = Top_Movie.objects.all()
+    top_movies = Top_Movie.objects.all().order_by('ranking')
     serializer = TopMovieSerializer(top_movies, many=True)
     return Response(serializer.data)
 
 @api_view(['GET'])
 def now_movies(request):
-    now_movies = Now_Movie.objects.all()
+    now_movies = Now_Movie.objects.all().order_by('ranking')
     serializer = NowMovieSerializer(now_movies, many=True)
     return Response(serializer.data)
 
