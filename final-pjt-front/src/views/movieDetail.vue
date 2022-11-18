@@ -1,10 +1,11 @@
 <template>
-  <div class="user-wrap bg-dark">
+  <div class="user-wrap bg-dark" style="height:100%">
     <div class="user-image" >
-        <img  :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" class="img" alt="...">
+        <img @click="imgclick()"  :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" class="img" alt="...">
     </div>
-    <div class="user-text" :class="{ activetext : popupView }">
-        <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="poster" alt="...">
+    
+    <div class="user-text" :class="{ activetext : popupView,recommendactive:!recommendcheck}">
+        <img @click="getRecommendations()" :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="poster" alt="...">
         <div style="text-align:left;">
             <h1>{{movie.title}}</h1>
             <!-- <div style="display:flex;">
@@ -19,13 +20,26 @@
                 <h4>평점 : {{movie.vote_average}}</h4>
                 <p>{{movie.overview}}</p>
                 <button class="btn btn-danger" @click="movieVideo(movie), openYoutube()">예고편 보기</button>
-            </div>
+                <button class="btn btn-danger" @click="getRecommendations()">비슷한 영화 추천</button>
+              </div>
         </div>
     </div>
-    <div class="user-text popup-view" :class="{ active : popupView }">
+    <div class="popup-view" :class="{ active : popupView }">
       <pop-up @close-popup="openPopup()"></pop-up>
       <button class="btn btn-danger" @click="movieVideo(movie), openYoutube()">예고편 끄기</button>
     </div>
+    <b-col class="reco" align-self="center" :class="{recommendactive:recommendcheck}">
+          <div>
+            <h3 style="color:white">{{movie.title}}과 비슷한 영화</h3>
+            <div class="movie_list" style="display:scroll;" >
+              <recommendMovieCard
+                  v-for="movie in recommendations" :key="movie.pk"
+                  :movie="movie"
+              />
+            </div>
+            <button class="btn btn-danger" @click="imgclick()" style="width:50%">추천 영화 끄기</button>
+          </div>
+      </b-col>
   </div>
 </template>
 
@@ -33,17 +47,20 @@
 <script>
 import axios from 'axios'
 import PopUp from '../components/PopUp.vue'
+import recommendMovieCard from '@/components/recommendMovieCard'
 
 export default {
     name: 'MovieDetail',
     components:{
-    PopUp,
+    PopUp,recommendMovieCard,
   },
     data(){
         return{
             movie:[],
             video:null,
             popupView:false,
+            recommendcheck:true,
+            recommendations:[]
         }
     },
     methods: {
@@ -64,7 +81,6 @@ export default {
           if (detail[0]){
             this.movie = detail[0]
           }
-          console.log(this.movie)
 
         })
     },
@@ -94,7 +110,22 @@ export default {
       })
       .then(res=>{
         this.$store.state.movieVideo= res.data.results[0]
+        this.recommendcheck= true
         console.log(this.$store.state.movieVideo)
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+    },
+    getRecommendations(){
+      axios({
+        method:'get',
+        url: `https://api.themoviedb.org/3/movie/${this.movie.id}/similar?api_key=8ffb4b999f9e6cb3f99f17488652cc28&language=ko-KR&page=2`,
+      })
+      .then(res=>{
+        this.recommendations= res.data.results
+        this.recommendcheck= !this.recommendcheck
+        console.log(this.recommendations)
       })
       .catch(err=>{
         console.log(err)
@@ -102,6 +133,13 @@ export default {
     },
     openYoutube(){
         this.popupView=(this.popupView) ? false:true
+    },
+    clickRecommend(){
+      this.recommendcheck= !this.recommendcheck
+    },
+    imgclick(){
+      this.recommendcheck=true
+      this.popupView=false
     }
 },
 created(){
@@ -111,11 +149,13 @@ created(){
   if (this.movie){
     this.getDetail1()
   }
+  this.getRecommendations()
 }
 }
 </script>
 
 <style>
+
 .story{
   font-weight: bold;
 }
@@ -126,8 +166,8 @@ created(){
     margin-top: 55px;
 }
 .img{
-    position:fixed;
-    right:0px;
+    /* position:fixed;
+    right:0px; */
     width:100%;
     height: 100vh;
     vertical-align: middle;
@@ -138,17 +178,31 @@ created(){
     top: 50%;
     left: 50%;
     transform: translate( -50%, -50% );
-    color: black;
+    color: white;
     display: flex;
     height: 100%;
     margin-top: 100px;
 }
+.reco{
+  position:absolute;
+    top: 20%;
+    width:100%;
+    display: block;
+}
 .poster{
-    height: 60vh;
+    height: 50vh;
     width:100%;
     margin-right:20px
 }
 .popup-view{
+      position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+    color: white;
+    display: flex;
+    height: 100%;
+    margin-top: 100px;
   opacity: 0;
   display: none;
   visibility: hidden;
@@ -162,5 +216,13 @@ created(){
   opacity: 1;
   display: none;
   visibility: visible;
+}
+.recommendactive{
+  opacity: 1;
+  display: none;
+  visibility: visible;
+}
+.mid{
+  top: 50%;
 }
 </style>
