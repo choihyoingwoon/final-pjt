@@ -1,6 +1,8 @@
 <template>
   <div class="user-wrap bg-dark">
-      <img  :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" class="img" alt="...">
+    <div class="user-image" >
+        <img  :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" class="img" alt="...">
+    </div>
     <div class="user-text" :class="{ activetext : popupView }">
         <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="poster" alt="...">
         <div style="text-align:left;">
@@ -15,7 +17,7 @@
                 <h4>인기 : {{movie.popularity}}</h4>
                 <h4>개봉일 : {{movie.release_date}}</h4>
                 <h4>평점 : {{movie.vote_average}}</h4>
-                <p class="story">{{movie.overview}}</p>
+                <p>{{movie.overview}}</p>
                 <button class="btn btn-danger" @click="movieVideo(movie), openYoutube()">예고편 보기</button>
             </div>
         </div>
@@ -26,6 +28,7 @@
     </div>
   </div>
 </template>
+
 
 <script>
 import axios from 'axios'
@@ -85,13 +88,13 @@ export default {
         })
     },
     movieVideo(movie){
-      console.log(movie)
       axios({
         method:'get',
         url: `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=8ffb4b999f9e6cb3f99f17488652cc28&language=ko-KR`,
       })
       .then(res=>{
         this.$store.state.movieVideo= res.data.results[0]
+        console.log(this.$store.state.movieVideo)
       })
       .catch(err=>{
         console.log(err)
@@ -118,12 +121,13 @@ created(){
 }
 .user-wrap{
     width:100%;
+
     position: relative;
     margin-top: 55px;
 }
 .img{
-    /* position:fixed;
-    right:0px; */
+    position:fixed;
+    right:0px;
     width:100%;
     height: 100vh;
     vertical-align: middle;
@@ -134,7 +138,7 @@ created(){
     top: 50%;
     left: 50%;
     transform: translate( -50%, -50% );
-    color: white;
+    color: black;
     display: flex;
     height: 100%;
     margin-top: 100px;

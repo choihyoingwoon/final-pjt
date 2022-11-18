@@ -3,10 +3,10 @@
     <br>
     <h1>Community</h1>
     <hr>
-    <div class="commucreate" :class="{'active': active}">
+    <div class="commucreate" :class="{'active1': active}">
         <button class="btn btn-danger"  @click="activeCreate"><h4>create</h4></button>
     </div>
-    <div class="commucreate" :class="{'active': !active}">
+    <div class="commucreate" :class="{'active1': !active}">
         <div>
             <h4>Title</h4>
             <input type="text" v-model.trim="title"/>
@@ -114,7 +114,7 @@ export default {
     margin: auto;
     text-align: left;
 }
-.active{
+.active1{
     display:none;
 }
 </style>
