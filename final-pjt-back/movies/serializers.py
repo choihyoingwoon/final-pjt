@@ -1,14 +1,24 @@
 from rest_framework import serializers
-from .models import Top_Movie, Now_Movie
+from .models import  Movie, Review
 
-class TopMovieSerializer(serializers.ModelSerializer):
+class MovieSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Top_Movie
+        model = Movie
         fields = '__all__'
+
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = '__all__'
+
+# class TopMovieSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Top_Movie
+#         fields = '__all__'
              
-class NowMovieSerializer(serializers.ModelSerializer):
+# class NowMovieSerializer(serializers.ModelSerializer):
     
-    class Meta:
-        model = Now_Movie
-        fields = '__all__'
+#     class Meta:
+#         model = Now_Movie
+#         fields = '__all__'
 
