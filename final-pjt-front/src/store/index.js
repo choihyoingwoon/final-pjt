@@ -8,6 +8,7 @@ export default new Vuex.Store({
     topmoviesList:[],
     nowmoviesList:[],
     movieVideo:[],
+    user:null,
   },
   getters: {
   },

@@ -1,8 +1,6 @@
 <template>
   <div class="user-wrap bg-dark">
-    <div class="user-image" >
-        <img  :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" class="img" alt="...">
-    </div>
+      <img  :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" class="img" alt="...">
     <div class="user-text" :class="{ activetext : popupView }">
         <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="poster" alt="...">
         <div style="text-align:left;">
@@ -17,7 +15,7 @@
                 <h4>인기 : {{movie.popularity}}</h4>
                 <h4>개봉일 : {{movie.release_date}}</h4>
                 <h4>평점 : {{movie.vote_average}}</h4>
-                <p>{{movie.overview}}</p>
+                <p class="story">{{movie.overview}}</p>
                 <button class="btn btn-danger" @click="movieVideo(movie), openYoutube()">예고편 보기</button>
             </div>
         </div>
@@ -60,7 +58,11 @@ export default {
           const detail = res.data.filter((movie) => {
             return movie.id === Number(movie_id)
           })
-          this.movie = detail[0]
+          if (detail[0]){
+            this.movie = detail[0]
+          }
+          console.log(this.movie)
+
         })
     },
     getDetail2() {
@@ -77,17 +79,19 @@ export default {
           const detail = res.data.filter((movie) => {
             return movie.id === Number(movie_id)
           })
-          this.movie = detail[0]
+          if(detail[0]){
+            this.movie = detail[0]
+          }
         })
     },
     movieVideo(movie){
+      console.log(movie)
       axios({
         method:'get',
         url: `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=8ffb4b999f9e6cb3f99f17488652cc28&language=ko-KR`,
       })
       .then(res=>{
         this.$store.state.movieVideo= res.data.results[0]
-        console.log(this.$store.state.movieVideo)
       })
       .catch(err=>{
         console.log(err)
@@ -98,20 +102,30 @@ export default {
     }
 },
 created(){
-    this.getDetail1()
+  if (this.movie){
     this.getDetail2()
+  }
+  if (this.movie){
+    this.getDetail1()
+  }
 }
 }
 </script>
 
 <style>
+.story{
+  font-weight: bold;
+}
 .user-wrap{
     width:100%;
     position: relative;
     margin-top: 55px;
 }
 .img{
+    /* position:fixed;
+    right:0px; */
     width:100%;
+    height: 100vh;
     vertical-align: middle;
     opacity: 0.3;
 }

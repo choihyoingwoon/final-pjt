@@ -14,7 +14,6 @@ export default {
     },
     computed: {
         movieVideo() {
-            console.log(`https://www.youtube.com/embed/${this.$store.state.movieVideo.key}?autoplay=1`)
             return `https://www.youtube.com/embed/${this.$store.state.movieVideo.key}?autoplay=1`
         },
     }

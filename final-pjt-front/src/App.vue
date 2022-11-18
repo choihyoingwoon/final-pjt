@@ -2,12 +2,12 @@
   <div id="app" >
     <div>
   <b-navbar fixed="top" toggleable="lg" type="dark" variant="dark" style="padding-left:20px; padding-right:20px; ">
-    <b-navbar-brand @click="find()">NavBar</b-navbar-brand>
+    <b-navbar-brand>NavBar</b-navbar-brand>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
     <b-collapse id="nav-collapse" style="justify-content: space-between;" is-nav>
       <b-navbar-nav>
-          <b-nav-item href="/movies">Home</b-nav-item>
-          <b-nav-item href="/movies" >Disabled</b-nav-item>
+          <b-nav-item href="/">Home</b-nav-item>
+          <b-nav-item href="/community" >community</b-nav-item>
           <b-nav-item href="/movies" >Disabled</b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav>
@@ -59,20 +59,13 @@ export default {
       })
       .then(res=>{
         this.$store.state.nowmoviesList = res.data
-        console.log(res)
       })
       .catch(err=>{
         console.log(err)
       })
     },
-    find(){
-      console.log(this.isLoggedIn)
-      const token = localStorage.getItem("jwt");
-      console.log(token)
-    },
     changeLog(){
       this.isLoggedIn = true;
-      console.log(this.isLoggedIn)
     }
   },
   created(){
@@ -81,7 +74,6 @@ export default {
     const token = localStorage.getItem("jwt");
     if (token) {
       this.isLoggedIn = true;
-      this.$router.push({ name: "movies" });
     }
   }
 }
