@@ -45,11 +45,9 @@ export default {
   components: { MovieCard, NowMovieCard },
   computed: {
       topmoviesList() {
-          // console.log(this.$store.state.movieList)
           return this.$store.state.topmoviesList
       },
       nowmoviesList() {
-          console.log(this.$store.state.nowmoviesList)
           return this.$store.state.nowmoviesList
       },
   },
@@ -66,18 +64,17 @@ export default {
     white-space: nowrap;
     }
 .movie_list::-webkit-scrollbar{
-    background-color: rgb(33, 37, 41)
+    background-color: rgb(33, 37, 41);
+    
 }
 .movie_list::-webkit-scrollbar-thumb{
-    background-color: white
+    background-color: white;
 }
 .list{
-  border: 1px solid black;
   /* justify-content: center;
   display: flex;
   justify-content: center;
   align-items: center; */
   display: inline-block;
-
 }
 </style>

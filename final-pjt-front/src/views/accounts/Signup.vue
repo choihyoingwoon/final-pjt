@@ -1,28 +1,38 @@
 <template>
-    <div>
-      <h1>Signup</h1>
-      <div>
-        <label for="username">사용자 이름: </label>
-        <input type="text" id="username" v-model="credentials.username" />
+    <div class="signup bg-dark">
+      <div class="mainsignup" style="font-family:sans-serif;">
+        <h1 >Signup</h1>
+        <hr>
+        <div class="box">
+          <label for="username">사용자 이름</label>
+          <br>
+          <input type="text" id="username" v-model="credentials.username" />
+        </div>
+        <div class="box">
+          <label for="password">비밀번호</label>
+          <br>
+          <input type="password" id="password" v-model="credentials.password" />
+        </div>
+        <div class="box">
+          <label for="passwordConfirmation">비밀번호 확인</label>
+          <br>
+          <input
+            v-model="credentials.passwordConfirm"
+            @keyup.enter="signup"
+            type="password"
+            id="passwordConfirmation"
+          />
+        </div>
+        <div>
+          <label for="eamil">이메일</label>
+          <br>
+          <input type="email" id="eamil" v-model="credentials.email" />
+        </div>
+        <hr>
+        <button class="btn btn-danger" @click="signup">
+          <h4>회원가입</h4>
+        </button>
       </div>
-      <div>
-        <label for="password">비밀번호: </label>
-        <input type="password" id="password" v-model="credentials.password" />
-      </div>
-      <div>
-        <label for="passwordConfirmation">비밀번호 확인: </label>
-        <input
-          v-model="credentials.passwordConfirm"
-          @keyup.enter="signup"
-          type="password"
-          id="passwordConfirmation"
-        />
-      </div>
-      <div>
-        <label for="eamil">이메일 : </label>
-        <input type="email" id="eamil" v-model="credentials.email" />
-      </div>
-      <button @click="signup">회원가입</button>
     </div>
   </template>
   
@@ -59,4 +69,33 @@
     },
   };
   </script>
+  <style>
+  .signup{
+    margin-top: 55px;
+    height: 100vh;
+    color: white;
+    position: relative;
+  }
+  .mainsignup{
+    line-height: 30px;
+    position:absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+    text-align: left;
+    width: 50%;
+  }
+  input{
+    width: 100%;
+
+  }
+  .btn{
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+  }
+  .box{
+    margin-bottom: 15px;
+  }
+</style>
   

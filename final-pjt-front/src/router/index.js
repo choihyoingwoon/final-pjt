@@ -4,13 +4,13 @@ import MovieView from '../views/movieView.vue'
 import MovieDetail from '../views/movieDetail.vue'
 import Signup from '@/views/accounts/Signup'
 import Login from '@/views/accounts/Login'
-
+import Community from '@/views/Community'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/movies',
+    path: '/',
     name: 'movies',
     component: MovieView
   },
@@ -28,6 +28,11 @@ const routes = [
     path: '/accounts/login',
     name: 'Login',
     component: Login,
+  },
+  {
+    path: '/community',
+    name: 'community',
+    component: Community,
   },
 
 

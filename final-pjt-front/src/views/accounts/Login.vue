@@ -1,20 +1,26 @@
 <template>
-    <div>
-      <h1>Login</h1>
-      <div>
-        <label for="username">사용자 이름: </label>
-        <input type="text" id="username" v-model="credentials.username" />
+    <div class="signup bg-dark">
+      <div class="mainsignup" style="font-family:sans-serif;">
+        <h1>Login</h1>
+        <hr>
+        <div class="box">
+          <label for="username">사용자 이름</label>
+          <br>
+          <input type="text" id="username" v-model="credentials.username" />
+        </div>
+        <div class="box">
+          <label for="password">비밀번호</label>
+          <br>
+          <input
+            type="password"
+            id="password"
+            v-model="credentials.password"
+            @keyup.enter="login"
+          />
+        </div>
+        <hr>
+        <button class="btn btn-danger" @click="login">로그인</button>
       </div>
-      <div>
-        <label for="password">비밀번호: </label>
-        <input
-          type="password"
-          id="password"
-          v-model="credentials.password"
-          @keyup.enter="login"
-        />
-      </div>
-      <button @click="login">로그인</button>
     </div>
   </template>
   
@@ -39,12 +45,18 @@
           data: this.credentials,
         })
           .then((res) => {
+            this.$store.state.user=this.credentials.username
+            console.log(this.$store.state.user)
             localStorage.setItem("jwt", res.data.access);
             this.$emit("login");
             this.$router.push({ name: "movies" });
           })
           .catch((err) => {
-            console.log(err);
+            if (err.message==="Request failed with status code 400"){
+              alert("사용자 이름이나 비밀번호를 입력하세요!!!")
+            }else{
+              alert("사용자 이름이나 비밀번호를 정확하게 입력하세요!!!")
+            }
           });
       },
     },
