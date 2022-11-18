@@ -1,6 +1,6 @@
 <template>
         <div class="close-image">
-        <iframe width="900px" height="600px" :src=movieVideo frameborder="0"></iframe>
+        <iframe width="750px" height="500px" :src=movieVideo frameborder="0"></iframe>
       </div>
 </template>
 

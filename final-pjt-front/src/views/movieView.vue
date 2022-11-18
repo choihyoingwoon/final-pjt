@@ -76,5 +76,6 @@ export default {
   justify-content: center;
   align-items: center; */
   display: inline-block;
+  padding-left: 20px;
 }
 </style>
