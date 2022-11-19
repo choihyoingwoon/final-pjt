@@ -5,7 +5,7 @@
       <h1 style="font-family: 'BMDOHYEON'; color:red">Netflix</h1>
       <div>
         <b-navbar toggleable="lg" type="dark" variant="dark" style="font-family: 'BMDOHYEON'; padding-left:20px; padding-right:20px; ">
-      <b-navbar-brand>NavBar</b-navbar-brand>
+      <b-navbar-brand>SSAFY</b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" style="justify-content: space-between;" is-nav>
         <b-navbar-nav>

@@ -1,6 +1,6 @@
 <template>
     <div class="cardmove" @click="getDetail(movie)" >
-  <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="card imgs" alt="...">
+  <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="imgs card" style="height: 360px; width:240px; border-radius: 20px;" alt="...">
   </div>
 </template>
 
@@ -24,7 +24,7 @@ methods:{
   height: 100%;
   position: absolute; top:0; left:0;
   border: 2px solid white;
-  margin:0
+  margin:0;
 }
 .cardmove:hover{
     transform: scale(1.1);
@@ -40,10 +40,12 @@ methods:{
   margin: 20px;
   display: flex;
   justify-content: center;
+  
 
 }
 .imgs{
   margin: 0;
   padding: 0;
+  
 }
 </style>
