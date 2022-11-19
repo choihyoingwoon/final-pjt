@@ -3,41 +3,40 @@
     <div class="user-image" >
         <img @click="imgclick()"  :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" class="img" alt="...">
     </div>
-    
     <div class="user-text" :class="{ activetext : popupView,recommendactive:!recommendcheck}">
         <img @click="getRecommendations()" :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="poster" alt="...">
         <div style="text-align:left;">
-            <h1>{{movie.title}}</h1>
+            <h1 style="font-family: 'BMHANNAPro';">{{movie.title}}</h1>
             <!-- <div style="display:flex;">
                 <h4>{{movie.genres[0]}}</h4>
                 <div v-for="(genre,index) in movie.genres" :key="index" style="margin-right:10px;">
                     <button class="btn btn-success">{{genre}}</button>
                 </div>
             </div> -->
-            <div>
-                <h4>인기 : {{movie.popularity}}</h4>
+            <div style="font-family:'BMHANNAAir';">
+                <h4 >인기 : {{movie.popularity}}</h4>
                 <h4>개봉일 : {{movie.release_date}}</h4>
-                <h4>평점 : {{movie.vote_average}}</h4>
-                <p>{{movie.overview}}</p>
-                <button class="btn btn-danger" @click="movieVideo(movie), openYoutube()">예고편 보기</button>
-                <button class="btn btn-danger" @click="getRecommendations()">비슷한 영화 추천</button>
+                <h4>평점 : {{movie.vote_average}}점</h4>
+                <p style="word-break:keep-all">{{movie.overview}}</p>
+                <button class="btn btn-danger" style="font-family: 'BMDOHYEON';" @click="movieVideo(movie), openYoutube()">예고편 보기</button>
+                <button class="btn btn-danger" style="font-family: 'BMDOHYEON';" @click="getRecommendations()">비슷한 영화 추천</button>
               </div>
         </div>
     </div>
     <div class="popup-view" :class="{ active : popupView }">
       <pop-up @close-popup="openPopup()"></pop-up>
-      <button class="btn btn-danger" @click="movieVideo(movie), openYoutube()">예고편 끄기</button>
+      <button class="btn btn-danger" style="font-family: 'BMDOHYEON';" @click="movieVideo(movie), openYoutube()">예고편 끄기</button>
     </div>
     <b-col class="reco" align-self="center" :class="{recommendactive:recommendcheck}">
           <div>
-            <h3 style="color:white">{{movie.title}}과 비슷한 영화</h3>
+            <h3 style="color:white; font-family: 'BMHANNAPro';">{{movie.title}}과 비슷한 영화</h3>
             <div class="movie_list" style="display:scroll;" >
               <recommendMovieCard
                   v-for="movie in recommendations" :key="movie.pk"
                   :movie="movie"
               />
             </div>
-            <button class="btn btn-danger" @click="imgclick()" style="width:50%">추천 영화 끄기</button>
+            <button class="btn btn-danger"  @click="imgclick()" style="width:50%; font-family: 'BMDOHYEON';">추천 영화 끄기</button>
           </div>
       </b-col>
   </div>

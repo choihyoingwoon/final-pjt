@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <div>
-  <b-navbar fixed="top" toggleable="lg" type="dark" variant="dark" style="padding-left:20px; padding-right:20px; ">
+      <b-navbar fixed="top" toggleable="lg" type="dark" variant="dark" style="font-family: 'BMDOHYEON'; padding-left:20px; padding-right:20px; ">
+          <img alt="logo" src="@/assets/logo.png">
     <b-navbar-brand>NavBar</b-navbar-brand>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
     <b-collapse id="nav-collapse" style="justify-content: space-between;" is-nav>
@@ -13,6 +14,7 @@
       <b-navbar-nav>
           <b-nav-item v-show="!isLoggedIn" href='/accounts/signup' >Signup</b-nav-item>
           <b-nav-item v-show="!isLoggedIn" href='/accounts/login'>Login</b-nav-item>
+          <b-navbar-brand v-show="isLoggedIn">{{userName}}님 환영합니다</b-navbar-brand>
           <b-nav-item v-show="isLoggedIn" @click="logout" href='#'>Logout</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
@@ -32,7 +34,11 @@ export default {
       isLoggedIn: false,
     };
   },
-
+  computed:{
+    userName() {
+          return this.$store.state.user
+      },
+  },
   methods:{
     logout() {
       this.isLoggedIn = false;
@@ -105,4 +111,21 @@ nav a.router-link-exact-active {
 .active{
   display: '';
 }
+@font-face{
+  font-family: 'BMDOHYEON';
+  src:url('assets/BMDOHYEON_ttf.ttf')
+}
+@font-face{
+  font-family: 'BMHANNAPro';
+  src:url('assets/BMHANNAPro.ttf')
+}
+@font-face{
+  font-family: 'BMJUA';
+  src:url('assets/BMJUA_ttf.ttf')
+}
+@font-face{
+  font-family: 'BMHANNAAir';
+  src:url('assets/BMHANNAAir_ttf.ttf')
+}
+
 </style>

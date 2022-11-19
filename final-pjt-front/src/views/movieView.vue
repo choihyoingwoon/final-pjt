@@ -2,7 +2,7 @@
   <div style="display: flex;">
     <b-container class="bg-dark" fluid style="padding:15px; padding-top:65px; ">
       <b-col align-self="center">
-          <h1 style="color:white;">최신영화</h1>
+          <h1 style="color:white; font-family: 'BMHANNAPro';">최신영화</h1>
           <div>
             <div class="movie_list" >
               <NowMovieCard
@@ -15,7 +15,7 @@
       </b-col>
       <br>
       <b-col align-self="center">
-        <h1 style="color:white;">영화 목록</h1>
+        <h1 style="color:white; font-family: 'BMHANNAPro';">영화 목록</h1>
         <div style="text-align:center;">
 
           <div class="list"> 
@@ -64,7 +64,7 @@ export default {
     white-space: nowrap;
     }
 .movie_list::-webkit-scrollbar{
-    background-color: rgb(33, 37, 41);
+  opacity: 0;
     
 }
 .movie_list::-webkit-scrollbar-thumb{
