@@ -1,15 +1,15 @@
 <template>
     <div class="signup bg-dark">
       <div class="mainsignup" style="font-family:sans-serif;">
-        <h1>Login</h1>
+        <h1 style="font-family: 'BMDOHYEON';">Login</h1>
         <hr>
         <div class="box">
-          <label for="username">사용자 이름</label>
+          <label for="username" style="font-family: 'BMDOHYEON';">사용자 이름</label>
           <br>
           <input type="text" id="username" v-model="credentials.username" />
         </div>
         <div class="box">
-          <label for="password">비밀번호</label>
+          <label for="password" style="font-family: 'BMDOHYEON';">비밀번호</label>
           <br>
           <input
             type="password"
@@ -19,7 +19,7 @@
           />
         </div>
         <hr>
-        <button class="btn btn-danger" @click="login">로그인</button>
+        <button class="btn btn-danger" @click="login" style="font-family: 'BMDOHYEON';">로그인</button>
       </div>
     </div>
   </template>

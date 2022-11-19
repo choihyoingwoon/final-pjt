@@ -1,25 +1,28 @@
 <template>
   <div id="app">
-    <div>
-      <b-navbar fixed="top" toggleable="lg" type="dark" variant="dark" style="font-family: 'BMDOHYEON'; padding-left:20px; padding-right:20px; ">
-          <img alt="logo" src="@/assets/logo.png">
-    <b-navbar-brand>NavBar</b-navbar-brand>
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-    <b-collapse id="nav-collapse" style="justify-content: space-between;" is-nav>
-      <b-navbar-nav>
-          <b-nav-item href="/">Home</b-nav-item>
-          <b-nav-item href="/community" >community</b-nav-item>
-          <b-nav-item href="/movies" >Disabled</b-nav-item>
-      </b-navbar-nav>
-      <b-navbar-nav>
-          <b-nav-item v-show="!isLoggedIn" href='/accounts/signup' >Signup</b-nav-item>
-          <b-nav-item v-show="!isLoggedIn" href='/accounts/login'>Login</b-nav-item>
-          <b-navbar-brand v-show="isLoggedIn">{{userName}}님 환영합니다</b-navbar-brand>
-          <b-nav-item v-show="isLoggedIn" @click="logout" href='#'>Logout</b-nav-item>
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
-</div>
+    <header class="bg-dark">
+      <br>
+      <h1 style="font-family: 'BMDOHYEON'; color:red">Netflix</h1>
+      <div>
+        <b-navbar toggleable="lg" type="dark" variant="dark" style="font-family: 'BMDOHYEON'; padding-left:20px; padding-right:20px; ">
+      <b-navbar-brand>NavBar</b-navbar-brand>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-collapse id="nav-collapse" style="justify-content: space-between;" is-nav>
+        <b-navbar-nav>
+            <b-nav-item href="/">Home</b-nav-item>
+            <b-nav-item href="/community" >community</b-nav-item>
+            <b-nav-item href="/movies" >Disabled</b-nav-item>
+        </b-navbar-nav>
+        <b-navbar-nav>
+            <b-nav-item v-show="!isLoggedIn" href='/accounts/signup' >Signup</b-nav-item>
+            <b-nav-item v-show="!isLoggedIn" href='/accounts/login'>Login</b-nav-item>
+            <b-navbar-brand v-show="isLoggedIn">{{userName}}님 환영합니다</b-navbar-brand>
+            <b-nav-item v-show="isLoggedIn" @click="logout" href='#'>Logout</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+      </div>
+    </header>
 
     <router-view @login="changeLog" />
   </div>
@@ -127,5 +130,11 @@ nav a.router-link-exact-active {
   font-family: 'BMHANNAAir';
   src:url('assets/BMHANNAAir_ttf.ttf')
 }
-
+header {
+  position: sticky;
+  top: 0px; /* 도달했을때 고정시킬 위치 */
+  padding: 5px;
+  background-color: gold;
+  z-index: 10;
+}
 </style>

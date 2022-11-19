@@ -1,8 +1,8 @@
 <template>
   <div style="display: flex;">
-    <b-container class="bg-dark" fluid style="padding:15px; padding-top:65px; ">
+    <b-container class="bg-dark" fluid style="padding:15px;">
       <b-col align-self="center">
-          <h1 style="color:white; font-family: 'BMHANNAPro';">최신영화</h1>
+          <h2 style="color:white; font-family: 'BMHANNAPro';">최신영화</h2>
           <div>
             <div class="movie_list" >
               <NowMovieCard
@@ -15,7 +15,7 @@
       </b-col>
       <br>
       <b-col align-self="center">
-        <h1 style="color:white; font-family: 'BMHANNAPro';">영화 목록</h1>
+        <h2 style="color:white; font-family: 'BMHANNAPro';">영화 목록</h2>
         <div style="text-align:center;">
 
           <div class="list"> 
