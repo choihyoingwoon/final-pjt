@@ -29,7 +29,10 @@
     </div>
     <b-col class="reco" align-self="center" :class="{recommendactive:recommendcheck}">
           <div>
-            <h3 style="color:white; font-family: 'BMHANNAPro';">{{movie.title}}과 비슷한 영화</h3>
+            <h3 style="color:white; font-family: 'BMHANNAPro';">
+              {{movie.title}}과(와) <span style="color:red"><img src="@/assets/sparkling.gif" style="height:30px; margin:0; padding:0;" alt="">비슷한<img src="@/assets/sparkling.gif" style="height:30px; margin:0; padding:0;" alt=""></span> 영화
+            </h3>
+            
             <div class="movie_list" style="display:scroll;" >
               <recommendMovieCard
                   v-for="movie in recommendations" :key="movie.pk"
@@ -162,7 +165,6 @@ created(){
     width:100%;
 
     position: relative;
-    margin-top: 55px;
 }
 .img{
     /* position:fixed;
@@ -184,7 +186,7 @@ created(){
 }
 .reco{
   position:absolute;
-    top: 20%;
+    top: 10%;
     width:100%;
     display: block;
 }

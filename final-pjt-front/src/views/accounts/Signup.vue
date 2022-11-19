@@ -1,20 +1,20 @@
 <template>
     <div class="signup bg-dark">
       <div class="mainsignup" style="font-family:sans-serif;">
-        <h1 >Signup</h1>
+        <h1 style="font-family: 'BMDOHYEON';">Signup</h1>
         <hr>
         <div class="box">
-          <label for="username">사용자 이름</label>
+          <label for="username" style="font-family: 'BMDOHYEON';">사용자 이름</label>
           <br>
           <input type="text" id="username" v-model="credentials.username" />
         </div>
         <div class="box">
-          <label for="password">비밀번호</label>
+          <label for="password" style="font-family: 'BMDOHYEON';">비밀번호</label>
           <br>
           <input type="password" id="password" v-model="credentials.password" />
         </div>
         <div class="box">
-          <label for="passwordConfirmation">비밀번호 확인</label>
+          <label for="passwordConfirmation" style="font-family: 'BMDOHYEON';">비밀번호 확인</label>
           <br>
           <input
             v-model="credentials.passwordConfirm"
@@ -24,13 +24,13 @@
           />
         </div>
         <div>
-          <label for="eamil">이메일</label>
+          <label for="eamil" style="font-family: 'BMDOHYEON';">이메일</label>
           <br>
           <input type="email" id="eamil" v-model="credentials.email" />
         </div>
         <hr>
-        <button class="btn btn-danger" @click="signup">
-          <h4>회원가입</h4>
+        <button class="btn btn-danger"  @click="signup">
+          <h4 >회원가입</h4>
         </button>
       </div>
     </div>
@@ -71,7 +71,6 @@
   </script>
   <style>
   .signup{
-    margin-top: 55px;
     height: 100vh;
     color: white;
     position: relative;
@@ -83,7 +82,7 @@
     left: 50%;
     transform: translate( -50%, -50% );
     text-align: left;
-    width: 50%;
+    width: 35%;
   }
   input{
     width: 100%;
