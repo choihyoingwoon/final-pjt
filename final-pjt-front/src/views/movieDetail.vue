@@ -1,18 +1,15 @@
 <template>
   <div class="user-wrap bg-dark" style="height:100%">
-    <div class="user-image" >
-        <img @click="imgclick()"  :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" class="img" alt="...">
-    </div>
+    <img @click="imgclick()"  :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" class="img" alt="...">
     <div class="user-text" :class="{ activetext : popupView,recommendactive:!recommendcheck}">
         <img @click="getRecommendations()" :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="poster" alt="...">
         <div style="text-align:left;">
             <h1 style="font-family: 'BMHANNAPro';">{{movie.title}}</h1>
-            <!-- <div style="display:flex;">
-                <h4>{{movie.genres[0]}}</h4>
+            <div style="display:flex; margin-bottom:15px;">
                 <div v-for="(genre,index) in movie.genres" :key="index" style="margin-right:10px;">
-                    <button class="btn btn-success">{{genre}}</button>
+                    <button class="btn btn-success" style="height:40px;">{{genre}}</button>
                 </div>
-            </div> -->
+            </div>
             <div style="font-family:'BMHANNAAir';">
                 <h4 >인기 : {{movie.popularity}}</h4>
                 <h4>개봉일 : {{movie.release_date}}</h4>
@@ -66,6 +63,18 @@ export default {
         }
     },
     methods: {
+      getGenres:function(){
+      axios({
+        method:'get',
+        url:'http://127.0.0.1:8000/movies/top_movies/',
+      })
+      .then(res=>{
+        this.$store.state.topmoviesList = res.data
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+    },
     getDetail1() {
       const movie_id = this.$route.params.id
       // console.log(typeof(movie_id))
