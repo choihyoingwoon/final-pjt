@@ -5,10 +5,12 @@
         <img @click="getRecommendations()" :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="poster" alt="...">
         <div style="text-align:left;">
             <h1 style="font-family: 'BMHANNAPro';">{{movie.title}}</h1>
-            <div style="display:flex; margin-bottom:15px;">
+            <div style="display:flex;  margin-bottom:15px;">
                 <div v-for="(genre,index) in movie.genres" :key="index" style="margin-right:10px;">
-                    <button class="btn btn-success" style="height:40px;">{{genre}}</button>
+                    <button class="btn btn-success" style="height:40px; ">{{genrenames[genre]}}</button>
                 </div>
+                <button v-show="!isPicked" @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;">PICK!</button>
+                <button v-show="isPicked" @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;">Cancel!</button>
             </div>
             <div style="font-family:'BMHANNAAir';">
                 <h4 >인기 : {{movie.popularity}}</h4>
@@ -52,14 +54,27 @@ export default {
     name: 'MovieDetail',
     components:{
     PopUp,recommendMovieCard,
-  },
+    },
+    computed: {
+      genrenames() {
+        
+      const genrelist =  {28 : "액션", 12:"모험", 16:"애니메이션",
+      35:"코미디", 80:"범죄", 99:"다큐멘터리", 18:"드라마",
+      10751:"가족", 14:"판타지", 36:"역사", 27:"공포",
+      10402:"음악", 9648:"미스터리", 10749:"로맨스", 878:"SF",
+      10770:"TV 영화", 53:"스릴러", 10752:"전쟁", 37:"서부"}
+      return genrelist
+
+      }
+    },
     data(){
         return{
             movie:[],
             video:null,
             popupView:false,
             recommendcheck:true,
-            recommendations:[]
+            recommendations:[],
+            isPicked: false,
         }
     },
     methods: {
@@ -151,6 +166,11 @@ export default {
     imgclick(){
       this.recommendcheck=true
       this.popupView=false
+    },
+    addmymovie(){
+      this.isPicked = !this.isPicked
+      this.$store.dispatch('addMovie', this.movie)
+      console.log(this.$store.state.likeList)
     }
 },
 created(){

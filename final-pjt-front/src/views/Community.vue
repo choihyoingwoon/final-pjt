@@ -18,11 +18,34 @@
     <button class="btn btn-danger" @click="createCommunity"><h4>create</h4></button>
     </div>
     <hr>
+    <!-- <div class="flex" id="article">
+      <h4>번호</h4>
+      <h4>제목</h4>
+      <h4>작성자</h4>
+    </div>
     <ul>
-        <li v-for="community in communities" :key="community.id">
-            {{community.title}}
-        </li>
-    </ul>
+        <div id= "articlelist" v-for="community in communities" :key="community.id">
+          <h5>{{community.id}}</h5>  
+          <h5>{{community.title}}</h5>
+          <h5>{{community.user.username}}</h5>
+        </div>
+    </ul> -->
+    <table class="table table-dark table-striped" id="table">
+      <thead>
+        <tr>
+          <th scope="col">번호</th>
+          <th scope="col">제목</th>
+          <th scope="col">작성자</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="community in communities" :key="community.id" >
+          <th scope="row">{{community.id}}</th>
+          <td>{{community.title}}</td>
+          <td>{{community.user.username}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -117,4 +140,21 @@ export default {
 .active1{
     display:none;
 }
+
+#article {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 30px;
+}
+
+#articlelist {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 30px;
+}
+
+#table{
+  color: white;
+}
 </style>
+
