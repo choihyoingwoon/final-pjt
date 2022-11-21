@@ -20,16 +20,23 @@ export default new Vuex.Store({
   },
   mutations: {
     ADD_MOVIE(state, movie) {
-      if (state.likeList.includes(movie)) {
-        state.likeList.splice(0,1)
-      } else {
-        state.likeList.push(movie)
-      }
+      for(let i = 0; i < state.likeList.length; i++) {
+          if(state.likeList[i].id === movie.id) {
+            return
+          }
+        }
+      state.likeList.push(movie)
+    },
+    ALL_DELETE(state) {
+      state.likeList = []
     }
   },
   actions: {
     addMovie(context, movie){
       context.commit('ADD_MOVIE', movie)
+    },
+    alldelete(context) {
+      context.commit('ALL_DELETE')
     }
   },
   modules: {
