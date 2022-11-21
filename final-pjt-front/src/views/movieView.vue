@@ -9,9 +9,8 @@
       </div>
       <div style="margin-top:20px;">
         <h2 style="color:white; font-family: 'BMHANNAPro'; margin-left:20px;">{{genrename}} 영화</h2>
-        <div v-dragscroll class="movie_list"  style="width:100%;">
+        <div class="movie_list"  style="width:100%;">
           <NowMovieCard
-            v-dragscroll
             v-for="movie in arr"
             :key="movie.id" 
             :movie="movie"

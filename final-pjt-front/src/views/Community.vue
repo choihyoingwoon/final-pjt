@@ -1,5 +1,5 @@
 <template>
-  <div class="bodycss bg-dark">
+  <div class="signup bg-dark">
     <br>
     <h1 style="font-family: 'BMHANNAPro';">Community</h1>
     <hr>

@@ -1,10 +1,8 @@
 import Vue from 'vue'
-import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-import VueDragscroll from "vue-dragscroll";
 
 // Import Bootstrap and BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'
@@ -21,8 +19,3 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
-
-const app = createApp(App);
-  
-app.use(VueDragscroll);
-app.mount('#app')
