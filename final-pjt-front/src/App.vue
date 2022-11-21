@@ -138,4 +138,9 @@ header {
   background-color: gold;
   z-index: 10;
 }
+.bodycss{
+    height: 100%;
+    color: white;
+    position: relative;
+  }
 </style>
