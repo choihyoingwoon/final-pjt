@@ -15,7 +15,11 @@ export default new Vuex.Store({
   },
   mutations: {
     ADD_MOVIE(state, movie) {
-      state.likeList.push(movie)
+      if (state.likeList.includes(movie)) {
+        state.likeList.splice(0,1)
+      } else {
+        state.likeList.push(movie)
+      }
     }
   },
   actions: {

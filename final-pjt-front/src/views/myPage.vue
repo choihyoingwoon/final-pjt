@@ -1,7 +1,7 @@
 <template>
   <div class="bg-dark">
     <br>
-    <button @click="확인용">확인용</button>
+    <button @click="ddd">확인용</button>
     <h1 style="color:white;">My Page</h1>
     <div v-for="movie in likeList" :key="movie.id">
         <p>{{movie.title}}</p>
@@ -20,7 +20,7 @@ export default {
         }
     },
     methods: {
-        확인용() {
+        ddd() {
             console.log(this.$store.state.likeList)
         }
     }
