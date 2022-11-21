@@ -40,10 +40,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="community in communities" :key="community.id" @click="gocommunityDetail(community)" >
+        <tr v-for="community in communities" :key="community.id" >
           <th scope="row">{{community.id}}</th>
-          <td>{{community.title}}</td>
+          <td >{{community.title}}</td>
           <td>{{community.user.username}}</td>
+          <button @click="gocommunityDetail(community)">자세히</button>
         </tr>
       </tbody>
     </table>
@@ -126,15 +127,18 @@ export default {
     },
     reload:function(){
       this.$router.go()
-    }
+    },
+    gocommunityDetail : function(community){
+      this.$store.state.communityDetail=community
+      console.log(this.$store.state.communityDetail)
+      this.$router.push({ name: "communitydDetail"});
+    },
 
     },
     created:function(){
         this.getCommunity();
     },
-    gocommunityDetail:function(community){
-      this.$store.state.communityDetail=community
-    }
+
 }
 </script>
 

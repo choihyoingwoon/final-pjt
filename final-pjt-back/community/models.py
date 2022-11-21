@@ -12,7 +12,7 @@ class Community(models.Model):
 
 class Comment(models.Model):
     community = models.ForeignKey(Community, on_delete=models.CASCADE, related_name="comments")
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="comments"),
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE),
     content = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
