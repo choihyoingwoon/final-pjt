@@ -1,16 +1,21 @@
 <template>
   <div class="user-wrap bg-dark" style="height:100vh; font-family: 'BMHANNAAir';">
     <div class="commutext">
-      <div class="d-flex justify-content-between" style="display:flex;">
+      <div style="text-align: center;">
         <h1 style="font-family: 'BMHANNAPro';">{{communityDetail.title}}</h1>
-        <span style="text-align:right">
-          <h6>작성자 : {{communityDetail.user.username}}</h6>
-          <h6>작성일자 : {{communityDetail.created_at}}</h6>
-          <h6>수정일자 : {{communityDetail.updated_at}}</h6>
-        </span>
       </div>
       <hr>
-      <h3>{{communityDetail.content}}</h3>
+      <div class="d-flex justify-content-between">
+        <h4>작성자 : {{communityDetail.user.username}}</h4>
+        <div>
+          <h6>작성일자 : {{communityDetail.created_at}}</h6>
+          <h6>수정일자 : {{communityDetail.updated_at}}</h6>
+        </div>
+      </div>
+      <hr>
+      <div style="width:90%; height:400px; margin: auto; padding: 10px;">
+        <h3>{{communityDetail.content}}</h3>
+      </div>
       <hr>
       <h1>댓글</h1>
       <input style="width:100%;" placeholder="댓글(악플은 안돼용)" @keyup.enter ="createComment" type="text" v-model.trim="comment">
@@ -24,7 +29,8 @@ export default {
   name:'communityDetail',
   data:function(){
     return{
-      comment:null
+      comment:null,
+      changecontent:null
     }
   },
   computed: {
@@ -52,7 +58,7 @@ export default {
           })
         }
       }
-    }
+    },
 }
 </script>
 
@@ -61,7 +67,7 @@ export default {
   width:70%;
   text-align: left;
   position:absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate( -50%, -50% );
     color: white;
