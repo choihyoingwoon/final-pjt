@@ -7,7 +7,7 @@ from .serializers import CommunitySerializer, CommentSerializer
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-# @login_required
+@login_required
 @api_view(['GET', 'POST'])
 def community_create(request):
     if request.method == 'GET':
