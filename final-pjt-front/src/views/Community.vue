@@ -9,13 +9,14 @@
     <div class="commucreate" :class="{'active1': !active}">
         <div>
             <h4>Title</h4>
-            <input type="text" v-model.trim="title"/>
+            <input placeholder="제목" type="text" v-model.trim="title"/>
         </div>
         <div>
+          <hr>
             <h4>Content</h4>
-            <input type="text" v-model.trim="content"/>
+            <input style="height:200px;" type="text" v-model.trim="content"/>
         </div>
-    <button class="btn btn-danger" @click="createCommunity"><h4>create</h4></button>
+    <button class="btn btn-danger" @click="[createCommunity(), reload()]"><h4>create</h4></button>
     </div>
     <hr>
     <!-- <div class="flex" id="article">
@@ -39,7 +40,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="community in communities" :key="community.id" >
+        <tr v-for="community in communities" :key="community.id" @click="gocommunityDetail(community)" >
           <th scope="row">{{community.id}}</th>
           <td>{{community.title}}</td>
           <td>{{community.user.username}}</td>
@@ -110,6 +111,7 @@ export default {
         })
           .then(() => {
             this.active =!this.active
+            console.log(this.communities)
           })
           .catch((err) => {
             console.error(err);
@@ -122,10 +124,16 @@ export default {
     activeCreate : function(){
         this.active =!this.active
     },
+    reload:function(){
+      this.$router.go()
+    }
 
     },
     created:function(){
         this.getCommunity();
+    },
+    gocommunityDetail:function(community){
+      this.$store.state.communityDetail=community
     }
 }
 </script>
