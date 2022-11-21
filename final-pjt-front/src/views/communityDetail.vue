@@ -1,5 +1,5 @@
 <template>
-  <div class="signup bg-dark" style="height:100vh; font-family: 'BMHANNAAir';">
+  <div class="signup bg-dark" style="height:300vh; font-family: 'BMHANNAAir';">
     <div class="commutext">
       <div style="text-align: center;">
         <h1 style="font-family: 'BMHANNAPro';">{{communityDetail.title}}</h1>
@@ -18,11 +18,14 @@
       </div>
       <hr>
       <h1>댓글</h1>
-      <input style="width:100%;" placeholder="댓글(악플은 안돼용)" @keyup.enter ="createComment" type="text" v-model.trim="comment">
+      <input style="width:100%; margin-bottom: 10px;" placeholder="댓글(악플은 안돼용)" @keyup.enter ="createComment" type="text" v-model.trim="comment">
       <div v-for="comment in commentList"
-      :key="comment.id">
-        <p>{{comment.content}}</p>
-        <hr>
+      :key="comment.id" style="display:flex; padding: 10px; border-bottom: 1px solid white ; border-top: 1px solid white ;" class="d-flex justify-content-between">
+        <h3>{{comment.content}}</h3>
+        <div>
+          <div style="text-align: right;">일자 : {{comment.created_at}}</div>
+          <div style="text-align: right;">작성자 : {{comment.user.username}}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -76,6 +79,9 @@ export default {
           console.log(err);
         });
     },
+    reload:function(){
+      this.$router.go()
+    },
     },
     created(){
       this.getComment()
@@ -88,7 +94,7 @@ export default {
   width:70%;
   text-align: left;
   position:absolute;
-    top: 45%;
+    top: 50%;
     left: 50%;
     transform: translate( -50%, -50% );
     color: white;
