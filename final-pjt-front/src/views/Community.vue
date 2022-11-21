@@ -14,7 +14,7 @@
         <div>
           <hr>
             <h4>Content</h4>
-            <input style="height:200px;" type="text" v-model.trim="content"/>
+            <textarea style="height:200px; width:100%" type="text" v-model.trim="content"></textarea>
         </div>
     <button style="font-family: 'BMHANNAAir';" class="btn btn-danger" @click="[createCommunity(), reload()]"><h4>create</h4></button>
     </div>
@@ -133,6 +133,7 @@ export default {
       console.log(this.$store.state.communityDetail)
       this.$router.push({ name: "communitydDetail"});
     },
+
 
     },
     created:function(){
