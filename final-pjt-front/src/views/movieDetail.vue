@@ -49,6 +49,7 @@
 import axios from 'axios'
 import PopUp from '../components/PopUp.vue'
 import recommendMovieCard from '@/components/recommendMovieCard'
+import VueJwtDecode from 'vue-jwt-decode'
 
 export default {
     name: 'MovieDetail',
@@ -72,6 +73,8 @@ export default {
             popupView:false,
             recommendcheck:true,
             recommendations:[],
+            me: [],
+            isPicked: false,
         }
     },
     methods: {
@@ -173,21 +176,56 @@ export default {
       }
       return config
     },
-    // getUserName() {
-    //   const config = this.getToken()
-    //   const token = localStorage.getItem('jwt')
-    //   const info = VueJwtDecode.decode(hash)
-    // },
-    addmymovie(){
-      this.movie.isPicked = !this.movie.isPicked
-      console.log(this.movie.isPicked)
-      this.$store.dispatch('addMovie', this.movie)
-
+    getUserName() {
+      const config = this.getToken()
+      const hash = localStorage.getItem('jwt')
+      const info = VueJwtDecode.decode(hash)
+      // console.log(info)
       
-      // const item = {
-      //   me : this.
-      // }
-      // console.log(this.$store.state.likeList)
+      axios({
+        method: 'post',
+        url: 'http://127.0.0.1:8000/accounts/mypage/',
+        data: {
+          info
+        },
+        config: config
+      })
+        .then((res) => {
+          console.log(res)
+          this.me = res.data
+          if (this.me.like_movies.includes(this.movie.id)) {
+            this.isPicked = true
+          } else {
+            this.isPicked = false
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+    addmymovie(){
+      // this.movie.isPicked = !this.movie.isPicked
+      // console.log(this.movie.isPicked)
+      // this.$store.dispatch('addMovie', this.movie)
+      const config = this.getToken()
+      const item = {
+        meId : this.me.user_id,
+        movieId : this.movie.id,
+      }
+      console.log(item)
+      axios({
+        method: 'post',
+        url: `http://127.0.0.1:8000/movies/${this.me.Id}/${this.movie.Id}/likes/`,
+        data: {
+          item, config
+        }
+      })
+        .then(() => {
+          this.getUserName()
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     }
 },
 created(){
@@ -198,6 +236,7 @@ created(){
     this.getDetail1()
   }
   this.getRecommendations()
+  this.getUserName()
 }
 }
 </script>

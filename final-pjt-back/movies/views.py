@@ -57,15 +57,29 @@ def review_update_delete(request, movie_pk, review_pk):
     return Response('본인이 작성한 글만 수정 및 삭제할 수 있습니다.')
 
 
-@login_required
+
 @api_view(['POST'])
-def likes(request, movie_pk):
-    movie = get_object_or_404(Movie, pk=movie_pk)
-    if request.user in movie.like_users.all():
-        movie.like_users.remove(request.user)
-    else:
-        movie.like_users.add(request.user)
-    context = {
-        'like_count' : movie.like_users.count()
-    }
-    return Response(context)
+def likes(request, user_pk, movie_pk):
+    if request.user.is_authenticated:
+        movie = get_object_or_404(Movie, pk=movie_pk)
+        me = get_object_or_404(get_uset_model(), pk=user.pk)
+        if me.like_movies.filter(pk=movie_pk).exists():
+            me.like_movies.remove(movie.pk)
+            isPicked=False
+        else : 
+            me.like_movies.add(movie.pk)
+            isPicked = True
+        return Response(isPicked)
+
+
+@api_view(['POST'])
+def my_like_list(request, user_pk):
+    me = get_object_or_404(get_uset_model(), pk=user.pk)
+    movie_list = []
+    for movie_pk in request.data:
+        movie = get_object_or_404(Movie, pk=movie_pk)
+        serializer = MovieSerializer(movie)
+        movie_list.append(serializer.data)
+        return Response(movie_list)
+
+
