@@ -11,7 +11,7 @@
           <button @click="alldelete" class="btn btn-danger" style="width:100px; height: 38px; ">전체 삭제</button>
           <div>
               <MovieCard
-                  v-for="movie in likeList" :key="movie.id"
+                  v-for="movie in likelist" :key="movie.id"
                   :movie="movie"
               />
           </div>
@@ -23,16 +23,21 @@
   
   <script>
   import MovieCard from '@/components/MovieCard.vue';
-  
+  import axios from 'axios'
+  import VueJwtDecode from 'vue-jwt-decode'
+
   export default {
       name: "myPage",
+      data() {
+        return {
+            likelist: [],
+            userdata: [],
+        }
+      },
       components: {
           MovieCard,
       },  
       computed: {
-          likeList() {
-              return this.$store.state.likeList
-          },
           userName() {
               return this.$store.state.user
           }
@@ -40,7 +45,49 @@
       methods: {
           alldelete() {
               this.$store.dispatch('alldelete')
-          }
+          },
+          getMyMovie() {
+            const token = localStorage.getItem('jwt')
+            const info = VueJwtDecode.decode(token)
+            axios({
+                method: 'post',
+                url: 'http://127.0.0.1:8000/accounts/mypage/',
+                data: {
+                info
+                },
+                headers: {
+                    Authorization: `Bearer ${token}`
+                },
+            })
+                .then((res) => {
+                    this.userdata = res.data
+                    const mymovies = this.userdata.like_movies
+                    axios({
+                        method: 'post',
+                        url: `http://127.0.0.1:8000/movies/${info.user_id}/likelist/`,
+                        data: {
+                            'mymovies' : mymovies,
+                        },
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        },
+
+                    })
+                        .then((res)=> {
+                            this.likelist = res.data
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
+              
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+                },
+      },
+      created() {
+        this.getMyMovie()
       }
   }
   </script>

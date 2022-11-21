@@ -9,8 +9,8 @@
                 <div v-for="(genre,index) in movie.genres" :key="index" style="margin-right:10px;">
                     <button class="btn btn-success" style="height:40px; ">{{genrenames[genre]}}</button>
                 </div>
-                <button v-if="!movie.isPicked" @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;">PICK!</button>
-                <button v-if="movie.isPicked" @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;">Cancel!</button>
+                <button v-if="!Picked" @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;">PICK!</button>
+                <button v-else @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;">Cancel!</button>
             </div>
             <div style="font-family:'BMHANNAAir';">
                 <h4 >인기 : {{movie.popularity}}</h4>
@@ -65,6 +65,9 @@ export default {
         10770:"TV 영화", 53:"스릴러", 10752:"전쟁", 37:"서부"}
         return genrelist
       },
+      Picked() {
+        return this.isPicked
+      }
     },
     data(){
         return{
@@ -74,7 +77,7 @@ export default {
             recommendcheck:true,
             recommendations:[],
             me: [],
-            isPicked: false,
+            isPicked: '',
         }
     },
     methods: {
@@ -167,36 +170,31 @@ export default {
       this.recommendcheck=true
       this.popupView=false
     },
-    getToken() {
+    getUserInfo() {
       const token = localStorage.getItem('jwt')
-      const config = {
-        headers: {
-          Authorization: `JWT ${token}`
-        },
-      }
-      return config
-    },
-    getUserName() {
-      const config = this.getToken()
-      const hash = localStorage.getItem('jwt')
-      const info = VueJwtDecode.decode(hash)
+      const info = VueJwtDecode.decode(token)
       // console.log(info)
-      
+      // const user_id = info.user_id
       axios({
         method: 'post',
         url: 'http://127.0.0.1:8000/accounts/mypage/',
         data: {
           info
         },
-        config: config
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
       })
         .then((res) => {
           console.log(res)
           this.me = res.data
+          console.log(this.me)
           if (this.me.like_movies.includes(this.movie.id)) {
             this.isPicked = true
+            console.log(1)
           } else {
             this.isPicked = false
+            console.log(0)
           }
         })
         .catch((err) => {
@@ -204,24 +202,26 @@ export default {
         })
     },
     addmymovie(){
-      // this.movie.isPicked = !this.movie.isPicked
-      // console.log(this.movie.isPicked)
       // this.$store.dispatch('addMovie', this.movie)
-      const config = this.getToken()
+      const token = localStorage.getItem('jwt')
+      const info = VueJwtDecode.decode(token)
       const item = {
-        meId : this.me.user_id,
+        meId : info.user_id,
         movieId : this.movie.id,
       }
-      console.log(item)
+      // console.log(item)
       axios({
         method: 'post',
-        url: `http://127.0.0.1:8000/movies/${this.me.Id}/${this.movie.Id}/likes/`,
+        url: `http://127.0.0.1:8000/movies/${info.user_id}/${this.movie.id}/likes/`,
         data: {
-          item, config
-        }
+          item,
+        },
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
       })
         .then(() => {
-          this.getUserName()
+          this.getUserInfo()
         })
         .catch((err) => {
           console.log(err)
@@ -229,6 +229,7 @@ export default {
     }
 },
 created(){
+  this.getUserInfo()
   if (this.movie){
     this.getDetail2()
   }
@@ -236,7 +237,6 @@ created(){
     this.getDetail1()
   }
   this.getRecommendations()
-  this.getUserName()
 }
 }
 </script>

@@ -17,7 +17,7 @@
             <b-nav-item v-show="!isLoggedIn" href='/accounts/signup' >Signup</b-nav-item>
             <b-nav-item v-show="!isLoggedIn" href='/accounts/login'>Login</b-nav-item>
             <b-navbar-brand v-show="isLoggedIn">{{userName}}님 환영합니다</b-navbar-brand>
-            <b-nav-item href="/mypage" v-show="isLoggedIn">MyPage</b-nav-item>
+            <b-nav-item href="/accounts/mypage" v-show="isLoggedIn">MyPage</b-nav-item>
             <b-nav-item v-show="isLoggedIn" @click="logout" href='#'>Logout</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
