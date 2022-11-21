@@ -14,7 +14,7 @@ export default new Vuex.Store({
     movieVideo:[],
     user:null,
     likeList : [],
-    communityDetail:[]
+    communityDetail:[],
   },
   getters: {
   },

@@ -6,6 +6,7 @@ import Signup from '@/views/accounts/Signup'
 import Login from '@/views/accounts/Login'
 import Community from '@/views/Community'
 import myPage from '@/views/myPage'
+import communitydetail from '@/views/communityDetail.vue'
 
 Vue.use(VueRouter)
 
@@ -39,6 +40,11 @@ const routes = [
     path: '/mypage',
     name: 'mypage',
     component: myPage,
+  },
+  {
+    path: '/communitydetail',
+    name: 'communitydDetail',
+    component: communitydetail,
   },
 
 
