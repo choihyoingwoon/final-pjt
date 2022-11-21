@@ -1,12 +1,12 @@
 <template>
-  <div class="signup bg-dark">
+  <div class="bodycss bg-dark">
     <br>
-    <h1>Community</h1>
+    <h1 style="font-family: 'BMHANNAPro';">Community</h1>
     <hr>
     <div class="commucreate" :class="{'active1': active}">
-        <button class="btn btn-danger"  @click="activeCreate"><h4>create</h4></button>
+        <button style="font-family: 'BMHANNAAir';" class="btn btn-danger"  @click="activeCreate"><h4>create</h4></button>
     </div>
-    <div class="commucreate" :class="{'active1': !active}">
+    <div style="font-family: 'BMHANNAPro';" class="commucreate" :class="{'active1': !active}">
         <div>
             <h4>Title</h4>
             <input placeholder="제목" type="text" v-model.trim="title"/>
@@ -16,7 +16,7 @@
             <h4>Content</h4>
             <input style="height:200px;" type="text" v-model.trim="content"/>
         </div>
-    <button class="btn btn-danger" @click="[createCommunity(), reload()]"><h4>create</h4></button>
+    <button style="font-family: 'BMHANNAAir';" class="btn btn-danger" @click="[createCommunity(), reload()]"><h4>create</h4></button>
     </div>
     <hr>
     <!-- <div class="flex" id="article">
@@ -31,20 +31,20 @@
           <h5>{{community.user.username}}</h5>
         </div>
     </ul> -->
-    <table class="table table-dark table-striped" id="table">
+    <table class="table table-dark table-bordered table-striped" id="table" style="width:60%; margin: auto;">
       <thead>
-        <tr>
-          <th scope="col">번호</th>
-          <th scope="col">제목</th>
-          <th scope="col">작성자</th>
+        <tr style="font-family: 'BMHANNAPro';">
+          <th scope="col" style="width:100px; height: 70px;"><h3>번호</h3></th>
+          <th scope="col"><h3>제목</h3></th>
+          <th scope="col" style="width:15%;"><h3>작성일자</h3></th>
         </tr>
       </thead>
-      <tbody>
-        <tr v-for="community in communities" :key="community.id" >
-          <th scope="row">{{community.id}}</th>
-          <td >{{community.title}}</td>
-          <td>{{community.user.username}}</td>
-          <button @click="gocommunityDetail(community)">자세히</button>
+      <tbody style="font-family: 'BMHANNAAir';">
+        <tr v-for="community in communities" :key="community.id" @click="gocommunityDetail(community)" >
+          <th style="padding-top:30px !important;" scope="row"><h1>{{community.id}}</h1></th>
+          <td><h3>{{community.title}}</h3><p>작성자 : {{community.user.username}}</p></td>
+          <th style="padding-top:25px !important;"><h4>{{community.created_at}}</h4></th>
+          <!-- <button @click="gocommunityDetail(community)">자세히</button> -->
         </tr>
       </tbody>
     </table>
@@ -167,6 +167,11 @@ export default {
 
 #table{
   color: white;
+}
+td{
+  text-align: left;
+  padding-top:20px !important;
+  padding-left:50px !important;
 }
 </style>
 

@@ -1,8 +1,8 @@
 <template>
-  <div class="user-wrap bg-dark" style="height:100vh;">
+  <div class="user-wrap bg-dark" style="height:100vh; font-family: 'BMHANNAAir';">
     <div class="commutext">
       <div class="d-flex justify-content-between" style="display:flex;">
-        <h1>제목 : {{communityDetail.title}}</h1>
+        <h1 style="font-family: 'BMHANNAPro';">{{communityDetail.title}}</h1>
         <span style="text-align:right">
           <h6>작성자 : {{communityDetail.user.username}}</h6>
           <h6>작성일자 : {{communityDetail.created_at}}</h6>
@@ -13,8 +13,7 @@
       <h3>{{communityDetail.content}}</h3>
       <hr>
       <h1>댓글</h1>
-      <input placeholder="댓글(악플은 안돼용)" @keyup.enter ="createComment" type="text" v-model.trim="comment">
-      <button @click="createComment">입력</button>
+      <input style="width:100%;" placeholder="댓글(악플은 안돼용)" @keyup.enter ="createComment" type="text" v-model.trim="comment">
     </div>
   </div>
 </template>
