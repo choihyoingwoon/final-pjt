@@ -9,8 +9,8 @@
                 <div v-for="(genre,index) in movie.genres" :key="index" style="margin-right:10px;">
                     <button class="btn btn-success" style="height:40px; ">{{genrenames[genre]}}</button>
                 </div>
-                <button v-if="!movie.isPicked" @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;">PICK!</button>
-                <button v-if="movie.isPicked" @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;">Cancel!</button>
+                <button v-show="!isPicked" @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;">PICK!</button>
+                <button v-show="isPicked" @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;">Cancel!</button>
             </div>
             <div style="font-family:'BMHANNAAir';">
                 <h4 >인기 : {{movie.popularity}}</h4>
@@ -56,14 +56,16 @@ export default {
     PopUp,recommendMovieCard,
     },
     computed: {
-      genrenames() {  
-        const genrelist =  {28 : "액션", 12:"모험", 16:"애니메이션",
-        35:"코미디", 80:"범죄", 99:"다큐멘터리", 18:"드라마",
-        10751:"가족", 14:"판타지", 36:"역사", 27:"공포",
-        10402:"음악", 9648:"미스터리", 10749:"로맨스", 878:"SF",
-        10770:"TV 영화", 53:"스릴러", 10752:"전쟁", 37:"서부"}
-        return genrelist
-      },
+      genrenames() {
+        
+      const genrelist =  {28 : "액션", 12:"모험", 16:"애니메이션",
+      35:"코미디", 80:"범죄", 99:"다큐멘터리", 18:"드라마",
+      10751:"가족", 14:"판타지", 36:"역사", 27:"공포",
+      10402:"음악", 9648:"미스터리", 10749:"로맨스", 878:"SF",
+      10770:"TV 영화", 53:"스릴러", 10752:"전쟁", 37:"서부"}
+      return genrelist
+
+      }
     },
     data(){
         return{
@@ -72,6 +74,7 @@ export default {
             popupView:false,
             recommendcheck:true,
             recommendations:[],
+            isPicked: false,
         }
     },
     methods: {
@@ -164,30 +167,10 @@ export default {
       this.recommendcheck=true
       this.popupView=false
     },
-    getToken() {
-      const token = localStorage.getItem('jwt')
-      const config = {
-        headers: {
-          Authorization: `JWT ${token}`
-        },
-      }
-      return config
-    },
-    getUserName() {
-      const config = this.getToken()
-      const token = localStorage.getItem('jwt')
-      const info = VueJwtDecode.decode(hash)
-    },
     addmymovie(){
-      this.movie.isPicked = !this.movie.isPicked
-      console.log(this.movie.isPicked)
+      this.isPicked = !this.isPicked
       this.$store.dispatch('addMovie', this.movie)
-
-      
-      // const item = {
-      //   me : this.
-      // }
-      // console.log(this.$store.state.likeList)
+      console.log(this.$store.state.likeList)
     }
 },
 created(){
