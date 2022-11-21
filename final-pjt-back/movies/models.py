@@ -20,6 +20,7 @@ class Movie(models.Model):
     genres = models.ManyToManyField(Genre, related_name="top_movies", blank=True)
     year = models.IntegerField()
     ranking = models.IntegerField()
+    isPicked = models.BooleanField()
     like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="like_movies")
 
 

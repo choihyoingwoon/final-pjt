@@ -42,6 +42,7 @@ def get_top_rated():
                     'genres' : movie.get('genre_ids'),
                     'year' : int(movie.get('release_date')[:4]),
                     'ranking' : ranking,
+                    'isPicked' : False,
                 }
             }
             result.append(movie_dict)
