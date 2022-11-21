@@ -1,5 +1,5 @@
 <template>
-  <div class="user-wrap bg-dark" style="height:100vh; font-family: 'BMHANNAAir';">
+  <div class="signup bg-dark" style="height:100vh; font-family: 'BMHANNAAir';">
     <div class="commutext">
       <div style="text-align: center;">
         <h1 style="font-family: 'BMHANNAPro';">{{communityDetail.title}}</h1>
@@ -19,6 +19,11 @@
       <hr>
       <h1>댓글</h1>
       <input style="width:100%;" placeholder="댓글(악플은 안돼용)" @keyup.enter ="createComment" type="text" v-model.trim="comment">
+      <div v-for="comment in commentList"
+      :key="comment.id">
+        <p>{{comment.content}}</p>
+        <hr>
+      </div>
     </div>
   </div>
 </template>
@@ -30,7 +35,8 @@ export default {
   data:function(){
     return{
       comment:null,
-      changecontent:null
+      changecontent:null,
+      commentList:[]
     }
   },
   computed: {
@@ -57,8 +63,23 @@ export default {
             console.log(err)
           })
         }
-      }
+      },
+      getComment: function() {
+      axios({
+        method: "get",
+        url: `http://127.0.0.1:8000/community/${this.communityDetail.id}/comment/`,
+      })
+        .then((res) => {
+          this.commentList=res.data
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
+    },
+    created(){
+      this.getComment()
+    }
 }
 </script>
 
