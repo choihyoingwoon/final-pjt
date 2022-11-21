@@ -3,6 +3,7 @@ from .serializers import UserSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from django.shortcuts import get_object_or_404
 
 
 @api_view(["POST"])
@@ -25,3 +26,10 @@ def signup(request):
         user.set_password(request.data.get("password"))
         user.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+@api_view(['POST'])
+def mypage(request):
+    user = get_object_or_404(get_user_model(), pk=request.data.get('user_id'))
+    serializer = UserSerializer(user)
+    return Response(serializer.data)
