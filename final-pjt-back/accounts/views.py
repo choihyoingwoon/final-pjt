@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
+from django.contrib.auth import get_user_model
 
 
 @api_view(["POST"])
@@ -30,6 +31,7 @@ def signup(request):
 
 @api_view(['POST'])
 def mypage(request):
-    user = get_object_or_404(get_user_model(), pk=request.data.get('user_id'))
+    info = request.data.get('info')
+    user = get_object_or_404(get_user_model(), pk=info.get('user_id'))
     serializer = UserSerializer(user)
     return Response(serializer.data)

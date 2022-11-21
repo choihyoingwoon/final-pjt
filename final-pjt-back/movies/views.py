@@ -3,8 +3,13 @@ from .models import Movie, Review
 from rest_framework import status
 from .serializers import MovieSerializer, ReviewSerializer
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+# from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user_model
+from rest_framework.decorators import api_view, permission_classes
+# from rest_framework.permissions import IsAuthenticated
+# from rest_framework_jwt.authentication import JSONWebTokenAuthentication
+
 
 
 # Create your views here.
@@ -59,27 +64,33 @@ def review_update_delete(request, movie_pk, review_pk):
 
 
 @api_view(['POST'])
+# @permission_classes([IsAuthenticated])
+# @authentication_classes([JSONWebTokenAuthentication])
 def likes(request, user_pk, movie_pk):
+    print(request.user)
     if request.user.is_authenticated:
         movie = get_object_or_404(Movie, pk=movie_pk)
-        me = get_object_or_404(get_uset_model(), pk=user.pk)
-        if me.like_movies.filter(pk=movie_pk).exists():
+        me = get_object_or_404(get_user_model(), pk=user_pk)
+        if me.like_movies.filter(pk=movie.pk).exists():
             me.like_movies.remove(movie.pk)
-            isPicked=False
+            isPicked = False
         else : 
             me.like_movies.add(movie.pk)
             isPicked = True
         return Response(isPicked)
+    else :
+        return Response('로그인필요')
 
 
 @api_view(['POST'])
-def my_like_list(request, user_pk):
-    me = get_object_or_404(get_uset_model(), pk=user.pk)
-    movie_list = []
-    for movie_pk in request.data:
-        movie = get_object_or_404(Movie, pk=movie_pk)
-        serializer = MovieSerializer(movie)
-        movie_list.append(serializer.data)
+def likelist(request, user_pk):
+    if request.user.is_authenticated:
+        me = get_object_or_404(get_user_model(), pk=user_pk)
+        movie_list = []
+        for mymovie_pk in request.data.get('mymovies'):
+            movie = get_object_or_404(Movie, pk=mymovie_pk)
+            serializer = MovieSerializer(movie)
+            movie_list.append(serializer.data)
         return Response(movie_list)
 
 
