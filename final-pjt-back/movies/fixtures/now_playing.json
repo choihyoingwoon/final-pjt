@@ -1,34 +1,13 @@
 [
   {
     "model": "movies.now_movie",
-    "pk": 505642,
-    "fields": {
-      "title": "블랙 팬서: 와칸다 포에버",
-      "overview": "국왕이자 블랙 팬서인 티찰라의 죽음 이후 수많은 강대국으로부터 위협을 받게 된 와칸다. 라몬다, 슈리 그리고 나키아, 오코예, 음바쿠는 각자 사명감을 갖고 와칸다를 지키기 위해 외로운 싸움을 이어간다. 한편, 비브라늄의 패권을 둘러싼 미스터리한 음모와 함께 깊은 해저에서 모습을 드러낸 최강의 적 네이머와 탈로칸의 전사들은 와칸다를 향해 무차별 공격을 퍼붓기 시작하는데…",
-      "popularity": 4392.866,
-      "vote_count": 597,
-      "vote_average": 7.6,
-      "release_date": "2022-11-09",
-      "poster_path": "/3PCRWLeqp5y20k6XVzcamZR3BWF.jpg",
-      "backdrop_path": "/yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg",
-      "genres": [
-        28,
-        12,
-        878
-      ],
-      "year": 2022,
-      "ranking": 1
-    }
-  },
-  {
-    "model": "movies.now_movie",
     "pk": 436270,
     "fields": {
       "title": "블랙 아담",
       "overview": "기원전 가장 번성하고 위대한 고대 국가였지만 현재는 국제 군사 조직 인터갱의 독재 국가로 전락한 칸다크. 인터갱의 눈을 피해 고대 유물을 찾던 '아드리아나'는 우연히 5000년 동안 잠들어 있던 '블랙 아담'을 깨우게 된다.  엄청난 괴력과 스피드, 방탄 능력과 자유자재의 고공비행, 번개를 쏘는 능력까지. 온몸이 무기인 '블랙 아담'은 자신의 앞을 막아서는 인터갱들을 모조리 쓸어버리고 칸다크 국민들은 이에 열광한다. 한편, 그의 폭주를 막기 위해 호크맨, 닥터 페이트, 아톰 스매셔, 사이클론으로 구성된 히어로 군단 '저스티스 소사이어티'가 칸다크에 나타나는데...",
-      "popularity": 3164.736,
-      "vote_count": 1093,
-      "vote_average": 6.9,
+      "popularity": 17020.709,
+      "vote_count": 1227,
+      "vote_average": 6.8,
       "release_date": "2022-10-19",
       "poster_path": "/mEdMHGy1FfCUc7PskFO0tibm8jp.jpg",
       "backdrop_path": "/bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg",
@@ -38,7 +17,8 @@
         878
       ],
       "year": 2022,
-      "ranking": 2
+      "ranking": 1,
+      "isPicked": false
     }
   },
   {
@@ -47,9 +27,9 @@
     "fields": {
       "title": "스마일",
       "overview": "기괴한 미소를 지으며 자신의 눈 앞에서 목숨을 끊는 환자를 목격한 정신과 의사 ‘로즈’. 그날 이후로 ‘로즈’의 일상에 설명할 수 없는 끔찍한 일들이 잇따라 발생한다. 일상을 덮친 공포에 발버둥치던 ‘로즈’는 이전에도 자신과 같은 일을 겪은 사람들이 있었고 그들 모두 끔찍한 죽음을 피할 수 없었다는 사실을 알게 된다. 시시각각 다가오는 죽음에서 벗어나기 위해 사투를 벌이던 로즈는 잊고 싶던 과거와 마주하게 되는데…",
-      "popularity": 2442.625,
-      "vote_count": 519,
-      "vote_average": 6.7,
+      "popularity": 4674.437,
+      "vote_count": 734,
+      "vote_average": 6.8,
       "release_date": "2022-10-06",
       "poster_path": "/8ncuVFt4e0M2NTTsoPtbxfWN5dO.jpg",
       "backdrop_path": "/olPXihyFeeNvnaD6IOBltgIV1FU.jpg",
@@ -59,7 +39,30 @@
         53
       ],
       "year": 2022,
-      "ranking": 3
+      "ranking": 2,
+      "isPicked": false
+    }
+  },
+  {
+    "model": "movies.now_movie",
+    "pk": 505642,
+    "fields": {
+      "title": "블랙 팬서: 와칸다 포에버",
+      "overview": "국왕이자 블랙 팬서인 티찰라의 죽음 이후 수많은 강대국으로부터 위협을 받게 된 와칸다. 라몬다, 슈리 그리고 나키아, 오코예, 음바쿠는 각자 사명감을 갖고 와칸다를 지키기 위해 외로운 싸움을 이어간다. 한편, 비브라늄의 패권을 둘러싼 미스터리한 음모와 함께 깊은 해저에서 모습을 드러낸 최강의 적 네이머와 탈로칸의 전사들은 와칸다를 향해 무차별 공격을 퍼붓기 시작하는데…",
+      "popularity": 4248.617,
+      "vote_count": 855,
+      "vote_average": 7.5,
+      "release_date": "2022-11-09",
+      "poster_path": "/3PCRWLeqp5y20k6XVzcamZR3BWF.jpg",
+      "backdrop_path": "/yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg",
+      "genres": [
+        28,
+        12,
+        878
+      ],
+      "year": 2022,
+      "ranking": 3,
+      "isPicked": false
     }
   },
   {
@@ -68,8 +71,8 @@
     "fields": {
       "title": "스파이더맨: 노 웨이 홈",
       "overview": "미스테리오의 계략으로 세상에 정체가 탄로난 스파이더맨 피터 파커는 하루 아침에 평범한 일상을 잃게 된다. 문제를 해결하기 위해 닥터 스트레인지를 찾아가 도움을 청하지만 뜻하지 않게 멀티버스가 열리면서 각기 다른 차원의 불청객들이 나타난다. 닥터 옥토퍼스를 비롯해 스파이더맨에게 깊은 원한을 가진 숙적들의 강력한 공격에 피터 파커는 사상 최악의 위기를 맞게 되는데…",
-      "popularity": 772.148,
-      "vote_count": 15825,
+      "popularity": 917.111,
+      "vote_count": 15869,
       "vote_average": 8,
       "release_date": "2021-12-15",
       "poster_path": "/voddFVdjUoAtfoZZp2RUmuZILDI.jpg",
@@ -80,27 +83,8 @@
         878
       ],
       "year": 2021,
-      "ranking": 4
-    }
-  },
-  {
-    "model": "movies.now_movie",
-    "pk": 800939,
-    "fields": {
-      "title": "티켓 투 파라다이스",
-      "overview": "한때, 미치게 사랑했지만 지금은 인생의 원수가 되어버린 이혼한 부부 ‘조지아’(줄리아 로버츠)와 ‘데이빗’(조지 클루니).  대학을 졸업하고 변호사로 대형 로펌 입사를 앞둔 딸 ‘릴리’(케이틀린 디버)가 여행지 발리에서 만난 운명 같은 사랑과 결혼을 선포하자 딸이 자신들과 같은 실수를 반복하는 걸 볼 수 없는 그들은 어쩔 수 없이 동맹을 맺고 결혼을 막으려는 계획을 세우게 된다.  그러나 거듭되는 작전에도 불구하고 딸 ‘릴리’의 결혼식은 순조롭게만 진행되고 같은 목표를 향해 합심하는 이들도 서로에게 조금씩 감정의 변화가 생기게 되는데... 이혼 커플의 딸 결혼 반대 프로젝트는 성공할 수 있을까?",
-      "popularity": 257.898,
-      "vote_count": 296,
-      "vote_average": 7,
-      "release_date": "2022-10-12",
-      "poster_path": "/sjfzr7bNLMw4u2HaTdRUxhDspuw.jpg",
-      "backdrop_path": "/ulyR4pWVMRtVcanoassVbmgfEPT.jpg",
-      "genres": [
-        10749,
-        35
-      ],
-      "year": 2022,
-      "ranking": 5
+      "ranking": 4,
+      "isPicked": false
     }
   },
   {
@@ -109,9 +93,9 @@
     "fields": {
       "title": "그 남자, 좋은 간호사",
       "overview": "과도한 업무로 지친 중환자실 간호사. 다행히 새로 온 동료가 직장과 집에서 힘이 되어주고 있다. 하지만 한 환자가 의문사를 당하면서 좋은 사람인 줄 알았던 동료 간호사가 달리 보이기 시작하는데.",
-      "popularity": 228.076,
-      "vote_count": 481,
-      "vote_average": 7.1,
+      "popularity": 286.151,
+      "vote_count": 527,
+      "vote_average": 7,
       "release_date": "2022-10-19",
       "poster_path": "/cC1wNkQpvdkQPqmY5Io9HzglrlB.jpg",
       "backdrop_path": "/rV0xrSgkOQj2EpiG8n16VHHJeg3.jpg",
@@ -121,7 +105,29 @@
         9648
       ],
       "year": 2022,
-      "ranking": 6
+      "ranking": 5,
+      "isPicked": false
+    }
+  },
+  {
+    "model": "movies.now_movie",
+    "pk": 800939,
+    "fields": {
+      "title": "티켓 투 파라다이스",
+      "overview": "한때, 미치게 사랑했지만 지금은 인생의 원수가 되어버린 이혼한 부부 ‘조지아’(줄리아 로버츠)와 ‘데이빗’(조지 클루니).  대학을 졸업하고 변호사로 대형 로펌 입사를 앞둔 딸 ‘릴리’(케이틀린 디버)가 여행지 발리에서 만난 운명 같은 사랑과 결혼을 선포하자 딸이 자신들과 같은 실수를 반복하는 걸 볼 수 없는 그들은 어쩔 수 없이 동맹을 맺고 결혼을 막으려는 계획을 세우게 된다.  그러나 거듭되는 작전에도 불구하고 딸 ‘릴리’의 결혼식은 순조롭게만 진행되고 같은 목표를 향해 합심하는 이들도 서로에게 조금씩 감정의 변화가 생기게 되는데... 이혼 커플의 딸 결혼 반대 프로젝트는 성공할 수 있을까?",
+      "popularity": 263.568,
+      "vote_count": 322,
+      "vote_average": 7,
+      "release_date": "2022-10-12",
+      "poster_path": "/sjfzr7bNLMw4u2HaTdRUxhDspuw.jpg",
+      "backdrop_path": "/ulyR4pWVMRtVcanoassVbmgfEPT.jpg",
+      "genres": [
+        10749,
+        35
+      ],
+      "year": 2022,
+      "ranking": 6,
+      "isPicked": false
     }
   },
   {
@@ -130,9 +136,9 @@
     "fields": {
       "title": "더 요트",
       "overview": "최근 가석방된 벨라 덴튼(루비 로즈)은 아버지의 동료라는 미서(프랭크 그릴로)에게서 오래전 연락이 끊긴 아버지의 죽음에 관한 소식과 자신에게 남겼다는 초호화 요트를 인수해 가라는 전화를 받고 미시시피로 향한다. 그곳에서 뜻밖의 행운을 자축하던 벨라는 세계 일주 중인 미첼(패트릭 슈왈제네거)을 만나 요트에서 함께 밤을 보낸다.  같은 시각, 괴한들이 침입해 정박 중이던 요트를 출항시키고, 망망대해에 홀로 남겨진 벨라는 요트에 감춰진 엄청난 진실을 마주하게 되는데…!",
-      "popularity": 219.264,
-      "vote_count": 40,
-      "vote_average": 6.9,
+      "popularity": 240.079,
+      "vote_count": 42,
+      "vote_average": 6.8,
       "release_date": "2022-10-20",
       "poster_path": "/lDzoW7XAi10TkGXIswqw3nMyOqd.jpg",
       "backdrop_path": "/tviTAFuCFRLElylvBAMPjdRnCDZ.jpg",
@@ -141,7 +147,8 @@
         28
       ],
       "year": 2022,
-      "ranking": 7
+      "ranking": 7,
+      "isPicked": false
     }
   },
   {
@@ -150,8 +157,8 @@
     "fields": {
       "title": "블랙 사이트",
       "overview": "터키 이스탄불의 병원 폭발 사고로 사랑하는 남편과 딸을 잃은 CIA 소속 분석가 ‘애비(미셸 모나한)’는 폭발 사고의 원인을 밝히기 위해 테러리스트를 수용하고 심문하는 블랙 사이트 ‘시타델’의 책임자가 된다. 자료를 분석하고 범인으로 의심되는 ‘파한’을 심문하던 어느 날, 살상을 일삼아 악명이 높은 ‘해쳇(제이슨 클라크)’이 공범인 것을 밝혀낸다. 결국 체포된 ‘해쳇’은 심문 도중 내부 공모자의 도움으로 시타델에서 탈출하기 위해 요원들을 제거해 나간다. 본부와의 연락도 끊기고 시설은 강제 폐쇄되면서 ‘애비’와 요원들은 고립된다. 미로와 같은 블랙 사이트에서 ‘해쳇’의 얼굴을 모르는 ‘애비’는 아무도 믿을 수 없는 목숨을 건 쫓고 쫓기는 액션이 시작되는데…",
-      "popularity": 206.273,
-      "vote_count": 136,
+      "popularity": 214.507,
+      "vote_count": 138,
       "vote_average": 6.9,
       "release_date": "2022-11-02",
       "poster_path": "/2iKZNSMGMMJMJCPBP2zanLUsdru.jpg",
@@ -161,28 +168,8 @@
         53
       ],
       "year": 2022,
-      "ranking": 8
-    }
-  },
-  {
-    "model": "movies.now_movie",
-    "pk": 682507,
-    "fields": {
-      "title": "가재가 노래하는 곳",
-      "overview": "어렸을 때 가족에게 버림받고 자연만이 유일한 친구였던 카야. 그녀가 세상과 단절된 채 성장하는 가운데, 테이트가 그녀의 마음을 두드린다. 하지만 그가 떠난 뒤, 밀려오는 외로움 속, 체이스가 그녀에게 적극적인 고백을 하고, 마음이 흔들리기 시작한다. 그러던 어느 날, 체이스는 습지에서 추락사로 싸늘한 시체로 발견되고 카야는 유력한 용의자가 되어 법정에 서게 되는데…  그녀의 비밀이 숨겨져 있는  가재가 노래하는 곳.",
-      "popularity": 138.269,
-      "vote_count": 605,
-      "vote_average": 7.7,
-      "release_date": "2022-11-02",
-      "poster_path": "/8wIKnUgj6Sa7j84FJMhDZjeFdNy.jpg",
-      "backdrop_path": "/7Y3LdmsZukXhmwxtO0UF95BFBTt.jpg",
-      "genres": [
-        18,
-        9648,
-        53
-      ],
-      "year": 2022,
-      "ranking": 9
+      "ranking": 8,
+      "isPicked": false
     }
   },
   {
@@ -191,9 +178,9 @@
     "fields": {
       "title": "헬 카운트",
       "overview": "우즈 가족이 새 집으로 이사한지 약 일주일 후 갑작스러운 정전 사고가 나고 딸 엘리가 실종된다. 어떤 단서도 없이 실종된 딸의 행방에 당황한 엄마 케이라는 조사를 하던 중 벽에 이상한 표식이 새겨져 있는 것을 발견하게 된다. 그 이후 계속되는 미스터리한 초자연적인 일을 겪은 후 그녀는 이 집 자체가 딸 엘리를 데려 갔을 거라는 결론을 내리고, 실종 직전 마지막 통화 때 딸이 향하던 지하실로 향하게 되는데...",
-      "popularity": 129.383,
-      "vote_count": 299,
-      "vote_average": 6.7,
+      "popularity": 167.123,
+      "vote_count": 302,
+      "vote_average": 6.6,
       "release_date": "2022-11-17",
       "poster_path": "/cPVe8DLpoYBycK644ZP9pu8xHMr.jpg",
       "backdrop_path": "/qViFGWCHaSmW4gP00RGh3xjMjsP.jpg",
@@ -202,7 +189,8 @@
         9648
       ],
       "year": 2022,
-      "ranking": 10
+      "ranking": 9,
+      "isPicked": false
     }
   },
   {
@@ -211,8 +199,8 @@
     "fields": {
       "title": "에브리씽 에브리웨어 올 앳 원스",
       "overview": "남편과 세탁소를 운영하며 근근히 살아가고 있는 이민자 이블린 왕. 20대 시절 남편과 순수한 사랑을 불태우며 모든 것을 뒤로 하고 미국으로 이민을 떠났지만, 50대가 된 지금은 세탁소 운영 등 온갖 일로 허덕이며 단란했던 가족과도 삐그덕거리는 등 고달프게 살고 있다. 세무조사를 받던 중 자신이 멀티버스의 여러 다른 자신들과 연결되어 있음을 알게 되고, 강력한 악의 기운으로부터 모든 우주와 가족을 구해내기 위한 모험에 나서게 되는데......",
-      "popularity": 91.749,
-      "vote_count": 2222,
+      "popularity": 121.739,
+      "vote_count": 2240,
       "vote_average": 8.1,
       "release_date": "2022-10-12",
       "poster_path": "/aCW0sC55bFnOaUBP2eUGryvAJXf.jpg",
@@ -223,7 +211,30 @@
         878
       ],
       "year": 2022,
-      "ranking": 11
+      "ranking": 10,
+      "isPicked": false
+    }
+  },
+  {
+    "model": "movies.now_movie",
+    "pk": 682507,
+    "fields": {
+      "title": "가재가 노래하는 곳",
+      "overview": "어렸을 때 가족에게 버림받고 자연만이 유일한 친구였던 카야. 그녀가 세상과 단절된 채 성장하는 가운데, 테이트가 그녀의 마음을 두드린다. 하지만 그가 떠난 뒤, 밀려오는 외로움 속, 체이스가 그녀에게 적극적인 고백을 하고, 마음이 흔들리기 시작한다. 그러던 어느 날, 체이스는 습지에서 추락사로 싸늘한 시체로 발견되고 카야는 유력한 용의자가 되어 법정에 서게 되는데…  그녀의 비밀이 숨겨져 있는  가재가 노래하는 곳.",
+      "popularity": 129.14,
+      "vote_count": 634,
+      "vote_average": 7.7,
+      "release_date": "2022-11-02",
+      "poster_path": "/8wIKnUgj6Sa7j84FJMhDZjeFdNy.jpg",
+      "backdrop_path": "/7Y3LdmsZukXhmwxtO0UF95BFBTt.jpg",
+      "genres": [
+        18,
+        9648,
+        53
+      ],
+      "year": 2022,
+      "ranking": 11,
+      "isPicked": false
     }
   },
   {
@@ -232,7 +243,7 @@
     "fields": {
       "title": "아인보: 아마존의 전설",
       "overview": "신비의 숲 아마존 깊은 곳에 위치한 칸다모 마을. 생명과 자연의 아름다움이 넘치던 칸다모는  전설 속 악마 야쿠루나의 끔찍한 저주로 위험에 빠진다.  최고의 사냥꾼을 꿈꾸는 소녀 ‘아인보’는 아마존을 구하기 위해 자칭(?) 정령 안내자 ‘딜로’와 ‘바카’와 함께 정글의 수호자 ‘모텔로 마마’를 찾아 떠난다.  아마존의 숨겨진 비밀에 다가갈수록 ‘아인보’ 자신이 생명의 땅을 되돌릴 선택 받은 존재라는 것을 알게 되는데…",
-      "popularity": 76.686,
+      "popularity": 101.714,
       "vote_count": 357,
       "vote_average": 7,
       "release_date": "2022-10-26",
@@ -245,7 +256,30 @@
         14
       ],
       "year": 2022,
-      "ranking": 12
+      "ranking": 12,
+      "isPicked": false
+    }
+  },
+  {
+    "model": "movies.now_movie",
+    "pk": 823766,
+    "fields": {
+      "title": "더 원더",
+      "overview": "대기근으로부터 13년이 흐른 1862년.  영국의 간호사 립 라이트(플로렌스 퓨)는 한 마을의  독실한 주민들로부터 부름을 받아 아일랜드 중부로 향한다.  이들의 요청은 자신들의 마을에 사는 사람 한 명을 15일간 지켜봐달라는 것이었는데,  그는 바로 열한 살의 애나 오도널(킬라 로드 캐시디).  주민들의 말에 따르면 애나가 4개월간 아무것도 먹지 않고  ‘하느님의 양식’만으로 기적적으로 생존하고 있다는 것.  하지만 애나의 건강이 급격히 악화되자 립은 믿음을 깨고 싶어 하지 않는  주민들에게 맞서 진실을 폭로하기로 결심한다.",
+      "popularity": 130.904,
+      "vote_count": 130,
+      "vote_average": 6.9,
+      "release_date": "2022-11-16",
+      "poster_path": "/npBvD1rRQHYGrxuwr2OrzXLso1w.jpg",
+      "backdrop_path": "/u5FEw1mrQ3lj2jcoSlwEa4FUONE.jpg",
+      "genres": [
+        9648,
+        53,
+        18
+      ],
+      "year": 2022,
+      "ranking": 13,
+      "isPicked": false
     }
   },
   {
@@ -254,8 +288,8 @@
     "fields": {
       "title": "미시즈 해리스 파리에 가다",
       "overview": "1957년 런던, 전쟁에 나간 남편이 돌아오길 기다리며 살고 있는 ‘해리스’는  청소부로 일하던 가정집 부인의 값비싼 디올 드레스를 발견하고 아름다움에 빠진다.  이후 오랜 시간 기다려온 남편의 전사 소식을 듣게 된 ‘해리스’는 이제는 자신을 위한 삶을 살겠다고 다짐하며 벌어온 돈을 모아 막연히 꿈만 꾸었던 디올 드레스를 사기 위해 파리 여행을 결심한다.  하지만 설레는 마음도 잠시, 파리의 디올 매장에서 무시를 당하는 등 예상치 못한 일들을 겪게 되는데…",
-      "popularity": 66.01,
-      "vote_count": 92,
+      "popularity": 75.642,
+      "vote_count": 96,
       "vote_average": 7.5,
       "release_date": "2022-11-02",
       "poster_path": "/x37ixiGQr3I6tERKb5OJfx0d0RV.jpg",
@@ -265,29 +299,8 @@
         18
       ],
       "year": 2022,
-      "ranking": 13
-    }
-  },
-  {
-    "model": "movies.now_movie",
-    "pk": 283566,
-    "fields": {
-      "title": "신 에반게리온 극장판 리피트",
-      "overview": "‘에반게리온’ 신극장판 시리즈의 제4부이자 완결편  미사토가 이끄는 반네르프 조직 ‘빌레’는 코어화로 붉게 물든 파리 구시가에 있다.  기함 AAA 분더에서 선발대가 강하하여, 남겨져 있던 봉인주에 안착한다.  복원 작전의 작업 가능 시간은 고작 720초.  결사의 작전 수행 중 ‘네르프’의 EVA가 대량으로 무리를 이루고 접근하여,  마리의 개(改) 8호기가 요격을 개시한다.  한편 신지, 아스카, 아야나미 레이 (가칭) 세 사람은 일본의 대지를 떠돌고 있다…….",
-      "popularity": 51.04,
-      "vote_count": 581,
-      "vote_average": 8.4,
-      "release_date": "2022-10-05",
-      "poster_path": "/vpfX1mGVobWlrUGqEzbA2RNPdZF.jpg",
-      "backdrop_path": "/1EAxNqdkVnp48a7NUuNBHGflowM.jpg",
-      "genres": [
-        16,
-        28,
-        878,
-        18
-      ],
-      "year": 2022,
-      "ranking": 14
+      "ranking": 14,
+      "isPicked": false
     }
   },
   {
@@ -296,7 +309,7 @@
     "fields": {
       "title": "프로메어",
       "overview": "모든 것이 불타버릴 인류에 닥친 최대 위기! 지구의 운명이 걸린 거대한 불꽃 전쟁이 펼쳐진다!  불을 다스리는 돌연변이 ‘버니쉬’의 습격을 받은 지 30년, 한층 더 강력해진 ‘매드 버니쉬’가 등장하며 지구는 또 한번 새로운 위협에 휘말리고, 이에 맞서기 위한 최정예 특수부대 ‘버닝 레스큐’가 결성된다.  불타는 혼을 지닌 ‘버닝 레스큐’ 대원 ‘갈로 티모스’는 마침내 ‘매드 버니쉬’의 수장 ‘리오 포티아’를 마주하게 되고 지구의 운명을 건 두 사람의 최강 빅매치가 시작되는데…",
-      "popularity": 49.674,
+      "popularity": 55.729,
       "vote_count": 198,
       "vote_average": 7,
       "release_date": "2022-10-20",
@@ -308,7 +321,31 @@
         878
       ],
       "year": 2022,
-      "ranking": 15
+      "ranking": 15,
+      "isPicked": false
+    }
+  },
+  {
+    "model": "movies.now_movie",
+    "pk": 283566,
+    "fields": {
+      "title": "신 에반게리온 극장판 리피트",
+      "overview": "‘에반게리온’ 신극장판 시리즈의 제4부이자 완결편  미사토가 이끄는 반네르프 조직 ‘빌레’는 코어화로 붉게 물든 파리 구시가에 있다.  기함 AAA 분더에서 선발대가 강하하여, 남겨져 있던 봉인주에 안착한다.  복원 작전의 작업 가능 시간은 고작 720초.  결사의 작전 수행 중 ‘네르프’의 EVA가 대량으로 무리를 이루고 접근하여,  마리의 개(改) 8호기가 요격을 개시한다.  한편 신지, 아스카, 아야나미 레이 (가칭) 세 사람은 일본의 대지를 떠돌고 있다…….",
+      "popularity": 53.473,
+      "vote_count": 583,
+      "vote_average": 8.4,
+      "release_date": "2022-10-05",
+      "poster_path": "/vpfX1mGVobWlrUGqEzbA2RNPdZF.jpg",
+      "backdrop_path": "/1EAxNqdkVnp48a7NUuNBHGflowM.jpg",
+      "genres": [
+        16,
+        28,
+        878,
+        18
+      ],
+      "year": 2022,
+      "ranking": 16,
+      "isPicked": false
     }
   },
   {
@@ -317,8 +354,8 @@
     "fields": {
       "title": "브이 포 벤데타",
       "overview": "어느 날 밤 이비라는 소녀가 위험에 처하자 어디선가 한 남자가 나타나 놀라운 전투력으로 그녀의 목숨을 구해준다. 옛날 국회의사당을 폭파하려다 사형당한 가이 포크스의 가면을 쓰고 모든 것을 압도하는 카리스마를 가진 남자는 V라는 이니셜로만 알려진 의문의 사나이. 맥베스와 헨리 5세의 대사들을 인용하고, 현실세계의 아픔을 노래한 윌리엄 블레이크의 시를 읊으며 악을 응징하는 V는세상을 구할 혁명을 계획하고 있다. V의 숨겨진 과거를 알아가는 동안 자신에 관한 진실을 깨달아가는 이비는 점점 V에게 이끌려 그의 혁명에 동참하게 된다.",
-      "popularity": 41.556,
-      "vote_count": 12707,
+      "popularity": 46.705,
+      "vote_count": 12715,
       "vote_average": 7.9,
       "release_date": "2006-03-17",
       "poster_path": "/XkLKkL5Cw4wWM6N4c4dP2IENmb.jpg",
@@ -329,7 +366,8 @@
         878
       ],
       "year": 2006,
-      "ranking": 16
+      "ranking": 17,
+      "isPicked": false
     }
   },
   {
@@ -338,7 +376,7 @@
     "fields": {
       "title": "동감",
       "overview": "1999년, 용은 첫눈에 반하게 된 한솔을 사로잡기 위해 친구에게 HAM 무전기를 빌린다. 2022년, 무늬는 인터뷰 과제를 위해 오래된 HAM 무전기를 작동시킨다. 개기 월식이 일어난 날, 시간을 뛰어넘어 기적처럼 연결된 용과 무늬는 서로의 사랑과 우정을 이야기하며 특별한 감정을 쌓아가는데...",
-      "popularity": 39.372,
+      "popularity": 19.56,
       "vote_count": 0,
       "vote_average": 0,
       "release_date": "2022-11-16",
@@ -349,47 +387,8 @@
         18
       ],
       "year": 2022,
-      "ranking": 17
-    }
-  },
-  {
-    "model": "movies.now_movie",
-    "pk": 1021582,
-    "fields": {
-      "title": "심야카페: 미씽 허니",
-      "overview": "부산 산복지구대의 냉미녀 경찰, 윤. 파스타집 오너 셰프 다정한 연인, 태영.  누구 봐도 행복한 커플 윤과 태영은 결혼을 앞두고 있다.  누구보다 행복해야 할 결혼식 당일. 태영이 아무 연락도 없이 나타나지 않는 대참사를 겪게 된다.  갑자기 사라진 연인 태영의 행방이 묘연한 가운데 윤은 태영이 사라진 마지막 장소에서 수상한 지도를 발견한다. 지도를 따라간 윤은 평소에는 전혀 보지 못했던 카페를 발견하게 되는데…  마스터부터 손님까지 모두 수상하기만 한 ‘심야카페’에서 윤은 드디어 사라진 연인 태영을 만나게 된다. 하지만 태영은 자신을 알아보지 못하고 어딘지 어려보이기까지 하는데…  “저기.. 혹시 지금이 몇 년도인가요?”",
-      "popularity": 27.646,
-      "vote_count": 0,
-      "vote_average": 0,
-      "release_date": "2022-11-17",
-      "poster_path": "/xG8r9CdFLKMb9A5gn0YXfQ2AVBD.jpg",
-      "backdrop_path": "/vwBIwTktAfnIGTTbpd2mDxWYe4D.jpg",
-      "genres": [
-        14
-      ],
-      "year": 2022,
-      "ranking": 18
-    }
-  },
-  {
-    "model": "movies.now_movie",
-    "pk": 823766,
-    "fields": {
-      "title": "더 원더",
-      "overview": "대기근으로부터 13년이 흐른 1862년.  영국의 간호사 립 라이트(플로렌스 퓨)는 한 마을의  독실한 주민들로부터 부름을 받아 아일랜드 중부로 향한다.  이들의 요청은 자신들의 마을에 사는 사람 한 명을 15일간 지켜봐달라는 것이었는데,  그는 바로 열한 살의 애나 오도널(킬라 로드 캐시디).  주민들의 말에 따르면 애나가 4개월간 아무것도 먹지 않고  ‘하느님의 양식’만으로 기적적으로 생존하고 있다는 것.  하지만 애나의 건강이 급격히 악화되자 립은 믿음을 깨고 싶어 하지 않는  주민들에게 맞서 진실을 폭로하기로 결심한다.",
-      "popularity": 24.34,
-      "vote_count": 3,
-      "vote_average": 5.7,
-      "release_date": "2022-11-16",
-      "poster_path": "/npBvD1rRQHYGrxuwr2OrzXLso1w.jpg",
-      "backdrop_path": "/u5FEw1mrQ3lj2jcoSlwEa4FUONE.jpg",
-      "genres": [
-        18,
-        9648,
-        53
-      ],
-      "year": 2022,
-      "ranking": 19
+      "ranking": 18,
+      "isPicked": false
     }
   },
   {
@@ -398,9 +397,9 @@
     "fields": {
       "title": "알카라스의 여름",
       "overview": "해가 내리쬐는 작은 마을, 알카라스  매 여름마다 복숭아를 수확하기 위해  3대째 모이는 솔레 가족은 찬란한 계절을 누린다. 탐스러운 복숭아처럼 영글어가는 가족의 이야기. 그 해 여름의 복숭아는 저마다의 기억으로 자란다.",
-      "popularity": 18.54,
-      "vote_count": 47,
-      "vote_average": 7.2,
+      "popularity": 25.937,
+      "vote_count": 49,
+      "vote_average": 7.1,
       "release_date": "2022-11-03",
       "poster_path": "/xIC5SZoGiQRgM4TLnnxZEsuFSU0.jpg",
       "backdrop_path": "/5sl6GEHjvo0V2lGYlcCghTkUUzK.jpg",
@@ -409,7 +408,30 @@
         10749
       ],
       "year": 2022,
-      "ranking": 20
+      "ranking": 19,
+      "isPicked": false
+    }
+  },
+  {
+    "model": "movies.now_movie",
+    "pk": 972313,
+    "fields": {
+      "title": "블로우백",
+      "overview": "아픈 딸의 병원비가 절실한 닉은 은행에 보관되어 있는 마피아의 물건을 훔치기 위해 팀을 꾸린다.\r 하지만, 팀원들의 배신으로 총을 맞고 훔친 물건까지 빼앗긴 닉은 구사일생으로 살아나 복수를 준비하는데...\r 훔친 물건의 주인인 마피아 발렌티를 찾아간 그는 마피아와 손잡고 배신자들을 찾아나선다!",
+      "popularity": 28.43,
+      "vote_count": 18,
+      "vote_average": 5.3,
+      "release_date": "2022-11-17",
+      "poster_path": "/c6u2iNDl73ltbBGB3dzpz1Y0F3Y.jpg",
+      "backdrop_path": "/83Vt9Io9xSFKfKDdgxqKZgdqjuZ.jpg",
+      "genres": [
+        28,
+        53,
+        80
+      ],
+      "year": 2022,
+      "ranking": 20,
+      "isPicked": false
     }
   }
 ]
