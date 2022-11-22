@@ -5,7 +5,7 @@
         <img @click="getRecommendations()" :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="poster" alt="...">
         <div style="text-align:left;">
             <h1 style="font-family: 'BMHANNAPro';">{{movie.title}}</h1>
-            <div style="display:flex;  margin-bottom:15px;">
+            <div style="display:flex;  margin-bottom:15px; width:30vw;">
                 <div v-for="(genre,index) in movie.genres" :key="index" style="margin-right:10px;">
                     <button class="btn btn-success" style="height:40px; ">{{genrenames[genre]}}</button>
                 </div>
@@ -27,8 +27,9 @@
                 <button class="btn btn-danger" style="font-family: 'BMDOHYEON';" @click="getRecommendations()">비슷한 영화 추천</button>
             </div>
         </div>
-        <div>
-          <input type="text">
+        <div style="display:flex;">
+          <input type="text" style="width: 20vw;">
+          <button id="review_submit" type="submit">+</button>
         </div>
     </div>
     <div class="popup-view" :class="{ active : popupView }">
@@ -290,7 +291,7 @@ created(){
 }
 .poster{
     height: 50vh;
-    width:100%;
+    width:30vw;
     margin-right:20px
 }
 .popup-view{
@@ -327,4 +328,29 @@ created(){
 .activepick{
   display: none;
 }
+
+input {
+  width: 500px;
+  height: 32px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 10px;
+  /* background-color: rgb(233, 233, 233); */
+  /* background: transparent; */
+  opacity: 40%;
+}
+
+#review_submit {
+  outline: none;
+  border : 0;
+  border-radius: 90%;
+  height: 32px;
+  width: 35px;
+  margin-left: 5px;
+  /* background-color: rgb(233, 233, 233); */
+  opacity: 50%;
+}
+
 </style>
