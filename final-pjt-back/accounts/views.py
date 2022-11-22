@@ -18,7 +18,7 @@ def signup(request):
         )
 
     serializer = UserSerializer(data=request.data)
-
+    
     # 데이터 유효성 검증
     if serializer.is_valid(raise_exception=True):
         user = serializer.save()
