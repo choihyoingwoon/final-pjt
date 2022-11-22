@@ -9,10 +9,10 @@
                 <div v-for="(genre,index) in movie.genres" :key="index" style="margin-right:10px;">
                     <button class="btn btn-success" style="height:40px; ">{{genrenames[genre]}}</button>
                 </div>
-                <div :class="{'activepick' : !isPicked}">
+                <div :class="{'activepick' : isPicked}">
                   <button @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >PICK!</button>
                 </div>
-                <div :class="{'activepick' : isPicked}">
+                <div :class="{'activepick' : !isPicked}">
                   <button @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >Cancel!</button>
                 </div>
             </div>
@@ -190,7 +190,7 @@ export default {
         },
       })
         .then((res) => {
-          console.log(res)
+          // console.log(res)
           this.me = res.data
           console.log(this.me)
           if (this.me.like_movies.includes(this.movie.id)) {
@@ -198,7 +198,6 @@ export default {
             console.log(this.isPicked)
           } else {
             this.isPicked = false
-            console.log(0)
             console.log(this.isPicked)
           }
         })
@@ -225,8 +224,10 @@ export default {
           Authorization: `Bearer ${token}`
         },
       })
-        .then(() => {
-          this.getUserInfo()
+        .then((res) => {
+          console.log(res.data)
+          this.isPicked = res.data
+          // this.getUserInfo()
         })
         .catch((err) => {
           console.log(err)
@@ -263,6 +264,7 @@ created(){
     height: 100vh;
     vertical-align: middle;
     opacity: 0.3;
+    
 }
 .user-text{
     position:absolute;
@@ -273,6 +275,7 @@ created(){
     display: flex;
     height: 100%;
     margin-top: 100px;
+    
 }
 .reco{
   position:absolute;
