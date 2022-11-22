@@ -18,7 +18,8 @@
       </div>
       <hr>
       <h1>댓글</h1>
-      <input style="width:100%; margin-bottom: 10px;" placeholder="댓글(악플은 안돼용)" @keyup.enter ="createComment" type="text" v-model.trim="comment">
+      <input style="width:100%; margin-bottom: 10px;" placeholder="댓글(악플은 안돼용)" type="text" v-model.trim="comment">
+      <button @click="[createComment(), getComment()]">sdf</button>
       <div v-for="comment in commentList"
       :key="comment.id" style="display:flex; padding: 10px; border-bottom: 1px solid white ; border-top: 1px solid white ;" class="d-flex justify-content-between">
         <h3>{{comment.content}}</h3>
