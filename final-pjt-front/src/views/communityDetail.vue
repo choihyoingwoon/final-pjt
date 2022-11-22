@@ -84,10 +84,13 @@ export default {
         });
     },
     reload:function(){
+      this.$store.state.communityDetail=this.communityDetail
       this.$router.go()
+      
     },
     },
     created(){
+      console.log(this.$store.state.communityDetail)
       this.getComment()
     }
 }

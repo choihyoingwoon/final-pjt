@@ -130,7 +130,6 @@ export default {
     },
     gocommunityDetail : function(community){
       this.$store.state.communityDetail=community
-      console.log(this.$store.state.communityDetail)
       this.$router.push({ name: "communitydDetail"});
     },
 

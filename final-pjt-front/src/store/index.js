@@ -4,46 +4,16 @@ import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
 
+import communityStore from '@/store/modules/communityStore.js'
+
 export default new Vuex.Store({
-  plugins:[
-    createPersistedState(),
-  ],
-  state: {
-    topmoviesList:[],
-    nowmoviesList:[],
-    movieVideo:[],
-    user:null,
-    // likeList : [],
-    communityDetail:null,
-  },
-  getters: {
-  },
-  mutations: {
-    // ADD_MOVIE(state, movie) {
-    //   for(let i = 0; i < state.likeList.length; i++) {
-    //       if(state.likeList[i].id === movie.id) {
-    //         return
-    //       }
-    //     }
-    //   state.likeList.push(movie)
-    // },
-    ALL_DELETE(state) {
-      state.likeList = []
-    }
-  },
-  actions: {
-    // addMovie(context, movie){
-    //   context.commit('ADD_MOVIE', movie)
-    // },
-    alldelete(context) {
-      context.commit('ALL_DELETE')
-    }
-  },
+
   modules: {
+    communityStore : communityStore,
   },
-  // plugins: [
-  //   createPersistedState({
-  //     paths: ["noticeStore"]
-  //   })
-  // ],
+  plugins:[
+    createPersistedState({
+          paths: ["communityStore"]
+        }),
+  ],
 })
