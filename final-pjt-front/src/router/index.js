@@ -7,6 +7,7 @@ import Login from '@/views/accounts/Login'
 import Community from '@/views/Community'
 import myPage from '@/views/accounts/myPage'
 import communitydetail from '@/views/communityDetail.vue'
+import myMvti from '@/views/myMvti'
 
 Vue.use(VueRouter)
 
@@ -45,6 +46,11 @@ const routes = [
     path: '/communitydetail',
     name: 'communitydDetail',
     component: communitydetail,
+  },
+  {
+    path: '/mymvti',
+    name: 'myMvti',
+    component: myMvti,
   },
 
 

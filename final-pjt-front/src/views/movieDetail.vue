@@ -10,12 +10,12 @@
                     <button class="btn btn-success" style="height:40px; ">{{genrenames[genre]}}</button>
                 </div>
                 <div :class="{'activepick' : isPicked}">
-                  <!-- <button @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >PICK!</button> -->
-                  <i class="bi bi-suit-heart"></i>
+                  <button @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >PICK!</button>
+                  <!-- <i class="bi bi-suit-heart"></i> -->
                 </div>
                 <div :class="{'activepick' : !isPicked}">
-                  <!-- <button @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >Cancel!</button> -->
-                  <i class="bi bi-suit-heart-fill"></i>
+                  <button @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >Cancel!</button>
+                  <!-- <i class="bi bi-suit-heart-fill"></i> -->
                 </div>
             </div>
             <div style="font-family:'BMHANNAAir';">
