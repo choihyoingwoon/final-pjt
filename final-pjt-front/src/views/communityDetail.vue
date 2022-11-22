@@ -42,19 +42,16 @@
       <hr>
       <div :class="{'active1': update}">
         <h1 style="display:flex;">댓글({{commentList.length}})</h1>
-        <div v-show="soojung">
-          <h3>입력</h3>
           <input @keyup.enter="[createComment(),getComment(),getComment()]" style="width:100%; margin-bottom: 10px;" placeholder="댓글(악플은 안돼용)" type="text" v-model.trim="comment">
-        </div>
-        <div v-show="!soojung">
-          <h3 style="color:rgb(220,53,69);">수정</h3>
-            <input @keyup.enter="[soojungComment(comment),getComment(),getComment()]" style="width:100%; margin-bottom: 10px;" placeholder="Enter 누르면 수정" type="text" v-model.trim="commentsoojung">
-        </div>
+
         <div v-for="comment in commentList"
         :key="comment.id" style="display:flex; padding: 10px; border-bottom: 1px solid white ; border-top: 1px solid white ;" class="d-flex justify-content-between" :class="{'soojungbg':!soojung}">
           <div>
-            <div style="padding-top:15px;">
+            <div  style="padding-top:15px;">
               <h3>{{comment.content}}</h3>
+              <div v-show="!soojung" :class="{'soojung': comment.id !=index && !soojung}">
+            <input  @keyup.enter="[soojungComment(comment),getComment(),getComment()]" style="width:100%; margin-bottom: 10px;" placeholder="Enter 누르면 수정" type="text" v-model.trim="commentsoojung">
+        </div>
             </div>
           </div>
           <div style="display:flex;">
@@ -67,7 +64,7 @@
                 <!-- <i class="bi bi-trash3"></i> -->
                 <p>X</p>
               </button>
-              <button class="butt bg-dark" @click="soojungstate">
+              <button class="butt bg-dark" @click="soojungstate(comment)">
                 <!-- <i class="bi bi-trash3"></i> -->
                 <p>수정</p>
               </button>
@@ -101,6 +98,7 @@ export default {
       commentList:[],
       communityDetail:[],
       commentsoojung:null,
+      index:null,
     }
   },
   // computed: {
@@ -172,8 +170,13 @@ export default {
           console.log(err)
         })
     },
-      soojungstate:function(){
+      soojungstate:function(comment){
+        if (this.soojung===false){
+          this.soojung=true
+        }
         this.soojung= !this.soojung
+        console.log(comment)
+        this.index=comment.id
       },
       updatestate:function(){
         this.update= !this.update
@@ -271,7 +274,7 @@ export default {
   margin-right: 20px;
   border: 2px solid white;
 }
-/* .soojungbg{
-  background-color: darkgray;
-} */
+.soojung{
+  display: none;
+}
 </style>
