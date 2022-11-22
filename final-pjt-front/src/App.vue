@@ -11,7 +11,7 @@
         <b-navbar-nav>
             <b-nav-item href="/">Home</b-nav-item>
             <b-nav-item href="/community" >community</b-nav-item>
-            <b-nav-item href="/movies" >Disabled</b-nav-item>
+            <b-nav-item href="/myMvti" >MVTI✨</b-nav-item>
           </b-navbar-nav>
           <b-navbar-nav>
             <b-nav-item v-show="!isLoggedIn" href='/accounts/signup' >Signup</b-nav-item>
