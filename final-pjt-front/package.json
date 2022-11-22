@@ -13,6 +13,7 @@
     "bootstrap-vue": "^2.23.1",
     "core-js": "^3.8.3",
     "dragscroll": "^0.0.8",
+    "jquery": "^3.6.1",
     "vue": "^2.7.14",
     "vue-dragscroll": "^4.0.5",
     "vue-jwt-decode": "^0.1.0",

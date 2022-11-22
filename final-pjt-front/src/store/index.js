@@ -14,7 +14,7 @@ export default new Vuex.Store({
     movieVideo:[],
     user:null,
     // likeList : [],
-    communityDetail:[],
+    communityDetail:null,
   },
   getters: {
   },
@@ -40,5 +40,10 @@ export default new Vuex.Store({
     }
   },
   modules: {
-  }
+  },
+  // plugins: [
+  //   createPersistedState({
+  //     paths: ["noticeStore"]
+  //   })
+  // ],
 })
