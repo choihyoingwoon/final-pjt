@@ -28,8 +28,8 @@
             </div>
         </div>
         <div style="display:flex;">
-          <input type="text" style="width: 20vw;">
-          <button id="review_submit" type="submit">+</button>
+          <input id='review' type="text" v-model="review_content" style="width: 20vw;">
+          <button id="review_submit" @click="addreview" type="submit">+</button>
         </div>
     </div>
     <div class="popup-view" :class="{ active : popupView }">
@@ -88,6 +88,8 @@ export default {
             recommendations:[],
             me: [],
             isPicked: '',
+            review_content: null,
+            review_list : [],
         }
     },
     methods: {
@@ -238,6 +240,38 @@ export default {
         .catch((err) => {
           console.log(err)
         })
+    },
+    addreview() {
+      console.log(this.review_content)
+      const token = localStorage.getItem('jwt')
+  
+      if (!this.review_content) {
+        return alert ('리뷰는 한 글자 이상 작성해주세요')
+      }
+      axios({
+        method: 'post',
+        url: `http://127.0.0.1:8000/movies/${this.movie.id}/review/`,
+        data: {
+          content: this.review_content,
+        },
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+      })
+        .then((res) => {
+          console.log(res)
+          this.review_content=''
+        })
+    },
+    reviewlist() {
+      axios({
+        method: 'get',
+        url: `http://127.0.0.1:8000/movies/${this.movie.id}/review/`,
+      })
+        .then((res) => {
+          console.log(res)
+          this.review_list = res.data
+        })
     }
 },
 created(){
@@ -329,7 +363,7 @@ created(){
   display: none;
 }
 
-input {
+#review {
   width: 500px;
   height: 32px;
   font-size: 15px;
@@ -340,6 +374,7 @@ input {
   /* background-color: rgb(233, 233, 233); */
   /* background: transparent; */
   opacity: 40%;
+  color: black;
 }
 
 #review_submit {
