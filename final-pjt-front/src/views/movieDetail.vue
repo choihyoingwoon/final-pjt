@@ -9,8 +9,12 @@
                 <div v-for="(genre,index) in movie.genres" :key="index" style="margin-right:10px;">
                     <button class="btn btn-success" style="height:40px; ">{{genrenames[genre]}}</button>
                 </div>
-                <button v-if="!Picked" @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;">PICK!</button>
-                <button v-else @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;">Cancel!</button>
+                <div :class="{'activepick' : !isPicked}">
+                  <button @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >PICK!</button>
+                </div>
+                <div :class="{'activepick' : isPicked}">
+                  <button @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >Cancel!</button>
+                </div>
             </div>
             <div style="font-family:'BMHANNAAir';">
                 <h4 >인기 : {{movie.popularity}}</h4>
@@ -191,10 +195,11 @@ export default {
           console.log(this.me)
           if (this.me.like_movies.includes(this.movie.id)) {
             this.isPicked = true
-            console.log(1)
+            console.log(this.isPicked)
           } else {
             this.isPicked = false
             console.log(0)
+            console.log(this.isPicked)
           }
         })
         .catch((err) => {
@@ -310,5 +315,8 @@ created(){
 }
 .mid{
   top: 50%;
+}
+.activepick{
+  display: none;
 }
 </style>
