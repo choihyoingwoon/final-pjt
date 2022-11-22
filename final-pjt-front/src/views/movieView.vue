@@ -9,7 +9,7 @@
       </div>
       <div style="margin-top:20px;">
         <h2 style="color:white; font-family: 'BMHANNAPro'; margin-left:20px;">{{genrename}} 영화</h2>
-        <div class="movie_list"  style="width:100%;">
+        <div class="movie_list"  style="width:100%;" v-dragscroll.x="true">
           <NowMovieCard
             v-for="movie in arr"
             :key="movie.id" 
@@ -44,7 +44,10 @@
   </div>
 </template>
 
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/vue-dragscroll"></script>
 <script>
+
 // import MovieCard from '@/components/MovieCard'
 import NowMovieCard from '@/components/NowMovieCard'
 export default {
@@ -80,6 +83,7 @@ export default {
         }
   },
   methods:{
+    
     genremovie(genre){
       this.arr=[]
       this.genrename=genre
@@ -105,6 +109,7 @@ export default {
     this.genremovie("액션")
   }
 }
+
 </script>
 
 <style>
@@ -115,6 +120,15 @@ export default {
     height: 450px;;
     overflow-y:hidden;
     white-space: nowrap;
+
+    /* overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  transform: scale(0.98);
+  will-change: transform; */
     }
 .movie_list::-webkit-scrollbar{
   opacity: 0;

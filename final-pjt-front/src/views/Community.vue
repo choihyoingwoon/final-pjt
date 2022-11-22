@@ -40,8 +40,8 @@
         </tr>
       </thead>
       <tbody style="font-family: 'BMHANNAAir';">
-        <tr v-for="community in communities" :key="community.id" @click="gocommunityDetail(community)" >
-          <th style="padding-top:30px !important;" scope="row"><h1>{{community.id}}</h1></th>
+        <tr v-for="(community,index) in communities" :key="community.id" @click="gocommunityDetail(community)" >
+          <th style="padding-top:30px !important;" scope="row"><h1>{{index+1}}</h1></th>
           <td><h3>{{community.title}}</h3><p>작성자 : {{community.user.username}}</p></td>
           <th style="padding-top:25px !important;"><h4>{{community.created_at}}</h4></th>
           <!-- <button @click="gocommunityDetail(community)">자세히</button> -->
@@ -129,8 +129,8 @@ export default {
       this.$router.go()
     },
     gocommunityDetail : function(community){
-      this.$store.state.communityDetail=community
-      this.$router.push({ name: "communitydDetail"});
+      console.log(community)
+      this.$router.push({ name: "communitydDetail", params: { community }});
     },
 
 

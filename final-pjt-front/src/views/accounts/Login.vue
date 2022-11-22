@@ -50,6 +50,7 @@
             localStorage.setItem("jwt", res.data.access);
             this.$emit("login");
             this.$router.push({ name: "movies" });
+            this.$router.go()
           })
           .catch((err) => {
             if (err.message==="Request failed with status code 400"){
