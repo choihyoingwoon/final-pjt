@@ -26,7 +26,6 @@ def now_movies(request):
     return Response(serializer.data)
 
 
-@login_required
 @api_view(['GET', 'POST'])
 def review_create(request, movie_pk):
     movie = get_object_or_404(Movie, pk=movie_pk)
@@ -37,10 +36,14 @@ def review_create(request, movie_pk):
         return Response(serializer.data)
     
     else : 
-        serializer = ReviewSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save(user = request.user, movie=movie)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        if request.user.is_authenticated :
+            print(request.data.get('item'))
+            serializer = ReviewSerializer(data=request.data)
+            if serializer.is_valid(raise_exception=True):
+                serializer.save(user = request.user, movie=movie)
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else :
+            return Response('Error')
 
                 
 @login_required
