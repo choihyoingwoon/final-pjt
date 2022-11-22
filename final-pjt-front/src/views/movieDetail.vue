@@ -1,5 +1,5 @@
 <template>
-  <div class="user-wrap bg-dark" style="height:100%">
+  <div class="user-wrap bg-dark" style="height:100%;">
     <img @click="imgclick()"  :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" class="img" alt="...">
     <div class="user-text" :class="{ activetext : popupView,recommendactive:!recommendcheck}">
         <img @click="getRecommendations()" :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="poster" alt="...">
@@ -10,10 +10,12 @@
                     <button class="btn btn-success" style="height:40px; ">{{genrenames[genre]}}</button>
                 </div>
                 <div :class="{'activepick' : isPicked}">
-                  <button @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >PICK!</button>
+                  <!-- <button @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >PICK!</button> -->
+                  <i class="bi bi-suit-heart"></i>
                 </div>
                 <div :class="{'activepick' : !isPicked}">
-                  <button @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >Cancel!</button>
+                  <!-- <button @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >Cancel!</button> -->
+                  <i class="bi bi-suit-heart-fill"></i>
                 </div>
             </div>
             <div style="font-family:'BMHANNAAir';">
@@ -23,7 +25,10 @@
                 <p style="word-break:keep-all">{{movie.overview}}</p>
                 <button class="btn btn-danger" style="font-family: 'BMDOHYEON';" @click="movieVideo(movie), openYoutube()">예고편 보기</button>
                 <button class="btn btn-danger" style="font-family: 'BMDOHYEON';" @click="getRecommendations()">비슷한 영화 추천</button>
-              </div>
+            </div>
+        </div>
+        <div>
+          <input type="text">
         </div>
     </div>
     <div class="popup-view" :class="{ active : popupView }">
