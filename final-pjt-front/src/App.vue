@@ -16,7 +16,7 @@
           <b-navbar-nav>
             <b-nav-item v-show="!isLoggedIn" href='/accounts/signup' >Signup</b-nav-item>
             <b-nav-item v-show="!isLoggedIn" href='/accounts/login'>Login</b-nav-item>
-            <b-navbar-brand v-show="isLoggedIn">{{userName}}님 환영합니다</b-navbar-brand>
+            <b-navbar-brand v-show="isLoggedIn">{{me}}님 환영합니다</b-navbar-brand>
             <b-nav-item href="/accounts/mypage" v-show="isLoggedIn">MyPage</b-nav-item>
             <b-nav-item v-show="isLoggedIn" @click="logout" href='#'>Logout</b-nav-item>
         </b-navbar-nav>
@@ -28,14 +28,19 @@
     <router-view @login="changeLog" />
   </div>
 </template>
+
+<!-- <script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/vue-dragscroll"></script> -->
 <script>
 // @ is an alias to /src
 import axios from 'axios'
+import VueJwtDecode from 'vue-jwt-decode'
 export default {
   name: 'HomeIndex',
   data: function() {
     return {
       isLoggedIn: false,
+      me:null,
     };
   },
   computed:{
@@ -44,6 +49,29 @@ export default {
       },
   },
   methods:{
+    getUserInfo() {
+      const token = localStorage.getItem('jwt')
+      const info = VueJwtDecode.decode(token)
+      // console.log(info)
+      // const user_id = info.user_id
+      axios({
+        method: 'post',
+        url: 'http://127.0.0.1:8000/accounts/mypage/',
+        data: {
+          info
+        },
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+      })
+        .then((res) => {
+          // console.log(res)
+          this.me=res.data.username
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
     logout() {
       this.isLoggedIn = false;
       localStorage.removeItem("jwt");
@@ -79,6 +107,7 @@ export default {
     }
   },
   created(){
+    this.getUserInfo()
     this.topMovie()
     this.nowMovie()
     const token = localStorage.getItem("jwt");
@@ -87,6 +116,9 @@ export default {
     }
   }
 }
+// const app = Vue.createApp(HomeIndex);
+//         app.use(VueDragscroll);
+//         app.mount('#app')
 </script>
 <style>
 #app {

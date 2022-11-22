@@ -82,3 +82,6 @@ def comment_update_delete(request, community_pk, comment_pk):
 
         return Response('본인이 작성한 댓글만 수정 및 삭제할 수 있습니다.')
     
+    else :
+        return Response('Error')
+    
