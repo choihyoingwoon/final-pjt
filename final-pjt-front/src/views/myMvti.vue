@@ -1,54 +1,63 @@
 <template>
-  <div class="signup bg-dark"><br>
+  <div class="signup bg-dark" :class="{'bodyheight': check}"><br>
     <br>
     <h2>좋아하는 장르를 골라주세요!</h2>
     <div id="select_genre">
         <div id="select_genre_one">
-            <button id="one_btn" @click="select1" :class="{'select' : horror}" >공포</button>
+            <button id="one_btn" @click="select1" :class="{'select' : horror, 'nonselect': !horror}" >공포</button>
             <br>
             <h3>VS</h3>
             <br>
-            <button id="one_btn" @click="select2" :class="{'select' : comedy}">코미디</button>
+            <button id="one_btn" @click="select2" :class="{'select' : comedy , 'nonselect': !comedy}">코미디</button>
         </div>
 
         <div id="select_genre_one">
-            <button id="one_btn" @click="select3" :class="{'select' : romance}" >로맨스</button>
+            <button id="one_btn" @click="select3" :class="{'select' : romance , 'nonselect': !romance}" >로맨스</button>
             <br>
             <h3>VS</h3>
             <br>
-            <button id="one_btn" @click="select4" :class="{'select' : thriller}">스릴러</button>
+            <button id="one_btn" @click="select4" :class="{'select' : thriller , 'nonselect': !thriller}">스릴러</button>
         </div>
         <div id="select_genre_one">
-            <button id="one_btn" @click="select5" :class="{'select' : drama}">드라마</button>
+            <button id="one_btn" @click="select5" :class="{'select' : drama , 'nonselect': !drama}">드라마</button>
             <br>
             <h3>VS</h3>
             <br>
-            <button id="one_btn" @click="select6" :class="{'select' : sf}">SF</button>
+            <button id="one_btn" @click="select6" :class="{'select' : sf , 'nonselect': !sf}">SF</button>
         </div>
         <div id="select_genre_one">
-            <button id="one_btn" @click="select7" :class="{'select' : action}">액션</button>
+            <button id="one_btn" @click="select7" :class="{'select' : action , 'nonselect': !action}">액션</button>
             <br>
             <h3>VS</h3>
             <br>
-            <button id="one_btn" @click="select8" :class="{'select' : animation}">애니메이션</button>
+            <button id="one_btn" @click="select8" :class="{'select' : animation , 'nonselect': !animation}">애니메이션</button>
         </div>
     </div>
     <button class="btn btn-outline-danger" @click="[check_mymvti(), mvti_movie1(), mvti_movie2(), mvti_movie3(), mvti_movie4()]" style="width: 50%;">나의 MVTI 확인하기!</button><br>
-    <div v-if="check">
+    <div v-if="check" >
         <br>
+        <h1 style="text-decoration: underline overline; text-underline-position: under; margin-top: 30px; "> 당신의 MVTI는 <b>✨{{mymvti}}✨ </b></h1>
         <br>
-        <h1 style="text-decoration: underline overline; text-underline-position: under; "> 당신의 MVTI는 <b>✨{{mymvti}}✨ </b></h1>
-        <br>
-        <div>
-            <div style="display:flex; align-content: center; margin-bottom: 20px;">
+        <div style="text-align:center;">
+            <div style="display:flex; margin-bottom: 20px; width: 600px; margin:auto;">
                 <h2 style="text-align: left; margin-left: 3%; margin-top: 30px;">{{mymvti}}들의 취향을 저격할 영화!</h2>
-                <button @click="[mvti_movie1(), mvti_movie2(), mvti_movie3(), mvti_movie4()]" class="btn btn-outline-danger" style="width:12%; margin-left:10px; margin-top:22px; align-items: flex-end;">다른 영화</button>
+                <button @click="[mvti_movie1(), mvti_movie2(), mvti_movie3(), mvti_movie4()]" class="btn btn-outline-danger" style="width:20%; margin-left:10px; margin-top:22px; align-items: flex-end;">다른 영화</button>
             </div>
-            <div style="width:100%; display:flex; padding-left: 15px;">
-                <img @click="getDetail(movie1)" v-if="movie1" :src="`https://image.tmdb.org/t/p/original/${movie1.poster_path}`" class="poster cardmove" alt="...">
-                <img @click="getDetail(movie2)" v-if="movie2" :src="`https://image.tmdb.org/t/p/original/${movie2.poster_path}`" class="poster cardmove" alt="...">
-                <img @click="getDetail(movie3)" v-if="movie3" :src="`https://image.tmdb.org/t/p/original/${movie3.poster_path}`" class="poster cardmove" alt="...">
-                <img @click="getDetail(movie4)" v-if="movie4" :src="`https://image.tmdb.org/t/p/original/${movie4.poster_path}`" class="poster cardmove" alt="...">
+            <div>
+                <div style="margin: auto; width: 1150px; display:flex; padding-left: 15px;">
+                    <div style="height: 45vh;">
+                        <img @click="getDetail(movie1)" v-if="movie1" :src="`https://image.tmdb.org/t/p/original/${movie1.poster_path}`" class="poster cardmove" alt="...">
+                    </div>
+                    <div style="height: 45vh;">
+                        <img @click="getDetail(movie2)" v-if="movie2" :src="`https://image.tmdb.org/t/p/original/${movie2.poster_path}`" class="poster cardmove" alt="...">
+                    </div>
+                    <div style="height: 45vh;">
+                        <img @click="getDetail(movie3)" v-if="movie3" :src="`https://image.tmdb.org/t/p/original/${movie3.poster_path}`" class="poster cardmove" alt="...">
+                    </div>
+                    <div style="height: 45vh;">
+                        <img @click="getDetail(movie4)" v-if="movie4" :src="`https://image.tmdb.org/t/p/original/${movie4.poster_path}`" class="poster cardmove" alt="...">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -315,6 +324,10 @@ export default {
 }
 
 .select {
+    background-color: rgb(220, 53, 69);
+    color: white;
+}
+.nonselect{
     background-color : rgb(33, 37, 41);
     color: white;
 }
@@ -327,7 +340,7 @@ export default {
     margin: 0.5px;
     border-radius: 20px;
     /* background-color:rgb(220,53,69); */
-    color: rgb(220,53,69);
+    /* color: rgb(220,53,69); */
     border: 2px solid white;
     /* outline-color: bisque ; */
 }
@@ -337,9 +350,11 @@ export default {
 }
 
 .poster{
-    height: 45vh;
-    width:100%;
+    border: 2px solid white;
+    height: 360px; 
+    width:240px;
     margin-right:20px;
+    border-radius: 20px;
     /* justify-items: center;  */
 }
 
@@ -357,7 +372,9 @@ export default {
         transform: scale(1.1);
         
     }
-
+    .bodyheight{
+        height: 100%;
+    }
 
 
 </style>

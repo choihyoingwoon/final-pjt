@@ -13,12 +13,12 @@
             <b-nav-item href="/community" >community</b-nav-item>
             <b-nav-item href="/myMvti" >MVTI✨</b-nav-item>
           </b-navbar-nav>
-                  <form action="" class="search-bar" style="display:flex;">
-          <input type="search" name="search" pattern=".*\S.*" required>
-          <button class="search-btn" type="submit">
-            <span>Search</span>
-          </button>
-        </form>
+          <form @submit.prevent="searchmovie()" class="search-bar" style="display:flex;">
+            <input placeholder="찾고 싶은 영화 제목을 입력하세용" @keyup.enter="searchmovie(searchtext)" type="search" name="search" v-model.trim="searchtext" pattern=".*\S.*" required >
+            <button class="search-btn" type="submit" @click="searchmovie(searchtext)">
+              <span>Search</span>
+            </button>
+          </form>
           <b-navbar-nav>
             <b-nav-item v-show="!isLoggedIn" href='/accounts/signup' >Signup</b-nav-item>
             <b-nav-item v-show="!isLoggedIn" href='/accounts/login'>Login</b-nav-item>
@@ -30,8 +30,7 @@
     </b-navbar>
       </div>
     </header>
-
-    <router-view @login="changeLog" />
+    <router-view @login="changeLog"/>
   </div>
 </template>
 
@@ -47,6 +46,7 @@ export default {
     return {
       isLoggedIn: false,
       me:null,
+      searchtext:null,
     };
   },
   computed:{
@@ -55,6 +55,10 @@ export default {
       },
   },
   methods:{
+    searchmovie(searchtext){
+      console.log(searchtext)
+      this.$router.push({name:"searchPage",params:{searchtext}})
+    },
     getUserInfo() {
       const token = localStorage.getItem('jwt')
       const info = VueJwtDecode.decode(token)
@@ -208,14 +212,14 @@ header {
 }
 .search-bar {
 	margin: auto;
-	padding: 1.5em;
+	/* padding: 1.5em; */
 	justify-content: center;
 	max-width: 30em;
 }
 .search-bar input {
 	background: transparent;
 	border-radius: 1.5em;
-	box-shadow: 0 0 0 0.4em #171717 inset;
+    box-shadow: 0 0 0 0.4em #fff inset;
 	padding: 0.75em;
 	transform: translate(0.5em,0.5em) scale(0.5);
 	transform-origin: 100% 0;
@@ -234,7 +238,7 @@ header {
 	transform: scale(1);
 }
 .search-btn {
-	background: #171717;
+	background: #fff;
 	border-radius: 0 0.75em 0.75em 0 / 0 1.5em 1.5em 0;
 	padding: 0.75em;
 	position: relative;
@@ -276,7 +280,7 @@ header {
 /* Active state */
 .search-bar input:focus + .search-btn,
 .search-bar input:valid + .search-btn {
-	background: #2762f3;
+	background: rgb(220, 53, 69);
 	border-radius: 0 0.375em 0.375em 0;
 	transform: scale(1);
 }
@@ -289,7 +293,7 @@ header {
 .search-bar input:focus + .search-btn:hover,
 .search-bar input:valid + .search-btn:hover,
 .search-bar input:valid:not(:focus) + .search-btn:focus {
-	background: #0c48db;
+	background: rgb(187,45,59);
 }
 .search-bar input:focus + .search-btn:active,
 .search-bar input:valid + .search-btn:active {
@@ -308,7 +312,7 @@ header {
 	}
 	.search-bar input:focus,
 	.search-bar input:valid {
-		background: #3d3d3d;
+		background: #fff;
 		box-shadow: 0 0 0 0.1em #3d3d3d inset;
 	}
 	.search-btn {

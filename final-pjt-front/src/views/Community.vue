@@ -78,6 +78,7 @@ export default {
       })
         .then((res) => {
           this.communities = res.data;
+          console.log(this.communities)
         })
         .catch((err) => {
           console.log(err);
