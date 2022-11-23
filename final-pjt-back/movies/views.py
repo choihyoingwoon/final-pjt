@@ -31,7 +31,7 @@ def review_create(request, movie_pk):
     movie = get_object_or_404(Movie, pk=movie_pk)
 
     if request.method == 'GET':
-        reviews = movie.reviews.all()
+        reviews = movie.reviews.all().order_by('-created_at')
         serializer = ReviewSerializer(reviews, many=True)
         return Response(serializer.data)
     
