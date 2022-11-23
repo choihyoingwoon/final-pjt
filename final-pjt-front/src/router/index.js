@@ -8,6 +8,7 @@ import Community from '@/views/Community'
 import myPage from '@/views/accounts/myPage'
 import communitydetail from '@/views/communityDetail.vue'
 import myMvti from '@/views/myMvti'
+import searchPage from '@/views/searchPage'
 
 Vue.use(VueRouter)
 
@@ -51,6 +52,11 @@ const routes = [
     path: '/mymvti',
     name: 'myMvti',
     component: myMvti,
+  },
+  {
+    path: '/search/:searchtext',
+    name: 'searchPage',
+    component: searchPage,
   },
 
 

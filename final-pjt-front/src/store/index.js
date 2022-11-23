@@ -12,6 +12,7 @@ export default new Vuex.Store({
     user:null,
     // likeList : [],
     communityDetail:null,
+    search:null
   },
   getters: {
   },

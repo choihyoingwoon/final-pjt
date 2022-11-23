@@ -33,15 +33,15 @@
       </div>
 
       <div class="d-flex justify-content-between">
-        <button class="btn btn-success col-1" @click="back">목록</button>
+        <button class="btn btn-success col-1" @click="back" style="font-family: 'BMDOHYEON';">목록</button>
         <div class="col-2" style="display:flex;" v-if="communityDetail.user.username===me" :class="{'active1': update}">
-          <button @click="deletecomunity(communityDetail)" class="btn btn-danger" style="margin-right:10px;" >삭제</button>
-          <button class="btn btn-success" @click="updatestate">수정</button>
+          <button @click="deletecomunity(communityDetail)" class="btn btn-danger" style="margin-right:10px; font-family: 'BMDOHYEON';" >삭제</button>
+          <button class="btn btn-success" @click="updatestate" style="font-family: 'BMDOHYEON';">수정</button>
         </div>
       </div>
       <hr>
       <div :class="{'active1': update}">
-        <h1 style="display:flex;">댓글({{commentList.length}})</h1>
+        <h1 style="display:flex; font-family: 'BMHANNAPro';">댓글({{commentList.length}})</h1>
           <input @keyup.enter="[createComment(),getComment(),getComment()]" style="width:100%; margin-bottom: 10px;" placeholder="댓글(악플은 안돼용)" type="text" v-model.trim="comment">
 
         <div v-for="comment in commentList"
@@ -163,7 +163,7 @@ export default {
       })
         .then((res) => {
           // console.log(res)
-          console.log(res.data.username)
+          console.log(res.data)
           this.me=res.data.username
         })
         .catch((err) => {
@@ -184,7 +184,7 @@ export default {
       deletecomment:function(comment){
         axios({
         method: "delete",
-        url: `http://127.0.0.1:8000/community/${this.communityDetail.id}/comment/${comment.id}`,
+        url: `http://127.0.0.1:8000/community/${this.communityDetail.id}/comment/${comment.id}/`,
         headers: {
             Authorization: "Bearer " + localStorage.getItem("jwt"),
           },
@@ -234,6 +234,7 @@ export default {
       })
         .then((res) => {
           this.commentList=res.data
+          console.log(res)
         })
     },
     reload:function(){
