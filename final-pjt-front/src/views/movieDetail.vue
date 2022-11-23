@@ -5,16 +5,18 @@
         <img @click="getRecommendations()" :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="poster" alt="..." style="border: 0px;">
         <div style="text-align:left;">
             <h1 style="font-family: 'BMHANNAPro';">{{movie.title}}</h1>
-            <div style="display:flex;  margin-bottom:15px; width:30vw;">
+            <div class="d-flex justify-content-between" style="display:flex;  margin-bottom:15px; width:30vw;">
+              <div style="display: flex;">
                 <div v-for="(genre,index) in movie.genres" :key="index" style="margin-right:10px;">
-                    <button class="btn btn-success" style="height:40px; ">{{genrenames[genre]}}</button>
+                  <button class="btn btn-success" style="height:40px; ">{{genrenames[genre]}}</button>
                 </div>
+              </div>
                 <div :class="{'activepick' : isPicked}">
-                  <button @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >PICK!</button>
+                  <button @click="[addmymovie(), likelist()]" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >PICK!</button>
                   <!-- <i class="bi bi-suit-heart"></i> -->
                 </div>
                 <div :class="{'activepick' : !isPicked}">
-                  <button @click="addmymovie" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >Cancel!</button>
+                  <button @click="[addmymovie(), likelist()]" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >Cancel!</button>
                   <!-- <i class="bi bi-suit-heart-fill"></i> -->
                 </div>
             </div>
@@ -27,15 +29,15 @@
                 <button class="btn btn-danger" style="font-family: 'BMDOHYEON';" @click="getRecommendations()">비슷한 영화 추천</button>
             </div>
         </div>
-        <div style="margin-left:20px;">
-          <div style="display:flex; flex-direction:column;">
+        <div v-if="me" style="margin-left:20px;">
+          <div style="display:flex; flex-direction:column; width:27.5vw">
             <div style="display:flex;">
               <input id='review' @keyup.enter="[addreview(), reviewlist(), reviewlist(), reviewlist()]" type="text" v-model="review_content" style="width: 25vw;">
               <button id="review_submit" @click="[addreview(), reviewlist(), reviewlist()]" type="submit">+</button>
             </div>
             <br>
             <div style="display:flex; justify-content: space-between">
-              <h4 style="color:crimson; padding-left:10px;"><b>review</b></h4>
+              <h4 style="color:crimson; padding-left:10px;"><b>Review({{review_count}})</b></h4>
               <h5 style="color:crimson; padding-right:10px;"><b>작성자</b></h5>
             </div>
             <div v-for="review in review_list" :key="review.id">
@@ -48,7 +50,7 @@
               </div>
               <hr style="margin-top:0px;">
             </div>
-            <div style="display:flex; justify-content: center;" >
+            <div v-if="review_count > 10" style="display:flex; justify-content: center;" >
               <button @click="[prepage(), reviewlist(), reviewlist()]" class="btn btn-outline-danger" style="width: 60px; height: 35px; margin:5px;"> 이전 </button>
               <!-- <button v-for="nowpage in page_list" :key="nowpage" class="btn btn-outline-danger" style="width: 35px; height: 35px; margin:5px;">{{nowpage}}</button> -->
               <button @click="[nextpage(), reviewlist(), reviewlist()]" class="btn btn-outline-danger" style="width: 60px; height: 35px; margin:5px;"> 다음 </button>
@@ -110,14 +112,16 @@ export default {
             popupView:false,
             recommendcheck:true,
             recommendations:[],
-            me: [],
-            isPicked: '',
+            me: null,
+            isPicked: false,
             review_content: null,
             review_list : [],
             page: 1,
             review_count : 0,
             max_page : null,
-            page_list : []
+            page_list : [],
+            pick: false,
+            mylist : null,
         }
     },
     methods: {
@@ -227,15 +231,18 @@ export default {
       })
         .then((res) => {
           // console.log(res)
+          const movie_id = this.$route.params.id
           this.me = res.data
-          console.log(888888888888)
-          console.log(this.me)
-          if (this.me.like_movies.includes(this.movie.id)) {
+          
+          // 나의 like_movies에 해당 영화가 들어있으면 isPicked를 통해 버튼바꾸기
+          if (this.me.like_movies.includes(Number(movie_id))) {
+            console.log('있어용')
             this.isPicked = true
-            console.log(this.isPicked)
+
           } else {
+            console.log('없어용')
             this.isPicked = false
-            console.log(this.isPicked)
+
           }
         })
         .catch((err) => {
@@ -263,7 +270,6 @@ export default {
         },
       })
         .then((res) => {
-          console.log(res.data)
           this.isPicked = res.data
           // this.getUserInfo()
         })
@@ -351,19 +357,19 @@ export default {
       if (this.page > 1) {
         return this.page -= 1
       }
+    },
+  },
+  created(){
+    if (this.movie){
+      this.getDetail2()
     }
-},
-created(){
-  this.getUserInfo()
-  if (this.movie){
-    this.getDetail2()
+    if (this.movie){
+      this.getDetail1()
+    }
+    this.reviewlist()
+    this.getRecommendations()
+    this.getUserInfo()
   }
-  if (this.movie){
-    this.getDetail1()
-  }
-  this.reviewlist()
-  this.getRecommendations()
-}
 }
 </script>
 
