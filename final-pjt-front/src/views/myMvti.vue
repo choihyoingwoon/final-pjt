@@ -1,61 +1,74 @@
 <template>
   <div class="signup bg-dark" :class="{'bodyheight': check}"><br>
+    <h1 style="font-family: 'BMHANNAPro';">MVTI (MoVie Type Indicator) 테스트</h1>
+    <hr>
     <br>
-    <h2>좋아하는 장르를 골라주세요!</h2>
+    <div style="display:flex; justify-content: center;" >
+        <h3 style="font-family: 'BMHANNAPro';">당신의</h3>
+        <h3 style="font-family: 'BMHANNAPro'; padding-left:10px; color:green">MVTI</h3>
+        <h3 style="font-family: 'BMHANNAPro';">는 무엇인가요?🤔</h3>
+    </div>
+        <h2 style="font-family: 'BMHANNAPro';">궁금하다면 좋아하는 장르를 골라주세요!</h2>
     <div id="select_genre">
         <div id="select_genre_one">
-            <button id="one_btn" @click="select1" :class="{'select' : horror, 'nonselect': !horror}" >공포</button>
+            <button id="one_btn" @click="select1" :class="{'select' : horror, 'nonselect': !horror}" style="font-family: 'BMHANNAPro';" >공포</button>
             <br>
             <h3>VS</h3>
             <br>
-            <button id="one_btn" @click="select2" :class="{'select' : comedy , 'nonselect': !comedy}">코미디</button>
+            <button id="one_btn" @click="select2" :class="{'select' : comedy , 'nonselect': !comedy}" style="font-family: 'BMHANNAPro';">코미디</button>
         </div>
 
         <div id="select_genre_one">
-            <button id="one_btn" @click="select3" :class="{'select' : romance , 'nonselect': !romance}" >로맨스</button>
+            <button id="one_btn" @click="select3" :class="{'select' : romance , 'nonselect': !romance}"  style="font-family: 'BMHANNAPro';">로맨스</button>
             <br>
             <h3>VS</h3>
             <br>
-            <button id="one_btn" @click="select4" :class="{'select' : thriller , 'nonselect': !thriller}">스릴러</button>
+            <button id="one_btn" @click="select4" :class="{'select' : thriller , 'nonselect': !thriller}" style="font-family: 'BMHANNAPro';">스릴러</button>
         </div>
         <div id="select_genre_one">
-            <button id="one_btn" @click="select5" :class="{'select' : drama , 'nonselect': !drama}">드라마</button>
+            <button id="one_btn" @click="select5" :class="{'select' : drama , 'nonselect': !drama}" style="font-family: 'BMHANNAPro';">드라마</button>
             <br>
             <h3>VS</h3>
             <br>
-            <button id="one_btn" @click="select6" :class="{'select' : sf , 'nonselect': !sf}">SF</button>
+            <button id="one_btn" @click="select6" :class="{'select' : sf , 'nonselect': !sf}" style="font-family: 'BMHANNAPro';">SF</button>
         </div>
         <div id="select_genre_one">
-            <button id="one_btn" @click="select7" :class="{'select' : action , 'nonselect': !action}">액션</button>
+            <button id="one_btn" @click="select7" :class="{'select' : action , 'nonselect': !action}" style="font-family: 'BMHANNAPro';">액션</button>
             <br>
             <h3>VS</h3>
             <br>
-            <button id="one_btn" @click="select8" :class="{'select' : animation , 'nonselect': !animation}">애니메이션</button>
+            <button id="one_btn" @click="select8" :class="{'select' : animation , 'nonselect': !animation}" style="font-family: 'BMHANNAPro';">애니메이션</button>
         </div>
     </div>
     <button class="btn btn-outline-danger" @click="[check_mymvti(), mvti_movie1(), mvti_movie2(), mvti_movie3(), mvti_movie4()]" style="width: 50%;">나의 MVTI 확인하기!</button><br>
     <div v-if="check" >
         <br>
-        <h1 style="text-decoration: underline overline; text-underline-position: under; margin-top: 30px; "> 당신의 MVTI는 <b>✨{{mymvti}}✨ </b></h1>
+        <h3>.</h3>
+        <h3>.</h3>
+        <h3>.</h3>
+        <h1 style="text-decoration: underline overline; text-underline-position: under; font-family: 'BMHANNAPro'; margin-top: 30px; "> 당신의 MVTI는 <b>✨{{mymvti}}✨ </b></h1>
         <br>
-        <div style="text-align:center;">
-            <div style="display:flex; margin-bottom: 20px; width: 600px; margin:auto;">
-                <h2 style="text-align: left; margin-left: 3%; margin-top: 30px;">{{mymvti}}들의 취향을 저격할 영화!</h2>
-                <button @click="[mvti_movie1(), mvti_movie2(), mvti_movie3(), mvti_movie4()]" class="btn btn-outline-danger" style="width:20%; margin-left:10px; margin-top:22px; align-items: flex-end;">다른 영화</button>
+        <div id=mvtibox style="text-align:center;">
+            <div style="display:flex; flex-direction: column; margin-bottom: 20px; width: 600px; margin:auto; align-items: center;">
+                <div style="display:flex">
+                    <h2 style="text-align: left; margin-left: 3%; margin-top: 30px; color:green; font-family: 'BMHANNAPro';">{{mymvti}}</h2>
+                    <h2 style="text-align: left; width:350px;; 3%; margin-top: 30px; font-family: 'BMHANNAPro';">들의 취향을 저격할 영화!</h2>
+                </div>
+                <i @click="[mvti_movie1(), mvti_movie2(), mvti_movie3(), mvti_movie4()]" style="width:20%; margin-left:10px; margin-top:22px; cursor: pointer; " class="bi bi-arrow-clockwise"></i>
             </div>
             <div>
                 <div style="margin: auto; width: 1150px; display:flex; padding-left: 15px;">
                     <div style="height: 45vh;">
-                        <img @click="getDetail(movie1)" v-if="movie1" :src="`https://image.tmdb.org/t/p/original/${movie1.poster_path}`" class="poster cardmove" alt="...">
+                        <img style="border:0px;" @click="getDetail(movie1)" v-if="movie1" :src="`https://image.tmdb.org/t/p/original/${movie1.poster_path}`" class="poster cardmove" alt="...">
                     </div>
                     <div style="height: 45vh;">
-                        <img @click="getDetail(movie2)" v-if="movie2" :src="`https://image.tmdb.org/t/p/original/${movie2.poster_path}`" class="poster cardmove" alt="...">
+                        <img style="border:0px;" @click="getDetail(movie2)" v-if="movie2" :src="`https://image.tmdb.org/t/p/original/${movie2.poster_path}`" class="poster cardmove" alt="...">
                     </div>
                     <div style="height: 45vh;">
-                        <img @click="getDetail(movie3)" v-if="movie3" :src="`https://image.tmdb.org/t/p/original/${movie3.poster_path}`" class="poster cardmove" alt="...">
+                        <img style="border:0px;" @click="getDetail(movie3)" v-if="movie3" :src="`https://image.tmdb.org/t/p/original/${movie3.poster_path}`" class="poster cardmove" alt="...">
                     </div>
                     <div style="height: 45vh;">
-                        <img @click="getDetail(movie4)" v-if="movie4" :src="`https://image.tmdb.org/t/p/original/${movie4.poster_path}`" class="poster cardmove" alt="...">
+                        <img style="border:0px;" @click="getDetail(movie4)" v-if="movie4" :src="`https://image.tmdb.org/t/p/original/${movie4.poster_path}`" class="poster cardmove" alt="...">
                     </div>
                 </div>
             </div>
@@ -375,6 +388,13 @@ export default {
     .bodyheight{
         height: 100%;
     }
+
+#mvtibox{
+    border : 3px solid white;
+    /* padding-bottom: 50px; */
+    margin-left : 200px;
+    margin-right : 200px;
+}
 
 
 </style>

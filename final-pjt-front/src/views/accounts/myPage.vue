@@ -7,8 +7,6 @@
       <br>
       <div>
           <h3 style="margin-left:0px; font-family: 'BMHANNAPro';">{{me}}님이 담아놓은 영화들🎬</h3>
-          <!-- <button class="btn btn-danger" style="width:100px; height: 40px; margin-right:10px;">선택 삭제</button> -->
-          <button @click="alldelete" class="btn btn-danger" style="width:100px; height: 38px; ">전체 삭제</button>
           <div>
               <MovieCard
                   v-for="movie in likelist" :key="movie.id"
@@ -67,9 +65,6 @@
           console.log(err)
         })
     },
-          alldelete() {
-              this.$store.dispatch('alldelete')
-          },
           getMyMovie() {
             const token = localStorage.getItem('jwt')
             const info = VueJwtDecode.decode(token)
