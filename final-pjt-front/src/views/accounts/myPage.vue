@@ -6,7 +6,7 @@
       <hr style="width: 100;">
       <br>
       <div>
-          <h3 style="margin-left:0px; font-family: 'BMHANNAPro';">{{userName}}님이 담아놓은 영화들🎬</h3>
+          <h3 style="margin-left:0px; font-family: 'BMHANNAPro';">{{me}}님이 담아놓은 영화들🎬</h3>
           <!-- <button class="btn btn-danger" style="width:100px; height: 40px; margin-right:10px;">선택 삭제</button> -->
           <button @click="alldelete" class="btn btn-danger" style="width:100px; height: 38px; ">전체 삭제</button>
           <div>
@@ -30,6 +30,7 @@
       name: "myPage",
       data() {
         return {
+            me:null,
             likelist: [],
             userdata: [],
         }
@@ -43,6 +44,29 @@
           }
       },
       methods: {
+        getUserInfo() {
+      const token = localStorage.getItem('jwt')
+      const info = VueJwtDecode.decode(token)
+      // console.log(info)
+      // const user_id = info.user_id
+      axios({
+        method: 'post',
+        url: 'http://127.0.0.1:8000/accounts/mypage/',
+        data: {
+          info
+        },
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+      })
+        .then((res) => {
+          // console.log(res)
+          this.me=res.data.username
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
           alldelete() {
               this.$store.dispatch('alldelete')
           },
@@ -88,6 +112,7 @@
       },
       created() {
         this.getMyMovie()
+        this.getUserInfo()
       }
   }
   </script>
