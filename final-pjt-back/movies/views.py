@@ -31,7 +31,7 @@ def review_create(request, movie_pk):
     movie = get_object_or_404(Movie, pk=movie_pk)
 
     if request.method == 'GET':
-        reviews = movie.comment_set.all
+        reviews = movie.reviews.all()
         serializer = ReviewSerializer(reviews, many=True)
         return Response(serializer.data)
     
@@ -46,23 +46,16 @@ def review_create(request, movie_pk):
             return Response('Error')
 
                 
-@login_required
-@api_view(['PUT', 'DELETE'])
+@api_view(['DELETE'])
 def review_update_delete(request, movie_pk, review_pk):
     movie = get_object_or_404(Movie, pk=movie_pk)
     review = get_object_or_404(Review, pk=review_pk)
 
-    if request.user == review.user:
-        if request.method == 'PUT':
-            serializer = ReviewSerializer(review, data=request.data)
-            if serializer.is_valid(raise_exception=True):
-                serializer.save()
-                return Response(serializer.data)
-            
-        else :
-            review.delete()
-            return Response('댓글이 삭제되었습니다')
-    return Response('본인이 작성한 글만 수정 및 삭제할 수 있습니다.')
+    if request.user.is_authenticated:
+        review.delete()
+        return Response('댓글이 삭제되었습니다')
+    else :
+        return Response('본인이 작성한 글만 수정 및 삭제할 수 있습니다.')
 
 
 

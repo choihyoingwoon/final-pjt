@@ -1,5 +1,5 @@
 <template>
-  <div class="user-wrap bg-dark" style="height:100%;">
+  <div class="user-wrap bg-dark" style="height:100vh;">
     <img @click="imgclick()"  :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" class="img" alt="...">
     <div class="user-text" :class="{ activetext : popupView,recommendactive:!recommendcheck}">
         <img @click="getRecommendations()" :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="poster" alt="...">
@@ -27,11 +27,35 @@
                 <button class="btn btn-danger" style="font-family: 'BMDOHYEON';" @click="getRecommendations()">비슷한 영화 추천</button>
             </div>
         </div>
-        <div style="display:flex;">
-          <input id='review' type="text" v-model="review_content" style="width: 20vw;">
-          <button id="review_submit" @click="addreview" type="submit">+</button>
+        <div style="margin-left:20px;">
+          <div style="display:flex; flex-direction:column;">
+            <div style="display:flex;">
+              <input id='review' @keyup.enter="[addreview(), reviewlist(), reviewlist(), reviewlist()]" type="text" v-model="review_content" style="width: 25vw;">
+              <button id="review_submit" @click="[addreview(), reviewlist(), reviewlist()]" type="submit">+</button>
+            </div>
+            <br>
+            <div style="display:flex; justify-content: space-between">
+              <h4 style="color:crimson; padding-left:10px;"><b>review</b></h4>
+              <h5 style="color:crimson; padding-right:10px;"><b>작성자</b></h5>
+            </div>
+            <div v-for="review in review_list" :key="review.id">
+              <div style="display:flex; justify-content: space-between; ">  
+                <p style="padding-left: 10px;">{{review.content}}</p>
+                <div style="display:flex">
+                  <p style="padding-right: 15px;">{{review.user.username}}</p>
+                  <p v-if="review.user.username===me.username" @click="[delete_review(review), reviewlist(), reviewlist()]">X</p>
+                </div>
+              </div>
+              <hr style="margin-top:0px;">
+            </div>
+            <div style="display:flex; justify-content: center;" >
+              <button @click="[prepage(), reviewlist(), reviewlist()]" class="btn btn-outline-danger" style="width: 60px; height: 35px; margin:5px;"> 이전 </button>
+              <!-- <button v-for="nowpage in page_list" :key="nowpage" class="btn btn-outline-danger" style="width: 35px; height: 35px; margin:5px;">{{nowpage}}</button> -->
+              <button @click="[nextpage(), reviewlist(), reviewlist()]" class="btn btn-outline-danger" style="width: 60px; height: 35px; margin:5px;"> 다음 </button>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
     <div class="popup-view" :class="{ active : popupView }">
       <pop-up @close-popup="openPopup()"></pop-up>
       <button class="btn btn-danger" style="font-family: 'BMDOHYEON';" @click="movieVideo(movie), openYoutube()">예고편 끄기</button>
@@ -90,6 +114,10 @@ export default {
             isPicked: '',
             review_content: null,
             review_list : [],
+            page: 1,
+            review_count : 0,
+            max_page : null,
+            page_list : []
         }
     },
     methods: {
@@ -200,6 +228,7 @@ export default {
         .then((res) => {
           // console.log(res)
           this.me = res.data
+          console.log(888888888888)
           console.log(this.me)
           if (this.me.like_movies.includes(this.movie.id)) {
             this.isPicked = true
@@ -221,6 +250,7 @@ export default {
         meId : info.user_id,
         movieId : this.movie.id,
       }
+      // console.log(this.movie.id)
       // console.log(item)
       axios({
         method: 'post',
@@ -264,14 +294,62 @@ export default {
         })
     },
     reviewlist() {
+      const movie_id = this.$route.params.id
+      // console.log(movie_id)
       axios({
         method: 'get',
-        url: `http://127.0.0.1:8000/movies/${this.movie.id}/review/`,
+        url: `http://127.0.0.1:8000/movies/${movie_id}/review/`,
+        
       })
         .then((res) => {
-          console.log(res)
-          this.review_list = res.data
+          // console.log(222222222)
+          // console.log(res)
+          this.review_count = res.data.length
+          // console.log(this.review_count)
+          this.maxpage = Math.ceil(this.review_count / 10)
+          // console.log(this.maxpage)
+          for (let i=1 ; i<= this.maxpage; i++) {
+            this.page_list.push(i)
+          }
+          console.log(this.page_list)
+          if (this.page === 1) {
+            this.review_list = res.data.slice(0, 10)
+          } else {
+            this.review_list = res.data.slice(this.page*10 -10, this.page*10)
+          }
+          console.log(this.review_list)
         })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+    delete_review(review) {
+      const token = localStorage.getItem('jwt')
+      const movie_id = this.$route.params.id
+      axios({
+        method: 'delete',
+        url: `http://127.0.0.1:8000/movies/${movie_id}/review/${review.id}/`,
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+      })
+        .then(() => {
+          console.log('review delete')
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+    nextpage() {
+      // console.log(this.maxpage)
+      if (this.page < this.maxpage) {
+        return this.page += 1
+      }
+    },
+    prepage() {
+      if (this.page > 1) {
+        return this.page -= 1
+      }
     }
 },
 created(){
@@ -282,6 +360,7 @@ created(){
   if (this.movie){
     this.getDetail1()
   }
+  this.reviewlist()
   this.getRecommendations()
 }
 }
@@ -309,7 +388,7 @@ created(){
 .user-text{
     position:absolute;
     top: 50%;
-    left: 50%;
+    left: 42%;
     transform: translate( -50%, -50% );
     color: white;
     display: flex;
