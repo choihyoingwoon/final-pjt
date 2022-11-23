@@ -12,12 +12,12 @@
                 </div>
               </div>
                 <div :class="{'activepick' : isPicked}">
-                  <button @click="[addmymovie(), likelist()]" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >PICK!</button>
-                  <!-- <i class="bi bi-suit-heart"></i> -->
+                  <!-- <button @click="[addmymovie(), likelist()]" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >PICK!</button> -->
+                  <i @click="[addmymovie(), likelist()]" class="bi bi-suit-heart"></i>
                 </div>
                 <div :class="{'activepick' : !isPicked}">
-                  <button @click="[addmymovie(), likelist()]" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >Cancel!</button>
-                  <!-- <i class="bi bi-suit-heart-fill"></i> -->
+                  <!-- <button @click="[addmymovie(), likelist()]" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >Cancel!</button> -->
+                  <i @click="[addmymovie(), likelist()]" class="bi bi-suit-heart-fill"></i>
                 </div>
             </div>
             <div style="font-family:'BMHANNAAir';">
@@ -474,4 +474,9 @@ export default {
   opacity: 50%;
 }
 
+i{
+  padding-top: px;
+  font-size: 40px;
+  color: crimson;
+}
 </style>
