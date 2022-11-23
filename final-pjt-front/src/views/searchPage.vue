@@ -1,15 +1,20 @@
 <template>
   <div class="signup bg-dark" style="text-align:left; padding-left:50px;">
-    <button @click="search">d</button>
     <br>
-    <h1>'{{this.$route.params.searchtext}}'과 관련된 영화</h1>
-    <div style="width:100%;" v-if="arr">
-          <MovieCard
-            v-for="movie in arr"
-            :key="movie.id" 
-            :movie="movie"
-          />
-        </div>
+    <div v-if="arr.length ===0" style="text-align:center;">
+      <img src="@/assets/noResult.png" alt="" style="margin-top:50px; margin-bottom:20px; filter: invert(100%);">
+      <h1 style="font-family: 'BMHANNAPro';">검색 결과가 없습니다. </h1>
+    </div>
+    <div v-if="arr.length !=0">
+      <h1 style="font-family: 'BMHANNAPro';">'{{this.$route.params.searchtext}}'과 관련된 영화</h1>
+      <div style="width:100%;" v-if="arr">
+            <MovieCard
+              v-for="movie in arr"
+              :key="movie.id" 
+              :movie="movie"
+            />
+          </div>
+    </div>
 
   </div>
 </template>

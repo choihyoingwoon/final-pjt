@@ -5,7 +5,7 @@
     <b-container class="bg-dark" fluid style="padding:15px;">
       <br>
       <div style="width:100%;">
-        <button class="btn btn-danger" v-for="genre in genrenames" :key="genre.index" style="width:7%; margin:5px;" @click="genremovie(genre)">{{genre}}</button>
+        <button class="btn btn-danger" v-for="genre in genrenames" :key="genre.index" style="width:7%; margin:6.3px;" @click="genremovie(genre)">{{genre}}</button>
       </div>
       <div style="margin-top:20px;" v-if="arr.length!=0">
         <h2 style="color:white; font-family: 'BMHANNAPro'; margin-left:20px;">{{genrename}} 영화</h2>
