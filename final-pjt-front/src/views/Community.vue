@@ -2,9 +2,12 @@
   <div class="signup bg-dark">
     <br>
     <h1 style="font-family: 'BMHANNAPro';">Community</h1>
-    <hr>
-    <div class="commucreate" :class="{'active1': active}">
-        <button style="font-family: 'BMHANNAAir';" class="btn btn-danger"  @click="activeCreate"><h4>create</h4></button>
+    <div v-if="me">
+      <hr>
+      <div class="commucreate" :class="{'active1': active}" >
+          <button style="font-family: 'BMHANNAAir';" class="btn btn-danger"  @click="activeCreate"><h4>create</h4></button>
+      </div>
+      <hr>
     </div>
     <div style="font-family: 'BMHANNAPro';" class="commucreate" :class="{'active1': !active}">
         <div>
@@ -18,7 +21,6 @@
         </div>
     <button style="font-family: 'BMHANNAAir';" class="btn btn-danger" @click="[createCommunity(), reload()]"><h4>create</h4></button>
     </div>
-    <hr>
     <!-- <div class="flex" id="article">
       <h4>번호</h4>
       <h4>제목</h4>
@@ -53,7 +55,7 @@
 
 <script>
 import axios from "axios";
-
+import VueJwtDecode from 'vue-jwt-decode'
 export default {
     name:'communityList',
     data: function() {
@@ -62,6 +64,7 @@ export default {
       title:null,
       content:null,
       active:false,
+      me:null,
     };
   },
 //   computed:{
@@ -71,6 +74,30 @@ export default {
 //   },
 
     methods:{
+      getUserInfo() {
+      const token = localStorage.getItem('jwt')
+      const info = VueJwtDecode.decode(token)
+      // console.log(info)
+      // const user_id = info.user_id
+      axios({
+        method: 'post',
+        url: 'http://127.0.0.1:8000/accounts/mypage/',
+        data: {
+          info
+        },
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+      })
+        .then((res) => {
+          // console.log(res)
+          console.log(res.data)
+          this.me=res.data.username
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
         getCommunity: function() {
       axios({
         method: "get",
@@ -138,6 +165,7 @@ export default {
     },
     created:function(){
         this.getCommunity();
+        this.getUserInfo()
     },
 
 }

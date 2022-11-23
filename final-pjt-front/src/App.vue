@@ -30,7 +30,7 @@
     </b-navbar>
       </div>
     </header>
-    <router-view @login="changeLog"/>
+    <router-view :key="$route.fullPath" @login="changeLog"/>
   </div>
 </template>
 
@@ -95,6 +95,7 @@ export default {
       })
       .then(res=>{
         this.$store.state.topmoviesList = res.data
+        console.log(res.data)
       })
       .catch(err=>{
         console.log(err)
@@ -117,9 +118,9 @@ export default {
     }
   },
   created(){
-    this.getUserInfo()
     this.topMovie()
     this.nowMovie()
+    this.getUserInfo()
     const token = localStorage.getItem("jwt");
     if (token) {
       this.isLoggedIn = true;

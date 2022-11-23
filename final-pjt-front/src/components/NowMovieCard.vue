@@ -1,6 +1,6 @@
 <template>
     <div class="cardmoves" @click="getDetail(movie)" >
-  <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="imgs card" style="height: 360px; width:240px; border-radius: 20px;" alt="...">
+  <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="imgs card" style="height: 360px; width:240px; border-radius: 20px; border: 0;" alt="...">
   </div>
 </template>
 
