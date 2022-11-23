@@ -1,14 +1,20 @@
 <template>
-  <div class="signup bg-dark" :class="{'bodyheight': check}"><br>
-    <h1 style="font-family: 'BMHANNAPro';">MVTI (MoVie Type Indicator) 테스트</h1>
+  <div class="signup" :class="{'bodyheight': check}" style="background-color:black"><br>
+    <h1 style="font-family: 'BMHANNAPro';">MVTI (<span style="color:green">M</span>o<span style="color:green">V</span>ie <span style="color:green">T</span>ype <span style="color:green">I</span>ndicator) 테스트</h1>
     <hr>
     <br>
-    <div style="display:flex; justify-content: center;" >
-        <h3 style="font-family: 'BMHANNAPro';">당신의</h3>
-        <h3 style="font-family: 'BMHANNAPro'; padding-left:10px; color:green">MVTI</h3>
-        <h3 style="font-family: 'BMHANNAPro';">는 무엇인가요?🤔</h3>
+    <div style="display:flex; width:710px; margin: auto;">
+        <img src="@/assets/tree.png" alt="" style="width:100px;">
+        <div>
+            <div style="display:flex; justify-content: center;" >
+                <h3 style="font-family: 'BMHANNAPro';">당신의</h3>
+                <h3 style="font-family: 'BMHANNAPro'; padding-left:10px; color:green">MVTI</h3>
+                <h3 style="font-family: 'BMHANNAPro';">는 무엇인가요?🤔</h3>
+            </div>
+                <h2 style="font-family: 'BMHANNAPro';">궁금하다면 좋아하는 <span style="color:red">장르</span>를 골라주세요!</h2>
+        </div>
+        <img src="@/assets/tree.png" alt="" style="width:100px;">
     </div>
-        <h2 style="font-family: 'BMHANNAPro';">궁금하다면 좋아하는 장르를 골라주세요!</h2>
     <div id="select_genre">
         <div id="select_genre_one">
             <button id="one_btn" @click="select1" :class="{'select' : horror, 'nonselect': !horror}" style="font-family: 'BMHANNAPro';" >공포</button>
@@ -73,6 +79,7 @@
                 </div>
             </div>
         </div>
+        <hr>
     </div>
 
   </div>

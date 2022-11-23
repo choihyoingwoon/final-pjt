@@ -1,21 +1,22 @@
 <template>
   <div id="app">
-    <header class="bg-dark">
+    <header>
       <div style="margin-top:20px;">
         <h1 style="font-family: 'BMDOHYEON'; color:red">☃️AXIOS<span style="color:white;">-</span><span style="color:rgb(13, 83, 25);">MAS</span>☃️</h1>
       </div>
       <div>
         <b-navbar toggleable="lg" type="dark"  style="font-family: 'BMDOHYEON'; padding-left:20px; padding-right:20px; ">
-      <b-navbar-brand>SSAFY</b-navbar-brand>
+      <b-navbar-brand></b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" style="justify-content: space-between;" is-nav>
-        <b-navbar-nav>
-            <b-nav-item href="/">Home</b-nav-item>
-            <b-nav-item href="/community" >community</b-nav-item>
-            <b-nav-item href="/myMvti" >MVTI✨</b-nav-item>
+        <b-navbar-nav >
+            <b-nav-item href="/" style="background-color: rgb(50,50,50); border-radius: 10px; margin-right:10px" >Home</b-nav-item>
+            <b-nav-item href="/community" style="background-color: rgb(50,50,50); border-radius: 10px; margin-right:10px">community</b-nav-item>
+            <b-nav-item href="/myMvti" style="background-color: rgb(50,50,50); border-radius: 10px; margin-right:10px">✨MVTI✨</b-nav-item>
           </b-navbar-nav>
           <form @submit.prevent="searchmovie()" class="search-bar" style="display:flex;">
-            <input placeholder="찾고 싶은 영화 제목을 입력하세용" @keyup.enter="searchmovie(searchtext)" type="search" name="search" v-model.trim="searchtext" pattern=".*\S.*" required >
+            <input placeholder="찾고 싶은 영화 제목을 입력하세용" @keyup.enter="searchmovie(searchtext)" type="search" name="search" v-model.trim="searchtext" pattern=".*\S.*" >
+            <!-- required  -->
             <button class="search-btn" type="submit" @click="searchmovie(searchtext)">
               <span>Search</span>
             </button>
@@ -179,7 +180,8 @@ header {
   position: sticky;
   top: 0px; /* 도달했을때 고정시킬 위치 */
   padding: 5px;
-  background-image: url(~@/assets/snow.gif);
+  background-color: black;
+  background-image: url(~@/assets/snow3.gif);
   background-size: cover;
   z-index: 10;
   font-size: larger;
@@ -284,7 +286,7 @@ header {
 /* Active state */
 .search-bar input:focus + .search-btn,
 .search-bar input:valid + .search-btn {
-	background: rgb(220, 53, 69);
+	background: rgb(70, 70, 70);
 	border-radius: 0 0.375em 0.375em 0;
 	transform: scale(1);
 }
@@ -297,7 +299,7 @@ header {
 .search-bar input:focus + .search-btn:hover,
 .search-bar input:valid + .search-btn:hover,
 .search-bar input:valid:not(:focus) + .search-btn:focus {
-	background: rgb(187,45,59);
+	background: rgb(50,50,50);
 }
 .search-bar input:focus + .search-btn:active,
 .search-bar input:valid + .search-btn:active {

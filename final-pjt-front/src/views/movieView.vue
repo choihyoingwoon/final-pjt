@@ -152,7 +152,8 @@ export default {
     
 }
 .movie_list::-webkit-scrollbar-thumb{
-    background-color:rgb(13, 83, 25);
+    /* background-color:rgb(13, 83, 25); */
+    background-color: rgb(60, 60, 60);
 }
 .list{
   /* justify-content: center;

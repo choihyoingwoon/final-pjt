@@ -1,11 +1,11 @@
 <template>
-  <div class="signup bg-dark">
+  <div class="signup" style="background-color:black">
     <br>
     <h1 style="font-family: 'BMHANNAPro';">Community</h1>
     <div v-if="me">
       <hr>
       <div class="commucreate" :class="{'active1': active}" >
-          <button style="font-family: 'BMHANNAAir';" class="btn btn-danger"  @click="activeCreate"><h4>create</h4></button>
+          <button style="font-family: 'BMHANNAAir';" class="btn btn-success"  @click="activeCreate"><h4>create</h4></button>
       </div>
       <hr>
     </div>
@@ -33,19 +33,19 @@
           <h5>{{community.user.username}}</h5>
         </div>
     </ul> -->
-    <table class="table table-dark table-bordered table-striped" id="table" style="width:60%; margin: auto;">
+    <table class="table table-hover" id="table" style="width:60%; margin: auto;">
       <thead>
-        <tr style="font-family: 'BMHANNAPro';">
+        <tr style="font-family: 'BMHANNAPro'; background-color: rgb(50, 50, 50);">
           <th scope="col" style="width:100px; height: 70px;"><h3>번호</h3></th>
           <th scope="col"><h3>제목</h3></th>
           <th scope="col" style="width:15%;"><h3>작성일자</h3></th>
         </tr>
       </thead>
-      <tbody style="font-family: 'BMHANNAAir';">
-        <tr v-for="(community,index) in communities" :key="community.id" @click="gocommunityDetail(community)" >
-          <th style="padding-top:30px !important;" scope="row"><h1>{{index+1}}</h1></th>
-          <td><h3>{{community.title}}</h3><p>작성자 : {{community.user.username}}</p></td>
-          <th style="padding-top:25px !important;"><h4>{{community.created_at}}</h4></th>
+      <tbody style="font-family: 'BMHANNAPro'; background-color: rgb(70, 70, 70);">
+        <tr v-for="(community,index) in communities" :key="community.id" @click="gocommunityDetail(community)">
+          <th style="padding-top:30px !important;" scope="row"><h2>{{index+1}}</h2></th>
+          <td><h4>{{community.title}}</h4><p>작성자 : {{community.user.username}}</p></td>
+          <th style="padding-top:25px !important;"><h5>{{community.created_at}}</h5></th>
           <!-- <button @click="gocommunityDetail(community)">자세히</button> -->
         </tr>
       </tbody>

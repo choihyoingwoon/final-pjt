@@ -1,5 +1,5 @@
 <template>
-    <div class="signup bg-dark">
+    <div class="signup" style="background-color:black;">
       <br>
       <h1 style="color:white; font-family: 'BMHANNAPro';">My Page</h1>
       <br>
