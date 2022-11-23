@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <header class="bg-dark">
-      <br>
-      <h1 style="font-family: 'BMDOHYEON'; color:red">Netflix</h1>
+      <div style="margin-top:20px;">
+        <h1 style="font-family: 'BMDOHYEON'; color:red">☃️AXIOS<span style="color:white;">-</span><span style="color:rgb(13, 83, 25);">MAS</span>☃️</h1>
+      </div>
       <div>
-        <b-navbar toggleable="lg" type="dark" variant="dark" style="font-family: 'BMDOHYEON'; padding-left:20px; padding-right:20px; ">
+        <b-navbar toggleable="lg" type="dark"  style="font-family: 'BMDOHYEON'; padding-left:20px; padding-right:20px; ">
       <b-navbar-brand>SSAFY</b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" style="justify-content: space-between;" is-nav>
@@ -178,8 +179,10 @@ header {
   position: sticky;
   top: 0px; /* 도달했을때 고정시킬 위치 */
   padding: 5px;
-  background-color: gold;
+  background-image: url(~@/assets/snow.gif);
+  background-size: cover;
   z-index: 10;
+  font-size: larger;
 }
 .bodycss{
     height: 100%;

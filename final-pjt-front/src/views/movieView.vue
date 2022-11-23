@@ -2,10 +2,10 @@
   <div style="display: flex; text-align: left;">
     <br>
     <hr style="color:white;">
-    <b-container class="bg-dark" fluid style="padding:15px;">
+    <b-container fluid style="padding:15px; background-color: black;">
       <br>
       <div style="width:100%;">
-        <button class="btn btn-danger" v-for="genre in genrenames" :key="genre.index" style="width:7%; margin:6.3px;" @click="genremovie(genre)">{{genre}}</button>
+        <button class="genrebtn" v-for="genre in genrenames" :key="genre.index" @click="genremovie(genre)" :class="{'genreactive': genrecheck===genre}">{{genre}}</button>
       </div>
       <div style="margin-top:20px;" v-if="arr.length!=0">
         <h2 style="color:white; font-family: 'BMHANNAPro'; margin-left:20px;">{{genrename}} 영화</h2>
@@ -55,6 +55,7 @@ export default {
 
   data() {
       return {
+          genrecheck:false,
           genrename:null,
           movie:null,
           arr:null,
@@ -85,6 +86,8 @@ export default {
   methods:{
     
     genremovie(genre){
+      this.genrecheck= genre
+      console.log(genre)
       this.arr=[]
       this.genrename=genre
       const genre_nums = [28, 16, 35, 80, 99, 18, 10751, 14, 36, 27, 10402, 10749, 878,
@@ -111,6 +114,22 @@ export default {
 </script>
 
 <style>
+.genrebtn{
+  font-family: 'BMDOHYEON'; 
+  width:7%; 
+  margin:6.3px; 
+  background-color: black; 
+  color: white; 
+  border: 2px solid darkred; 
+  border-radius: 15px; 
+  height: 40px;
+}
+.genrebtn:hover{
+    filter: brightness(150%);
+}
+.genreactive{
+  background-color: darkred;
+}
 .movie_list {
     display: flex;
     overflow-x: scroll;
@@ -133,7 +152,7 @@ export default {
     
 }
 .movie_list::-webkit-scrollbar-thumb{
-    background-color: white;
+    background-color:rgb(13, 83, 25);
 }
 .list{
   /* justify-content: center;
