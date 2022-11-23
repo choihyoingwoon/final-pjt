@@ -1,5 +1,5 @@
 <template>
-  <div class="signup bg-dark" style="height:300vh; font-family: 'BMHANNAAir';">
+  <div class="signup" style="height:300vh; background-color: black; font-family: 'BMHANNAAir';">
     <div class="commutext">
       <div :class="{'active1': update}">
         <div style="text-align: center;">

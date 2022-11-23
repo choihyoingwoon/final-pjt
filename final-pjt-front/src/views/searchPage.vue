@@ -1,5 +1,5 @@
 <template>
-  <div class="signup bg-dark" style="text-align:left; padding-left:50px;">
+  <div class="signup" style="text-align:left; padding-left:50px; background-color: black;">
     <br>
     <div v-if="arr.length ===0" style="text-align:center;">
       <img src="@/assets/noResult.png" alt="" style="margin-top:50px; margin-bottom:20px; filter: invert(100%);">
