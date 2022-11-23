@@ -2,7 +2,7 @@
   <div class="user-wrap bg-dark" style="height:100vh;">
     <img @click="imgclick()"  :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" class="img" alt="...">
     <div class="user-text" :class="{ activetext : popupView,recommendactive:!recommendcheck}">
-        <img @click="getRecommendations()" :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="poster" alt="...">
+        <img @click="getRecommendations()" :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="poster" alt="..." style="border: 0px;">
         <div style="text-align:left;">
             <h1 style="font-family: 'BMHANNAPro';">{{movie.title}}</h1>
             <div style="display:flex;  margin-bottom:15px; width:30vw;">
@@ -43,7 +43,7 @@
                 <p style="padding-left: 10px;">{{review.content}}</p>
                 <div style="display:flex">
                   <p style="padding-right: 15px;">{{review.user.username}}</p>
-                  <p v-if="review.user.username===me.username" @click="[delete_review(review), reviewlist(), reviewlist()]">X</p>
+                  <p v-if="review.user.username===me.username" style="cursor:pointer;" @click="[delete_review(review), reviewlist(), reviewlist()]">X</p>
                 </div>
               </div>
               <hr style="margin-top:0px;">
@@ -311,7 +311,8 @@ export default {
           for (let i=1 ; i<= this.maxpage; i++) {
             this.page_list.push(i)
           }
-          console.log(this.page_list)
+          // console.log(this.page_list)
+
           if (this.page === 1) {
             this.review_list = res.data.slice(0, 10)
           } else {
@@ -388,7 +389,7 @@ created(){
 .user-text{
     position:absolute;
     top: 50%;
-    left: 42%;
+    left: 50%;
     transform: translate( -50%, -50% );
     color: white;
     display: flex;
@@ -405,7 +406,7 @@ created(){
 .poster{
     height: 50vh;
     width:30vw;
-    margin-right:20px
+    margin-right:20px;
 }
 .popup-view{
       position:absolute;
