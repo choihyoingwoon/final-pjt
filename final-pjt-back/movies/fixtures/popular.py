@@ -19,7 +19,7 @@ class TMDBHelper:
 def get_top_rated():
     result = []
     ranking = 0
-    for page in range(1, 4) :
+    for page in range(1, 500) :
         request_url=TMDBHelper.get_requests_url(method='/movie/top_rated', region='KR', language='ko', page=f'{page}')
         raw_data = requests.get(request_url).json()
         data = raw_data.get('results')
@@ -28,7 +28,7 @@ def get_top_rated():
             # for genre in movie.get('genre_ids'):
             #     genre_names.append(genre_list[genre])
             movie_dict = {
-                'model' : 'movies.top_movie',
+                'model' : 'movies.movie',
                 'pk': movie.get('id'),
                 'fields' : {
                     'title' : movie.get('title'),
@@ -48,5 +48,5 @@ def get_top_rated():
             result.append(movie_dict)
     return result
 
-with open('./movies/fixtures/top_rated.json', 'w', encoding='UTF-8') as f:
+with open('./final-pjt-back/movies/fixtures/movies.json', 'w', encoding='UTF-8') as f:
     json.dump(get_top_rated(), f, ensure_ascii=False, indent=2)
