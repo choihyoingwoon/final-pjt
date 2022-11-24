@@ -6,27 +6,28 @@
         <div class="box">
           <label for="username" style="font-family: 'BMDOHYEON';">사용자 이름</label>
           <br>
-          <input type="text" id="username" v-model="credentials.username" />
+          <input type="text" id="username" v-model="credentials.username" style="color:black;" />
         </div>
         <div class="box">
           <label for="password" style="font-family: 'BMDOHYEON';">비밀번호</label>
           <br>
-          <input type="password" id="password" v-model="credentials.password" />
+          <input type="password" id="password" v-model="credentials.password" style="color:black;" />
         </div>
         <div class="box">
-          <label for="passwordConfirmation" style="font-family: 'BMDOHYEON';">비밀번호 확인</label>
+          <label for="passwordConfirmation" style="font-family: 'BMDOHYEON'; ">비밀번호 확인</label>
           <br>
           <input
             v-model="credentials.passwordConfirm"
             @keyup.enter="signup"
             type="password"
             id="passwordConfirmation"
+            style="color:black;" 
           />
         </div>
         <div>
           <label for="eamil" style="font-family: 'BMDOHYEON';">이메일</label>
           <br>
-          <input type="email" id="eamil" v-model="credentials.email" />
+          <input type="email" id="eamil" v-model="credentials.email" style="color:black;"  />
         </div>
         <hr>
         <button class="btn btn-danger"  @click="signup">

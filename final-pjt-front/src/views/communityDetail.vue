@@ -22,12 +22,12 @@
       <div style="font-family: 'BMHANNAPro';" class="commucreate" :class="{'active1': !update}">
         <div>
             <h4>Title</h4>
-            <input placeholder="제목" type="text" v-model.trim="title"/>
+            <input placeholder="제목" type="text" v-model.trim="title" style="color:black;" />
         </div>
         <div>
           <hr>
             <h4>Content</h4>
-            <textarea style="height:200px; width:100%" type="text" v-model.trim="content"></textarea>
+            <textarea style="height:200px; width:100%; color:black;" type="text" v-model.trim="content"></textarea>
         </div>
         <button class="btn btn-success" @click="updatecommunity()">수정 완료</button>
       </div>
@@ -42,7 +42,7 @@
       <hr>
       <div :class="{'active1': update}">
         <h1 style="display:flex; font-family: 'BMHANNAPro';">댓글({{commentList.length}})</h1>
-          <input v-if="me" @keyup.enter="[createComment(),getComment(),getComment()]" style="width:100%; margin-bottom: 10px;" placeholder="댓글(악플은 안돼용)" type="text" v-model.trim="comment">
+          <input v-if="me" @keyup.enter="[createComment(),getComment(),getComment()]" style="width:100%; margin-bottom: 10px; color:black" placeholder="댓글(악플은 안돼용)" type="text" v-model.trim="comment">
 
         <div v-for="comment in commentList"
         :key="comment.id" style="display:flex; padding: 10px; border-bottom: 1px solid white ; border-top: 1px solid white ;" class="d-flex justify-content-between" :class="{'soojungbg':!soojung}">
@@ -50,7 +50,7 @@
             <div  style="padding-top:15px;">
               <h3>{{comment.content}}</h3>
               <div v-show="!soojung" :class="{'soojung': comment.id !=index && !soojung}">
-            <input  @keyup.enter="[soojungComment(comment),getComment(),getComment()]" style="width:100%; margin-bottom: 10px;" placeholder="Enter 누르면 수정" type="text" v-model.trim="commentsoojung">
+            <input  @keyup.enter="[soojungComment(comment),getComment(),getComment()]" style="width:100%; margin-bottom: 10px; color:black;" placeholder="Enter 누르면 수정" type="text" v-model.trim="commentsoojung">
         </div>
             </div>
           </div>

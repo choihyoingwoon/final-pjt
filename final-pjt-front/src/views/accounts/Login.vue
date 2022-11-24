@@ -6,7 +6,7 @@
         <div class="box">
           <label for="username" style="font-family: 'BMDOHYEON';">사용자 이름</label>
           <br>
-          <input type="text" id="username" v-model="credentials.username" />
+          <input type="text" id="username" v-model="credentials.username" style="color:black;"  />
         </div>
         <div class="box">
           <label for="password" style="font-family: 'BMDOHYEON';">비밀번호</label>
@@ -16,6 +16,7 @@
             id="password"
             v-model="credentials.password"
             @keyup.enter="login"
+            style="color:black;" 
           />
         </div>
         <hr>

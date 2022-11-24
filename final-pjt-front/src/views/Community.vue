@@ -12,12 +12,12 @@
     <div style="font-family: 'BMHANNAPro';" class="commucreate" :class="{'active1': !active}">
         <div>
             <h4>Title</h4>
-            <input placeholder="제목" type="text" v-model.trim="title"/>
+            <input placeholder="제목" type="text" v-model.trim="title" style="color:black;" />
         </div>
         <div>
           <hr>
             <h4>Content</h4>
-            <textarea style="height:200px; width:100%" type="text" v-model.trim="content"></textarea>
+            <textarea style="height:200px; width:100%; color:black;" type="text" v-model.trim="content"></textarea>
         </div>
     <button style="font-family: 'BMHANNAAir';" class="btn btn-danger" @click="[createCommunity(), reload()]"><h4>create</h4></button>
     </div>
