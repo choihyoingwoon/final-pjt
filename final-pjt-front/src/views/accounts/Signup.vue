@@ -1,5 +1,5 @@
 <template>
-    <div class="signup bg-dark">
+    <div class="signup" style="background-color:black;">
       <div class="mainsignup" style="font-family:sans-serif;">
         <h1 style="font-family: 'BMDOHYEON';">Signup</h1>
         <hr>

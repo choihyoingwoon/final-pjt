@@ -3,13 +3,9 @@ from .models import Movie, Review
 from rest_framework import status
 from .serializers import MovieSerializer, ReviewSerializer
 from rest_framework.response import Response
-# from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from rest_framework.decorators import api_view, permission_classes
-# from rest_framework.permissions import IsAuthenticated
-# from rest_framework_jwt.authentication import JSONWebTokenAuthentication
-
 
 
 # Create your views here.
@@ -60,8 +56,6 @@ def review_update_delete(request, movie_pk, review_pk):
 
 
 @api_view(['POST'])
-# @permission_classes([IsAuthenticated])
-# @authentication_classes([JSONWebTokenAuthentication])
 def likes(request, user_pk, movie_pk):
     print(request.user)
     if request.user.is_authenticated:

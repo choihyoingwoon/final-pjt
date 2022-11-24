@@ -34,7 +34,7 @@
         <h2 style="color:white; font-family: 'BMHANNAPro'; margin-left:20px;">영화 목록</h2>
         <div class="all_movie_list" style="width:100%;"> 
           <NowMovieCard
-              v-for="movie in topmoviesList" :key="movie.pk"
+              v-for="movie in moviesList" :key="movie.pk"
               :movie="movie"
           />
         </div>
@@ -48,7 +48,6 @@
 <script src="https://unpkg.com/vue-dragscroll"></script>
 <script>
 
-// import MovieCard from '@/components/MovieCard'
 import NowMovieCard from '@/components/NowMovieCard'
 export default {
   name: 'MovieView',
@@ -63,11 +62,13 @@ export default {
       }
   },
   components: { 
-    // MovieCard, 
     NowMovieCard },
   computed: {
       topmoviesList() {
           return this.$store.state.topmoviesList
+      },
+      moviesList() {
+        return this.$store.state.topmoviesList.slice(0, 48)
       },
       nowmoviesList() {
           return this.$store.state.nowmoviesList
@@ -87,7 +88,6 @@ export default {
     
     genremovie(genre){
       this.genrecheck= genre
-      console.log(genre)
       this.arr=[]
       this.genrename=genre
       const genre_nums = [28, 16, 35, 80, 99, 18, 10751, 14, 36, 27, 10402, 10749, 878,
@@ -100,7 +100,11 @@ export default {
       for(let i=0; i<this.topmoviesList.length; i++){
         for (const num in this.topmoviesList[i].genres){
           if (this.realgenre===this.topmoviesList[i].genres[num]){
-            this.arr.push(this.topmoviesList[i])
+            if (this.arr.length  < 36) {
+              this.arr.push(this.topmoviesList[i])
+            } else {
+              return
+            }
           }
         }
       }
@@ -123,12 +127,15 @@ export default {
   border: 2px solid darkred; 
   border-radius: 15px; 
   height: 40px;
+
 }
 .genrebtn:hover{
     filter: brightness(150%);
+
 }
 .genreactive{
   background-color: darkred;
+
 }
 .movie_list {
     display: flex;
@@ -137,15 +144,6 @@ export default {
     height: 450px;;
     overflow-y:hidden;
     white-space: nowrap;
-
-    /* overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-  user-select: none;
-  cursor: pointer;
-  transition: all 0.2s;
-  transform: scale(0.98);
-  will-change: transform; */
 }
 
 .all_movie_list{
@@ -158,14 +156,10 @@ export default {
     
 }
 .movie_list::-webkit-scrollbar-thumb{
-    /* background-color:rgb(13, 83, 25); */
     background-color: rgb(60, 60, 60);
 }
+
 .list{
-  /* justify-content: center;
-  display: flex;
-  justify-content: center;
-  align-items: center; */
   display: inline-block;
   padding-left: 20px;
 }

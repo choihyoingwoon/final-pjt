@@ -21,18 +21,7 @@
         </div>
     <button style="font-family: 'BMHANNAAir';" class="btn btn-danger" @click="[createCommunity(), reload()]"><h4>create</h4></button>
     </div>
-    <!-- <div class="flex" id="article">
-      <h4>번호</h4>
-      <h4>제목</h4>
-      <h4>작성자</h4>
-    </div>
-    <ul>
-        <div id= "articlelist" v-for="community in communities" :key="community.id">
-          <h5>{{community.id}}</h5>  
-          <h5>{{community.title}}</h5>
-          <h5>{{community.user.username}}</h5>
-        </div>
-    </ul> -->
+
     <table class="table table-hover" id="table" style="width:60%; margin: auto;">
       <thead>
         <tr style="font-family: 'BMHANNAPro'; background-color: rgb(50, 50, 50);">
@@ -46,7 +35,6 @@
           <th style="padding-top:30px !important;" scope="row"><h2>{{index+1}}</h2></th>
           <td><h4>{{community.title}}</h4><p>작성자 : {{community.user.username}}</p></td>
           <th style="padding-top:30px !important;"><h5>{{community.created_at | yyyyMMdd}}<br>{{community.created_at | hhMMss}}</h5></th>
-          <!-- <button @click="gocommunityDetail(community)">자세히</button> -->
         </tr>
       </tbody>
     </table>
@@ -71,29 +59,20 @@ export default {
     yyyyMMdd(value){
       if(value=='') return '';
       let js_date = new Date(value);
-      console.log(js_date.toLocaleString('kr'))
       return js_date.toLocaleDateString('kr');
     },
     hhMMss(value){
       if(value=='') return '';
       let js_date = new Date(value);
-      console.log(js_date.toLocaleString('kr'))
       return js_date.toLocaleTimeString('kr');
     },
 },
-  computed:{
-    // getUser(){
-    //     return this.$store.state.user
-    // }
-  },
 
     methods:{
 
       getUserInfo() {
       const token = localStorage.getItem('jwt')
       const info = VueJwtDecode.decode(token)
-      // console.log(info)
-      // const user_id = info.user_id
       axios({
         method: 'post',
         url: 'http://127.0.0.1:8000/accounts/mypage/',
@@ -105,12 +84,8 @@ export default {
         },
       })
         .then((res) => {
-          // console.log(res)
-          console.log(res.data)
           this.me=res.data.username
 
-          const today = new Date();
-          console.log(today)
         })
         .catch((err) => {
           console.log(err)
@@ -123,21 +98,16 @@ export default {
       })
         .then((res) => {
           this.communities = res.data;
-          console.log(this.communities)
         })
         .catch((err) => {
           console.log(err);
         });
     },
     setToken: function() {
-      // 1. LocalStorage에서 jwt 토큰을 가져옴
       const token = localStorage.getItem("jwt");
-      // 2. header에 token을 넣기 위한 준비
       const config = {
-        // Bearer 뒤에 공백 필수
         Authorization: `Bearer ${token}`,
       };
-      // 3. 응답
       return config;
     },
     createCommunity: function() {
@@ -145,20 +115,17 @@ export default {
         title: this.title,
         content:this.content,
       };
-      console.log(communityItem)
       if (communityItem.title && communityItem.content) {
         axios({
           method: "post",
           url: "http://127.0.0.1:8000/community/",
           data: communityItem,
-          // 로컬스토리지에 저장한 토큰을 꺼내와서 요청의 헤더정보에 포함시킨다.
           headers: {
             Authorization: "Bearer " + localStorage.getItem("jwt"),
           },
         })
           .then(() => {
             this.active =!this.active
-            console.log(this.communities)
           })
           .catch((err) => {
             console.error(err);
@@ -175,7 +142,6 @@ export default {
       this.$router.go()
     },
     gocommunityDetail : function(community){
-      console.log(community)
       this.$router.push({ name: "communitydDetail", params: { community }});
     },
 

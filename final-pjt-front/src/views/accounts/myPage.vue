@@ -1,5 +1,5 @@
 <template>
-    <div class="signup" style="background-color:black;">
+    <div class="signup" style="background-color:black; height:150vh">
       <br>
       <h1 style="color:white; font-family: 'BMHANNAPro';">My Page</h1>
       <br>
@@ -44,8 +44,7 @@
         getUserInfo() {
           const token = localStorage.getItem('jwt')
           const info = VueJwtDecode.decode(token)
-          // console.log(info)
-          // const user_id = info.user_id
+
           axios({
             method: 'post',
             url: 'http://127.0.0.1:8000/accounts/mypage/',
@@ -57,7 +56,6 @@
             },
           })
             .then((res) => {
-              // console.log(res)
               this.me=res.data.username
             })
             .catch((err) => {

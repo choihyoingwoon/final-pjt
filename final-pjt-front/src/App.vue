@@ -16,7 +16,6 @@
           </b-navbar-nav>
           <form @submit.prevent="searchmovie()" class="search-bar" style="display:flex;">
             <input placeholder="찾고 싶은 영화 제목을 입력하세용" @keyup.enter="searchmovie(searchtext)" type="search" name="search" v-model.trim="searchtext" pattern=".*\S.*" >
-            <!-- required  -->
             <button class="search-btn" type="submit" @click="searchmovie(searchtext)">
               <span>Search</span>
             </button>
@@ -36,8 +35,7 @@
   </div>
 </template>
 
-<!-- <script src="https://unpkg.com/vue"></script>
-<script src="https://unpkg.com/vue-dragscroll"></script> -->
+
 <script>
 // @ is an alias to /src
 import axios from 'axios'
@@ -58,14 +56,11 @@ export default {
   },
   methods:{
     searchmovie(searchtext){
-      console.log(searchtext)
       this.$router.push({name:"searchPage",params:{searchtext}})
     },
     getUserInfo() {
       const token = localStorage.getItem('jwt')
       const info = VueJwtDecode.decode(token)
-      // console.log(info)
-      // const user_id = info.user_id
       axios({
         method: 'post',
         url: 'http://127.0.0.1:8000/accounts/mypage/',
@@ -77,7 +72,6 @@ export default {
         },
       })
         .then((res) => {
-          // console.log(res)
           this.me=res.data.username
         })
         .catch((err) => {
@@ -97,7 +91,6 @@ export default {
       })
       .then(res=>{
         this.$store.state.topmoviesList = res.data
-        console.log(res.data)
       })
       .catch(err=>{
         console.log(err)
@@ -129,9 +122,7 @@ export default {
     }
   }
 }
-// const app = Vue.createApp(HomeIndex);
-//         app.use(VueDragscroll);
-//         app.mount('#app')
+
 </script>
 <style>
 #app {
@@ -178,7 +169,7 @@ nav a.router-link-exact-active {
 }
 header {
   position: sticky;
-  top: 0px; /* 도달했을때 고정시킬 위치 */
+  top: 0px;
   padding: 5px;
   background-color: black;
   background-image: url(~@/assets/snow.gif);
@@ -218,7 +209,6 @@ header {
 }
 .search-bar {
 	margin: auto;
-	/* padding: 1.5em; */
 	justify-content: center;
 	max-width: 30em;
 }

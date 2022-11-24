@@ -60,7 +60,7 @@
                     <h2 style="text-align: left; margin-left: 3%; margin-top: 30px; color:green; font-family: 'BMHANNAPro';">{{mymvti}}</h2>
                     <h2 style="text-align: left; width:350px;; 3%; margin-top: 30px; font-family: 'BMHANNAPro';">들의 취향을 저격할 영화!</h2>
                 </div>
-                <i id="icon" @click="[mvti_movie1(), mvti_movie2(), mvti_movie3(), mvti_movie4()]" style="width:20%; margin-left:10px; margin-top:22px;" class="bi bi-arrow-clockwise"></i>
+                <i id="icon" @click="[mvti_movie1(), mvti_movie2(), mvti_movie3(), mvti_movie4(), mvti_movie2(), mvti_movie3(), mvti_movie4()]" style="width:20%; margin-left:10px; margin-top:22px;" class="bi bi-arrow-clockwise"></i>
             </div>
             <div>
                 <div style="margin: auto; width: 1150px; display:flex; padding-left: 15px;">
@@ -124,7 +124,6 @@ export default {
             if (this.horror) {
                 this.comedy = false
             }
-            console.log(this.horror)
             if (!this.mymvti_list.includes('horror')) {
                 this.mymvti_list[0] = 'horror'
             } else {
@@ -209,8 +208,6 @@ export default {
             }
         },
         check_mymvti() {
-            console.log(this.mymvti_list)
-            // console.log(this.mymvti_list[0])
             for (let i=0; i< 4; i++) {
                 if (this.mymvti_list[i] == '') {
                     return alert('4개의 장르를 선택해 주세요!')
@@ -221,7 +218,6 @@ export default {
             this.mymvti_list.map((genre) =>
                  final_mvti += genre[0].toUpperCase()
             )
-            // console.log(final_mvti)
             this.mymvti = final_mvti
 
         },
@@ -235,7 +231,6 @@ export default {
                         }
                     }
                 } 
-                console.log(this.movie1_list)
                 return this.movie1 = _.sample(this.movie1_list)
                 
             } else {
@@ -339,7 +334,6 @@ export default {
     display: flex;
     flex-direction: column;
     margin: 50px;
-    /* border: 10px solid rgb(213, 247, 212); */
     border-radius: 10%;
 }
 
@@ -356,13 +350,9 @@ export default {
     width: 150px;
     height: 70px;
     font-size: 20px;
-    /* color: white; */
     margin: 0.5px;
     border-radius: 20px;
-    /* background-color:rgb(220,53,69); */
-    /* color: rgb(220,53,69); */
     border: 2px solid white;
-    /* outline-color: bisque ; */
 }
 #one_btn:hover{
     filter: brightness(150%);
@@ -375,30 +365,18 @@ export default {
     width:240px;
     margin-right:20px;
     border-radius: 20px;
-    /* justify-items: center;  */
 }
 
-/* .cardmove{
-    transition: all 0.17s linear;
-    overflow: hidden;
-    height: 360px;
-    width:240px;
-    float:left;
-    padding: 0;
-    margin: 20px;
-    display: flex;
-} */
-    .cardmove:hover{
-        transform: scale(1.1);
-        
-    }
-    .bodyheight{
-        height: 100%;
-    }
+.cardmove:hover{
+    transform: scale(1.1);
+    
+}
+.bodyheight{
+    height: 100%;
+}
 
 #mvtibox{
     border : 3px solid white;
-    /* padding-bottom: 50px; */
     margin-left : 200px;
     margin-right : 200px;
 }
