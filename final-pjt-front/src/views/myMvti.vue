@@ -43,7 +43,7 @@
             <br>
             <h3>VS</h3>
             <br>
-            <button id="one_btn" @click="select8" :class="{'select' : animation , 'nonselect': !animation}" style="font-family: 'BMHANNAPro';">애니메이션</button>
+            <button id="one_btn" @click="select8" :class="{'select' : fantasy , 'nonselect': !fantasy}" style="font-family: 'BMHANNAPro';">판타지</button>
         </div>
     </div>
     <button class="btn btn-outline-danger" @click="[check_mymvti(), mvti_movie1(), mvti_movie2(), mvti_movie3(), mvti_movie4()]" style="width: 50%;">나의 MVTI 확인하기!</button><br>
@@ -60,7 +60,7 @@
                     <h2 style="text-align: left; margin-left: 3%; margin-top: 30px; color:green; font-family: 'BMHANNAPro';">{{mymvti}}</h2>
                     <h2 style="text-align: left; width:350px;; 3%; margin-top: 30px; font-family: 'BMHANNAPro';">들의 취향을 저격할 영화!</h2>
                 </div>
-                <i @click="[mvti_movie1(), mvti_movie2(), mvti_movie3(), mvti_movie4()]" style="width:20%; margin-left:10px; margin-top:22px; cursor: pointer; " class="bi bi-arrow-clockwise"></i>
+                <i id="icon" @click="[mvti_movie1(), mvti_movie2(), mvti_movie3(), mvti_movie4()]" style="width:20%; margin-left:10px; margin-top:22px;" class="bi bi-arrow-clockwise"></i>
             </div>
             <div>
                 <div style="margin: auto; width: 1150px; display:flex; padding-left: 15px;">
@@ -99,7 +99,7 @@ export default {
             drama : false,
             sf : false,
             action : false,
-            animation : false,
+            fantasy : false,
             mymvti_list : ['', '', '', ''],
             check: false,
             mymvti: '',
@@ -189,7 +189,7 @@ export default {
         select7() {
             this.action = !this.action
             if (this.action) {
-                this.animation = false
+                this.fantasy = false
             }
             if (!this.mymvti_list.includes('action')) {
                 this.mymvti_list[3] = 'action'
@@ -198,12 +198,12 @@ export default {
             }
         },
         select8() {
-            this.animation = !this.animation
-            if (this.animation) {
+            this.fantasy = !this.fantasy
+            if (this.fantasy) {
                 this.action = false
             }
-            if (!this.mymvti_list.includes('animation')) {
-                this.mymvti_list[3] = 'animation'
+            if (!this.mymvti_list.includes('fantasy')) {
+                this.mymvti_list[3] = 'fantasy'
             } else {
                 this.mymvti_list[3] = ''
             }
@@ -307,7 +307,7 @@ export default {
             } else {
                 for(let i=0; i<this.topmoviesList.length; i++){
                     for (const num in this.topmoviesList[i].genres){
-                        if (this.topmoviesList[i].genres[num] === 16){
+                        if (this.topmoviesList[i].genres[num] === 14){
                             this.movie4_list.push(this.topmoviesList[i])
                         }
                     }
@@ -403,5 +403,11 @@ export default {
     margin-right : 200px;
 }
 
-
+#icon{
+    color: gray;
+}
+#icon:hover{
+    cursor:pointer;
+    color: crimson;
+}
 </style>
