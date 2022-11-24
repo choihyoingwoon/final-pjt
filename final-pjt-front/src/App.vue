@@ -10,9 +10,9 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" style="justify-content: space-between;" is-nav>
         <b-navbar-nav >
-            <b-nav-item href="/" style="background-color: rgb(50,50,50); border-radius: 10px; margin-right:10px" >Home</b-nav-item>
-            <b-nav-item href="/community" style="background-color: rgb(50,50,50); border-radius: 10px; margin-right:10px">community</b-nav-item>
-            <b-nav-item href="/myMvti" style="background-color: rgb(50,50,50); border-radius: 10px; margin-right:10px">✨MVTI✨</b-nav-item>
+            <b-nav-item href="/" >Home</b-nav-item>
+            <b-nav-item href="/community">community</b-nav-item>
+            <b-nav-item href="/myMvti" >✨MVTI✨</b-nav-item>
           </b-navbar-nav>
           <form @submit.prevent="searchmovie()" class="search-bar" style="display:flex;">
             <input placeholder="찾고 싶은 영화 제목을 입력하세용" @keyup.enter="searchmovie(searchtext)" type="search" name="search" v-model.trim="searchtext" pattern=".*\S.*" >
@@ -181,7 +181,7 @@ header {
   top: 0px; /* 도달했을때 고정시킬 위치 */
   padding: 5px;
   background-color: black;
-  background-image: url(~@/assets/snow3.gif);
+  background-image: url(~@/assets/snow.gif);
   background-size: cover;
   z-index: 10;
   font-size: larger;
