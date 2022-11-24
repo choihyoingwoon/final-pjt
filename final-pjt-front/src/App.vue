@@ -15,7 +15,7 @@
             <b-nav-item href="/myMvti" >✨MVTI✨</b-nav-item>
           </b-navbar-nav>
           <form @submit.prevent="searchmovie()" class="search-bar" style="display:flex;">
-            <input placeholder="찾고 싶은 영화 제목을 입력하세용" @keyup.enter="searchmovie(searchtext)" type="search" name="search" v-model.trim="searchtext" pattern=".*\S.*" >
+            <input placeholder="찾고 싶은 영화 제목을 입력하세용" @keyup.enter="searchmovie(searchtext)" type="search" name="search" v-model.trim="searchtext" pattern=".*\S.*" style="color:black;" >
             <button class="search-btn" type="submit" @click="searchmovie(searchtext)">
               <span>Search</span>
             </button>
