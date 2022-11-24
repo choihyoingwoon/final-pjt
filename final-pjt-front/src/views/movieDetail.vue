@@ -1,82 +1,94 @@
 <template>
-  <div class="user-wrap bg-dark" style="height:100vh;">
-    <img @click="imgclick()"  :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" class="img" alt="...">
-    <div class="user-text" :class="{ activetext : popupView,recommendactive:!recommendcheck}">
-        <img @click="getRecommendations()" :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="poster" alt="..." style="border: 0px;">
-        <div style="text-align:left;">
-            <h1 style="font-family: 'BMHANNAPro';">{{movie.title}}</h1>
-            <div class="d-flex justify-content-between" style="display:flex;  margin-bottom:15px; width:30vw;">
-              <div style="display: flex;">
-                <div v-for="(genre,index) in movie.genres" :key="index" style="margin-right:10px;">
-                  <button class="btn btn-success" style="height:40px; ">{{genrenames[genre]}}</button>
-                </div>
-              </div>
-                <div :class="{'activepick' : isPicked}">
-                  <!-- <button @click="[addmymovie(), likelist()]" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >PICK!</button> -->
-                  <i @click="[addmymovie(), likelist()]" class="bi bi-suit-heart" style="cursor: pointer;"></i>
-                </div>
-                <div :class="{'activepick' : !isPicked}">
-                  <!-- <button @click="[addmymovie(), likelist()]" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >Cancel!</button> -->
-                  <i @click="[addmymovie(), likelist()]" class="bi bi-suit-heart-fill" style="cursor: pointer;"></i>
-                </div>
-            </div>
-            <div style="font-family:'BMHANNAAir';">
-                <h4 >인기 : {{movie.popularity}}</h4>
-                <h4>개봉일 : {{movie.release_date}}</h4>
-                <h4>평점 : {{movie.vote_average}}점</h4>
-                <p style="word-break:keep-all">{{movie.overview}}</p>
-                <button class="btn btn-danger" style="font-family: 'BMDOHYEON';" @click="movieVideo(movie), openYoutube()">예고편 보기</button>
-                <button class="btn btn-danger" style="font-family: 'BMDOHYEON';" @click="getRecommendations()">비슷한 영화 추천</button>
-            </div>
-        </div>
-        <div v-if="me" style="margin-left:20px;">
-          <div style="display:flex; flex-direction:column; width:27.5vw">
-            <div style="display:flex;">
-              <input id='review' @keyup.enter="[addreview(), reviewlist(), reviewlist(), reviewlist()]" type="text" v-model="review_content" style="width: 25vw;">
-              <button id="review_submit" @click="[addreview(), reviewlist(), reviewlist()]" type="submit">+</button>
-            </div>
-            <br>
-            <div style="display:flex; justify-content: space-between">
-              <h4 style="color:crimson; padding-left:10px;"><b>Review({{review_count}})</b></h4>
-              <h5 style="color:crimson; padding-right:10px;"><b>작성자</b></h5>
-            </div>
-            <div v-for="review in review_list" :key="review.id">
-              <div style="display:flex; justify-content: space-between; ">  
-                <p style="padding-left: 10px;">{{review.content}}</p>
-                <div style="display:flex">
-                  <p style="padding-right: 15px;">{{review.user.username}}</p>
-                  <p v-if="review.user.username===me.username" style="cursor:pointer;" @click="[delete_review(review), reviewlist(), reviewlist()]">X</p>
-                </div>
-              </div>
-              <hr style="margin-top:0px;">
-            </div>
-            <div v-if="review_count > 10" style="display:flex; justify-content: center;" >
-              <button @click="[prepage(), reviewlist(), reviewlist()]" class="btn btn-outline-danger" style="width: 60px; height: 35px; margin:5px;"> 이전 </button>
-              <!-- <button v-for="nowpage in page_list" :key="nowpage" class="btn btn-outline-danger" style="width: 35px; height: 35px; margin:5px;">{{nowpage}}</button> -->
-              <button @click="[nextpage(), reviewlist(), reviewlist()]" class="btn btn-outline-danger" style="width: 60px; height: 35px; margin:5px;"> 다음 </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    <div class="popup-view" :class="{ active : popupView }">
-      <pop-up @close-popup="openPopup()"></pop-up>
-      <button class="btn btn-danger" style="font-family: 'BMDOHYEON';" @click="movieVideo(movie), openYoutube()">예고편 끄기</button>
+  <div class="user-wrap" style="height:100vh; background-color: black;">
+    <span v-if="movie.length===0">
+      <span  v-if="!nodata" style="display:flex; flex-direction:column;  margin-left: 43vw; ">
+        <img  src="@/assets/dance3.gif" alt="" style="width:200px;margin-top: 20vh; margin-bottom: 10px;">
+        <img src="@/assets/load.gif" alt="" style="width:200px; filter: invert(100%); margin-bottom: 10px;">
+      </span>
+      <div v-if="nodata" style="text-align:center;">
+      <img src="@/assets/noResult.png" alt="" style="margin-top:50px; margin-bottom:20px; filter: invert(100%);">
+      <h1 style="font-family: 'BMHANNAPro'; color: white;">검색 결과가 없습니다. </h1>
     </div>
-    <b-col class="reco" align-self="center" :class="{recommendactive:recommendcheck}">
-          <div>
-            <h3 style="color:white; font-family: 'BMHANNAPro';">
-              {{movie.title}}과(와) <span style="color:red"><img src="@/assets/sparkling.gif" style="height:30px; margin:0; padding:0;" alt="">비슷한<img src="@/assets/sparkling.gif" style="height:30px; margin:0; padding:0;" alt=""></span> 영화
-            </h3>
-            
-            <div class="movie_list" style="display:scroll;" >
-              <recommendMovieCard
-                  v-for="movie in recommendations" :key="movie.pk"
-                  :movie="movie"
-              />
-            </div>
-            <button class="btn btn-danger"  @click="imgclick()" style="width:50%; font-family: 'BMDOHYEON';">추천 영화 끄기</button>
+    </span>
+    <span v-if="movie.length !=0">
+      <img @click="imgclick()"  :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" class="img" alt="...">
+      <div class="user-text" :class="{ activetext : popupView,recommendactive:!recommendcheck}">
+          <img @click="getRecommendations()" :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" class="poster" alt="..." style="border: 0px;">
+          <div style="text-align:left;">
+              <h1 style="font-family: 'BMHANNAPro';">{{movie.title}}</h1>
+              <div class="d-flex justify-content-between" style="display:flex;  margin-bottom:15px; width:30vw;">
+                <div style="display: flex;">
+                  <div v-for="(genre,index) in movie.genres" :key="index" style="margin-right:10px;">
+                    <button class="btn btn-success" style="height:40px; ">{{genrenames[genre]}}</button>
+                  </div>
+                </div>
+                  <div :class="{'activepick' : isPicked}">
+                    <!-- <button @click="[addmymovie(), likelist()]" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >PICK!</button> -->
+                    <i @click="[addmymovie(), likelist()]" class="bi bi-suit-heart" style="cursor: pointer;"></i>
+                  </div>
+                  <div :class="{'activepick' : !isPicked}">
+                    <!-- <button @click="[addmymovie(), likelist()]" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >Cancel!</button> -->
+                    <i @click="[addmymovie(), likelist()]" class="bi bi-suit-heart-fill" style="cursor: pointer;"></i>
+                  </div>
+              </div>
+              <div style="font-family:'BMHANNAAir';">
+                  <h4 >인기 : {{movie.popularity}}</h4>
+                  <h4>개봉일 : {{movie.release_date}}</h4>
+                  <h4>평점 : {{movie.vote_average}}점</h4>
+                  <p style="word-break:keep-all">{{movie.overview}}</p>
+                  <button class="btn btn-danger" style="font-family: 'BMDOHYEON';" @click="movieVideo(movie), openYoutube()">예고편 보기</button>
+                  <button class="btn btn-danger" style="font-family: 'BMDOHYEON';" @click="getRecommendations()">비슷한 영화 추천</button>
+              </div>
           </div>
-      </b-col>
+          <div v-if="me" style="margin-left:20px;">
+            <div style="display:flex; flex-direction:column; width:27.5vw">
+              <div style="display:flex;">
+                <input id='review' @keyup.enter="[addreview(), reviewlist(), reviewlist(), reviewlist()]" type="text" v-model="review_content" style="width: 25vw;">
+                <button id="review_submit" @click="[addreview(), reviewlist(), reviewlist()]" type="submit">+</button>
+              </div>
+              <br>
+              <div style="display:flex; justify-content: space-between">
+                <h4 style="color:crimson; padding-left:10px;"><b>Review({{review_count}})</b></h4>
+                <h5 style="color:crimson; padding-right:10px;"><b>작성자</b></h5>
+              </div>
+              <div v-for="review in review_list" :key="review.id">
+                <div style="display:flex; justify-content: space-between; ">  
+                  <p style="padding-left: 10px;">{{review.content}}</p>
+                  <div style="display:flex">
+                    <p style="padding-right: 15px;">{{review.user.username}}</p>
+                    <p v-if="review.user.username===me.username" style="cursor:pointer;" @click="[delete_review(review), reviewlist(), reviewlist()]">X</p>
+                  </div>
+                </div>
+                <hr style="margin-top:0px;">
+              </div>
+              <div v-if="review_count > 10" style="display:flex; justify-content: center;" >
+                <button @click="[prepage(), reviewlist(), reviewlist()]" class="btn btn-outline-danger" style="width: 60px; height: 35px; margin:5px;"> 이전 </button>
+                <!-- <button v-for="nowpage in page_list" :key="nowpage" class="btn btn-outline-danger" style="width: 35px; height: 35px; margin:5px;">{{nowpage}}</button> -->
+                <button @click="[nextpage(), reviewlist(), reviewlist()]" class="btn btn-outline-danger" style="width: 60px; height: 35px; margin:5px;"> 다음 </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="popup-view" :class="{ active : popupView }">
+        <pop-up @close-popup="openPopup()"></pop-up>
+        <button class="btn btn-danger" style="font-family: 'BMDOHYEON';" @click="movieVideo(movie), openYoutube()">예고편 끄기</button>
+      </div>
+      <b-col class="reco" align-self="center" :class="{recommendactive:recommendcheck}">
+            <div>
+              <h3 style="color:white; font-family: 'BMHANNAPro';">
+                {{movie.title}}과(와) <span style="color:red"><img src="@/assets/sparkling.gif" style="height:30px; margin:0; padding:0;" alt="">비슷한<img src="@/assets/sparkling.gif" style="height:30px; margin:0; padding:0;" alt=""></span> 영화
+              </h3>
+              
+              <div class="movie_list" style="display:scroll;" >
+                <NowMovieCard
+                    v-for="movie in recommendations" :key="movie.pk"
+                    :movie="movie"
+                />
+              </div>
+              <button class="btn btn-danger"  @click="imgclick()" style="width:50%; font-family: 'BMDOHYEON';">추천 영화 끄기</button>
+            </div>
+        </b-col>
+    </span>
   </div>
 </template>
 
@@ -84,13 +96,13 @@
 <script>
 import axios from 'axios'
 import PopUp from '../components/PopUp.vue'
-import recommendMovieCard from '@/components/recommendMovieCard'
+import NowMovieCard from '@/components/NowMovieCard'
 import VueJwtDecode from 'vue-jwt-decode'
 
 export default {
     name: 'MovieDetail',
     components:{
-    PopUp,recommendMovieCard,
+    PopUp,NowMovieCard,
     },
     computed: {
       genrenames() {  
@@ -122,6 +134,7 @@ export default {
             page_list : [],
             pick: false,
             mylist : null,
+            nodata:false,
         }
     },
     methods: {
@@ -154,7 +167,9 @@ export default {
           if (detail[0]){
             this.movie = detail[0]
           }
-
+          if(this.movie.length===0){
+            this.nodata=true
+          }
         })
     },
     getDetail2() {
@@ -358,6 +373,9 @@ export default {
         return this.page -= 1
       }
     },
+    // changetime(){
+    //   this.nodata=true
+    // }
   },
   created(){
     if (this.movie){
@@ -369,6 +387,7 @@ export default {
     this.reviewlist()
     this.getRecommendations()
     this.getUserInfo()
+    // setTimeout(this.changetime,5000)
   }
 }
 </script>
