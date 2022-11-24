@@ -1,5 +1,5 @@
 <template>
-    <div class="signup bg-dark">
+    <div class="signup" style="background-color:black;">
       <div class="mainsignup" style="font-family:sans-serif;">
         <h1 style="font-family: 'BMDOHYEON';">Login</h1>
         <hr>
@@ -46,7 +46,6 @@
         })
           .then((res) => {
             this.$store.state.user=this.credentials.username
-            console.log(this.$store.state.user)
             localStorage.setItem("jwt", res.data.access);
             this.$emit("login");
             this.$router.push({ name: "movies" });

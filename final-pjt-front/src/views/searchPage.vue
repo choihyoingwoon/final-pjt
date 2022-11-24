@@ -39,7 +39,6 @@ export default {
   name:'searchPage',
   components: { 
     MovieCard, 
-    // NowMovieCard 
   },
   data:function(){
     return{
@@ -99,14 +98,11 @@ export default {
           this.realgenre=genre_nums[genre_num]
         }
       }
-      console.log(this.realgenre)
-        console.log(this.$route.params.searchtext)
         for(let i=0; i<this.topmoviesList.length; i++){
             if (this.topmoviesList[i].genres.includes(this.realgenre)){
               this.genrearr.push(this.topmoviesList[i])
             }
         }
-        console.log(this.genrearr)
       },
   },
   created(){
@@ -127,14 +123,5 @@ export default {
 }
 .searchmovie_list {
     white-space: nowrap;
-
-    /* overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-  user-select: none;
-  cursor: pointer;
-  transition: all 0.2s;
-  transform: scale(0.98);
-  will-change: transform; */
     }
 </style>

@@ -61,11 +61,9 @@
             </div>
             <div class="d-grid gap-2" v-if="comment.user.username===me">
               <button class="butt bg-dark" @click="[deletecomment(comment),getComment(),getComment(),getComment()]">
-                <!-- <i class="bi bi-trash3"></i> -->
                 <p>X</p>
               </button>
               <button class="butt bg-dark" @click="soojungstate(comment)">
-                <!-- <i class="bi bi-trash3"></i> -->
                 <p>수정</p>
               </button>
             </div>
@@ -90,13 +88,11 @@ export default {
     yyyyMMdd(value){
       if(value=='') return '';
       let js_date = new Date(value);
-      console.log(js_date.toLocaleString('kr'))
       return js_date.toLocaleDateString('kr');
     },
     hhMMss(value){
       if(value=='') return '';
       let js_date = new Date(value);
-      console.log(js_date.toLocaleString('kr'))
       return js_date.toLocaleTimeString('kr');
     },
 },
@@ -115,11 +111,7 @@ export default {
       index:null,
     }
   },
-  // computed: {
-  //     communityDetail() {
-  //         return this.$store.state.communityDetail
-  //     },
-  //   },
+
     methods:{
       updatecommunity:function(){
         const community={
@@ -163,8 +155,7 @@ export default {
       getUserInfo() {
       const token = localStorage.getItem('jwt')
       const info = VueJwtDecode.decode(token)
-      // console.log(info)
-      // const user_id = info.user_id
+
       axios({
         method: 'post',
         url: 'http://127.0.0.1:8000/accounts/mypage/',
@@ -176,8 +167,6 @@ export default {
         },
       })
         .then((res) => {
-          // console.log(res)
-          console.log(res.data)
           this.me=res.data.username
         })
         .catch((err) => {
@@ -189,7 +178,6 @@ export default {
           this.soojung=true
         }
         this.soojung= !this.soojung
-        console.log(comment)
         this.index=comment.id
       },
       updatestate:function(){
@@ -204,7 +192,6 @@ export default {
           },
       })
       .then(()=>{
-        console.log("good")
       })
       },  
       soojungComment:function(comment){
@@ -219,7 +206,6 @@ export default {
       })
       .then(()=>{
         this.soojung=true 
-        console.log("good")
       })
       },  
       createComment:function(){
@@ -239,7 +225,6 @@ export default {
         }
       },
       getComment: function() {
-        // this.communityDetail=this.$store.state.communityDetail
         this.communityDetail=this.$route.params.community
       axios({
         method: "get",
@@ -248,17 +233,14 @@ export default {
       })
         .then((res) => {
           this.commentList=res.data
-          console.log(res)
         })
     },
     reload:function(){
-      // this.$store.state.communityDetail=this.communityDetail
       this.$router.go()
       
     },
     },
     created(){
-      // console.log(this.$store.state.communityDetail)
       this.getComment()
       this.getUserInfo()
       this.updatedata()
@@ -282,7 +264,6 @@ export default {
   width: 50px;
   height: 30px;
   border: none;
-  /* color: rgb(220,53,69); */
   color: white;
   padding: 0;
   margin: 0;

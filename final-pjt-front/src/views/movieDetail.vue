@@ -23,11 +23,9 @@
                   </div>
                 </div>
                   <div :class="{'activepick' : isPicked}">
-                    <!-- <button @click="[addmymovie(), likelist()]" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >PICK!</button> -->
                     <i @click="[addmymovie(), likelist()]" class="bi bi-suit-heart" style="cursor: pointer;"></i>
                   </div>
                   <div :class="{'activepick' : !isPicked}">
-                    <!-- <button @click="[addmymovie(), likelist()]" class="btn btn-danger" style="height:40px; width: 80px; margin-right:10px;" >Cancel!</button> -->
                     <i @click="[addmymovie(), likelist()]" class="bi bi-suit-heart-fill" style="cursor: pointer;"></i>
                   </div>
               </div>
@@ -63,7 +61,6 @@
               </div>
               <div v-if="review_count > 10" style="display:flex; justify-content: center;" >
                 <button @click="[prepage(), reviewlist(), reviewlist()]" class="btn btn-outline-danger" style="width: 60px; height: 35px; margin:5px;"> 이전 </button>
-                <!-- <button v-for="nowpage in page_list" :key="nowpage" class="btn btn-outline-danger" style="width: 35px; height: 35px; margin:5px;">{{nowpage}}</button> -->
                 <button @click="[nextpage(), reviewlist(), reviewlist()]" class="btn btn-outline-danger" style="width: 60px; height: 35px; margin:5px;"> 다음 </button>
               </div>
             </div>
@@ -152,15 +149,11 @@ export default {
     },
     getDetail1() {
       const movie_id = this.$route.params.id
-      // console.log(typeof(movie_id))
-      // console.log(movie_id)
       axios({
         method: 'get',
         url: 'http://127.0.0.1:8000/movies/top_movies/'
       })
         .then((res) => {
-          // console.log(res.data)
-          // console.log(res.data.movie_id)
           const detail = res.data.filter((movie) => {
             return movie.id === Number(movie_id)
           })
@@ -174,15 +167,11 @@ export default {
     },
     getDetail2() {
       const movie_id = this.$route.params.id
-      // console.log(typeof(movie_id))
-      // console.log(movie_id)
       axios({
         method: 'get',
         url: 'http://127.0.0.1:8000/movies/now_movies/'
       })
         .then((res) => {
-          // console.log(res.data)
-          // console.log(res.data.movie_id)
           const detail = res.data.filter((movie) => {
             return movie.id === Number(movie_id)
           })
@@ -199,7 +188,6 @@ export default {
       .then(res=>{
         this.$store.state.movieVideo= res.data.results[0]
         this.recommendcheck= true
-        console.log(this.$store.state.movieVideo)
       })
       .catch(err=>{
         console.log(err)
@@ -213,7 +201,6 @@ export default {
       .then(res=>{
         this.recommendations= res.data.results
         this.recommendcheck= !this.recommendcheck
-        console.log(this.recommendations)
       })
       .catch(err=>{
         console.log(err)
@@ -232,8 +219,7 @@ export default {
     getUserInfo() {
       const token = localStorage.getItem('jwt')
       const info = VueJwtDecode.decode(token)
-      // console.log(info)
-      // const user_id = info.user_id
+
       axios({
         method: 'post',
         url: 'http://127.0.0.1:8000/accounts/mypage/',
@@ -245,17 +231,14 @@ export default {
         },
       })
         .then((res) => {
-          // console.log(res)
+
           const movie_id = this.$route.params.id
           this.me = res.data
           
-          // 나의 like_movies에 해당 영화가 들어있으면 isPicked를 통해 버튼바꾸기
           if (this.me.like_movies.includes(Number(movie_id))) {
-            console.log('있어용')
             this.isPicked = true
 
           } else {
-            console.log('없어용')
             this.isPicked = false
 
           }
@@ -265,15 +248,14 @@ export default {
         })
     },
     addmymovie(){
-      // this.$store.dispatch('addMovie', this.movie)
+      
       const token = localStorage.getItem('jwt')
       const info = VueJwtDecode.decode(token)
       const item = {
         meId : info.user_id,
         movieId : this.movie.id,
       }
-      // console.log(this.movie.id)
-      // console.log(item)
+
       axios({
         method: 'post',
         url: `http://127.0.0.1:8000/movies/${info.user_id}/${this.movie.id}/likes/`,
@@ -286,14 +268,12 @@ export default {
       })
         .then((res) => {
           this.isPicked = res.data
-          // this.getUserInfo()
         })
         .catch((err) => {
           console.log(err)
         })
     },
     addreview() {
-      console.log(this.review_content)
       const token = localStorage.getItem('jwt')
   
       if (!this.review_content) {
@@ -316,30 +296,23 @@ export default {
     },
     reviewlist() {
       const movie_id = this.$route.params.id
-      // console.log(movie_id)
       axios({
         method: 'get',
         url: `http://127.0.0.1:8000/movies/${movie_id}/review/`,
         
       })
         .then((res) => {
-          // console.log(222222222)
-          // console.log(res)
           this.review_count = res.data.length
-          // console.log(this.review_count)
           this.maxpage = Math.ceil(this.review_count / 10)
-          // console.log(this.maxpage)
           for (let i=1 ; i<= this.maxpage; i++) {
             this.page_list.push(i)
           }
-          // console.log(this.page_list)
 
           if (this.page === 1) {
             this.review_list = res.data.slice(0, 10)
           } else {
             this.review_list = res.data.slice(this.page*10 -10, this.page*10)
           }
-          console.log(this.review_list)
         })
         .catch((err) => {
           console.log(err)
@@ -356,14 +329,12 @@ export default {
         },
       })
         .then(() => {
-          console.log('review delete')
         })
         .catch((err) => {
           console.log(err)
         })
     },
     nextpage() {
-      // console.log(this.maxpage)
       if (this.page < this.maxpage) {
         return this.page += 1
       }
@@ -373,9 +344,7 @@ export default {
         return this.page -= 1
       }
     },
-    // changetime(){
-    //   this.nodata=true
-    // }
+
   },
   created(){
     if (this.movie){
@@ -387,7 +356,6 @@ export default {
     this.reviewlist()
     this.getRecommendations()
     this.getUserInfo()
-    // setTimeout(this.changetime,5000)
   }
 }
 </script>
@@ -403,8 +371,6 @@ export default {
     position: relative;
 }
 .img{
-    /* position:fixed;
-    right:0px; */
     width:100%;
     height: 100vh;
     vertical-align: middle;
@@ -476,8 +442,6 @@ export default {
   border-radius: 15px;
   outline: none;
   padding-left: 10px;
-  /* background-color: rgb(233, 233, 233); */
-  /* background: transparent; */
   opacity: 40%;
   color: black;
 }
@@ -489,7 +453,6 @@ export default {
   height: 32px;
   width: 35px;
   margin-left: 5px;
-  /* background-color: rgb(233, 233, 233); */
   opacity: 50%;
 }
 

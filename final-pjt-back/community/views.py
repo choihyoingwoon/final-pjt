@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-# @login_required
+
 @api_view(['GET', 'POST'])
 def community_create(request):
     if request.method == 'GET':
@@ -56,8 +56,6 @@ def comment_create(request, community_pk):
     else :
         if request.user.is_authenticated :
             serializer = CommentSerializer(data=request.data)
-            # print(serializer)
-            # print(request.data)
             if serializer.is_valid(raise_exception=True):
                 serializer.save(user=request.user, community=community)
                 return Response(serializer.data, status=status.HTTP_201_CREATED)

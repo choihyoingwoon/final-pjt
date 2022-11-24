@@ -25,8 +25,6 @@ def get_top_rated():
         data = raw_data.get('results')
         for movie in data:
             ranking += 1
-            # for genre in movie.get('genre_ids'):
-            #     genre_names.append(genre_list[genre])
             movie_dict = {
                 'model' : 'movies.movie',
                 'pk': movie.get('id'),
