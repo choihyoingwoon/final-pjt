@@ -21,7 +21,7 @@ def top_movies(request):
 
 @api_view(['GET'])
 def now_movies(request):
-    now_movies = Movie.objects.all().order_by('-release_date')[:10]
+    now_movies = Movie.objects.all().order_by('-release_date')[:20]
     serializer = MovieSerializer(now_movies, many=True)
     return Response(serializer.data)
 
