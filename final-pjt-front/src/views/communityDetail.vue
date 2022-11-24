@@ -9,8 +9,8 @@
         <div class="d-flex justify-content-between">
           <h4>작성자 : {{communityDetail.user.username}}</h4>
           <div>
-            <h6>작성일자 : {{communityDetail.created_at}}</h6>
-            <h6>수정일자 : {{communityDetail.updated_at}}</h6>
+            <h6>작성일자 : {{communityDetail.created_at | yyyyMMdd}} {{communityDetail.created_at|hhMMss}}</h6>
+            <h6>수정일자 : {{communityDetail.updated_at| yyyyMMdd}} {{communityDetail.updated_at|hhMMss}}</h6>
           </div>
         </div>
         <hr>
@@ -55,8 +55,8 @@
             </div>
           </div>
           <div style="display:flex;">
-            <div style="margin-right:10px;">
-              <div style="text-align: right;">일자 : {{comment.created_at}}</div>
+            <div style="margin-right:10px; margin-top: 10px;">
+              <div style="text-align: right;">{{comment.created_at | yyyyMMdd}}  {{comment.created_at | hhMMss}}</div>
               <div style="text-align: right;">작성자 : {{comment.user.username}}</div>
             </div>
             <div class="d-grid gap-2" v-if="comment.user.username===me">
@@ -86,6 +86,20 @@ export default {
           return this.$store.state.user
       },
     },
+    filters:{  
+    yyyyMMdd(value){
+      if(value=='') return '';
+      let js_date = new Date(value);
+      console.log(js_date.toLocaleString('kr'))
+      return js_date.toLocaleDateString('kr');
+    },
+    hhMMss(value){
+      if(value=='') return '';
+      let js_date = new Date(value);
+      console.log(js_date.toLocaleString('kr'))
+      return js_date.toLocaleTimeString('kr');
+    },
+},
   data:function(){
     return{
       title:null,
