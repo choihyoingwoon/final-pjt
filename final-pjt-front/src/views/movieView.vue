@@ -32,7 +32,7 @@
       <hr style="color:white;">
       <div style="width:100%; margin-top:20px;">
         <h2 style="color:white; font-family: 'BMHANNAPro'; margin-left:20px;">영화 목록</h2>
-        <div class="movie_list" style="width:100%;"> 
+        <div class="all_movie_list" style="width:100%;"> 
           <NowMovieCard
               v-for="movie in topmoviesList" :key="movie.pk"
               :movie="movie"
@@ -107,7 +107,7 @@ export default {
     },
   },
   created(){
-    this.genremovie("액션")
+    this.genremovie(null)
   }
 }
 
@@ -146,7 +146,13 @@ export default {
   transition: all 0.2s;
   transform: scale(0.98);
   will-change: transform; */
-    }
+}
+
+.all_movie_list{
+  margin-left: 100px;
+}
+
+
 .movie_list::-webkit-scrollbar{
   opacity: 0;
     
