@@ -42,10 +42,10 @@
         </tr>
       </thead>
       <tbody style="font-family: 'BMHANNAPro'; background-color: rgb(70, 70, 70);">
-        <tr v-for="(community,index) in communities" :key="community.id" @click="gocommunityDetail(community)">
+        <tr v-for="(community,index) in communities" :key="community.id" @click="gocommunityDetail(community)" style="padding:0;">
           <th style="padding-top:30px !important;" scope="row"><h2>{{index+1}}</h2></th>
           <td><h4>{{community.title}}</h4><p>작성자 : {{community.user.username}}</p></td>
-          <th style="padding-top:25px !important;"><h5>{{community.created_at}}</h5></th>
+          <th style="padding-top:30px !important;"><h5>{{community.created_at | yyyyMMdd}}<br>{{community.created_at | hhMMss}}</h5></th>
           <!-- <button @click="gocommunityDetail(community)">자세히</button> -->
         </tr>
       </tbody>
@@ -67,13 +67,28 @@ export default {
       me:null,
     };
   },
-//   computed:{
-//     getUser(){
-//         return this.$store.state.user
-//     }
-//   },
+  filters:{  
+    yyyyMMdd(value){
+      if(value=='') return '';
+      let js_date = new Date(value);
+      console.log(js_date.toLocaleString('kr'))
+      return js_date.toLocaleDateString('kr');
+    },
+    hhMMss(value){
+      if(value=='') return '';
+      let js_date = new Date(value);
+      console.log(js_date.toLocaleString('kr'))
+      return js_date.toLocaleTimeString('kr');
+    },
+},
+  computed:{
+    // getUser(){
+    //     return this.$store.state.user
+    // }
+  },
 
     methods:{
+
       getUserInfo() {
       const token = localStorage.getItem('jwt')
       const info = VueJwtDecode.decode(token)
@@ -93,6 +108,9 @@ export default {
           // console.log(res)
           console.log(res.data)
           this.me=res.data.username
+
+          const today = new Date();
+          console.log(today)
         })
         .catch((err) => {
           console.log(err)
@@ -167,12 +185,14 @@ export default {
         this.getCommunity();
         this.getUserInfo()
     },
+    
 
 }
 </script>
 
 <style>
 .commucreate{
+  
     line-height: 30px;
     width: 50%;
     margin: auto;
