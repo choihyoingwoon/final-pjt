@@ -183,7 +183,7 @@ export default {
     movieVideo(movie){
       axios({
         method:'get',
-        url: `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=8ffb4b999f9e6cb3f99f17488652cc28&language=ko-KR`,
+        url: `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=api_key&language=ko-KR`,
       })
       .then(res=>{
         this.$store.state.movieVideo= res.data.results[0]
@@ -196,7 +196,7 @@ export default {
     getRecommendations(){
       axios({
         method:'get',
-        url: `https://api.themoviedb.org/3/movie/${this.movie.id}/similar?api_key=8ffb4b999f9e6cb3f99f17488652cc28&language=ko-KR&page=2`,
+        url: `https://api.themoviedb.org/3/movie/${this.movie.id}/similar?api_key=api_key&language=ko-KR&page=2`,
       })
       .then(res=>{
         this.recommendations= res.data.results
